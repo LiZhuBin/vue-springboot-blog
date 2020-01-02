@@ -1,40 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27088f40-c117-4215-bbcf-703d9462b30a" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vue-springboot-blog.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/BlogBackApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/config/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/test/java/com/spring/blog/blogback/BlogBackApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/components/home/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    <list default="true" id="27088f40-c117-4215-bbcf-703d9462b30a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/BlogBackApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/controller/controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-back/src/test/java/com/springboot/blogback/BlogBackApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javaee.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.transaction.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/SysUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/dao/SysUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/entity/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/service/SysUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/article/ArticleItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardArchive.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardArticle.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardCategory.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardMe.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardTag.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/comment/CommentItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/markdown/MarkdownEditor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/scrollpage/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/category/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/category/database.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/category/front.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/category/language.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/category/lift.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/css.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/hibernate.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/html.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/java.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/js.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/maven.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/vue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/admin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/static/vedio/sea.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/BlogBackApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/config/WebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/test/java/com/spring/blog/blogback/BlogBackApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-front" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-front/src/components/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/home/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-front/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/About.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/Home.vue" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,31 +85,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="19">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <folding>
+                <element signature="e#264#312#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/components/home/Home.vue">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171" />
+            <state relative-caret-position="228">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog-front/src/store/index.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="209">
               <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -81,44 +119,64 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog-back/pom.xml">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/views/home/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            <state relative-caret-position="304">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding>
+                <element signature="e#2#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>length</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/blog-front" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/blog-front/src/router/index.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/blog-front/src/router/index.ts" />
+        <option value="$PROJECT_DIR$/blog-front/src/main.ts" />
+        <option value="$PROJECT_DIR$/blog-front/src/views/home/Home.vue" />
+        <option value="$PROJECT_DIR$/blog-front/src/views/App.vue" />
+        <option value="$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-305" />
+    <option name="x" value="-34" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
   </component>
@@ -136,11 +194,6 @@
             <path>
               <item name="vue-springboot-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-springboot-blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-springboot-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-springboot-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="blog-front" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -161,11 +214,20 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\views" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components\home" />
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog" />
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\static" />
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\views" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components" />
     </key>
   </component>
@@ -192,21 +254,31 @@
       <option name="presentableId" value="Default" />
       <updated>1577551554579</updated>
       <workItem from="1577551556009" duration="526000" />
-      <workItem from="1577588814123" duration="903000" />
+      <workItem from="1577588814123" duration="6980000" />
+      <workItem from="1577612694145" duration="5070000" />
+      <workItem from="1577635146213" duration="3664000" />
+      <workItem from="1577674102918" duration="3007000" />
+      <workItem from="1577693892420" duration="3749000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1577590129388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577590129388</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1429000" />
+    <option name="totallyTimeSpent" value="22996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -217,8 +289,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34918034" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -232,34 +305,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/home/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/store/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -268,10 +313,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog-back/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        <state relative-caret-position="475">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue" />
+    <entry file="file://$PROJECT_DIR$/blog-front/src/components/card/CardArchive.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/components/article/ArticleItem.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1026" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="e#2#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-app/src/api/tag.js" />
+    <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#264#312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/store/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/views/home/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="e#2#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

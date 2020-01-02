@@ -1,4 +1,4 @@
-package com.spring.blog.blogback;
+package com.springboot.blogback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
