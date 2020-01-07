@@ -1,7 +1,6 @@
 package com.springboot.blogback.controller;
 
 import com.springboot.blogback.entity.ApiResult;
-import com.springboot.blogback.entity.db.User;
 import com.springboot.blogback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

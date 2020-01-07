@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/blog-back/blog-back.iml" filepath="$PROJECT_DIR$/blog-back/blog-back.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/vue-springboot-blog.iml" filepath="$PROJECT_DIR$/.idea/vue-springboot-blog.iml" />
     </modules>
   </component>

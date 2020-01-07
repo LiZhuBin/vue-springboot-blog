@@ -1,29 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27088f40-c117-4215-bbcf-703d9462b30a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/BlogBackApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/test/java/com/springboot/blogback/BlogBackApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javaee.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.ejb.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.jms.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.persistence.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.resource.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.servlet.jsp.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/lib/javax.transaction.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/config/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/SysUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/dao/SysUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/entity/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/service/SysUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-backend/src/main/java/com/spring/blog/blogbackend/service/impl/SysUserServiceImpl.java" afterDir="false" />
+    <list default="true" id="27088f40-c117-4215-bbcf-703d9462b30a" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/blog_back_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_12_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_9_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/assets/logo.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/article/ArticleItem.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardArchive.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/card/CardArticle.vue" afterDir="false" />
@@ -34,126 +127,85 @@
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/markdown/MarkdownEditor.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog-front/src/components/scrollpage/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/category/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/category/database.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/category/front.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/category/language.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/category/lift.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/css.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/hibernate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/html.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/java.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/js.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/maven.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/tag/vue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/user/user_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/static/vedio/sea.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/About.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/Head.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog-front/src/views/Slide.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/account.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/article.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/article_to_label.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/comment.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/communication.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/label.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/Bean/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/BlogBackApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/config/WebMvcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/spring/blog/blogback/controller/controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/Article.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/ArticleBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/ArticleTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/Conmment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/Log.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/Tag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/entity/db/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blogback/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/test/java/com/spring/blog/blogback/BlogBackApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/components/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/home/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-front" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-              <folding>
-                <element signature="e#264#312#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/store/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/views/home/Home.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-              <folding>
-                <element signature="e#2#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vue_springboot_blog: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -161,85 +213,136 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/blog-front" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/blog-front/src/router/index.ts" />
-        <option value="$PROJECT_DIR$/blog-front/src/main.ts" />
-        <option value="$PROJECT_DIR$/blog-front/src/views/home/Home.vue" />
-        <option value="$PROJECT_DIR$/blog-front/src/views/App.vue" />
-        <option value="$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue" />
-      </list>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-34" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
+  <component name="ProjectId" id="1W0c4Iy66rUta5aFjMXmnl5uAzg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="vue-springboot-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-springboot-blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/db" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\views" />
-      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components\home" />
-      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/db" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\static" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\views" />
       <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\views" />
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components\home" />
+      <recent name="E:\QQPCmgr\Desktop\毕设\vue-springboot-blog\blog-front\src\components" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager" selected="Application.BlogBackApplication">
+    <configuration name="BlogBackApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.springboot.blogback.BlogBackApplication" />
+      <module name="blog-back" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.springboot.blogback.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="[]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/blog-back" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/blog-back" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -259,6 +362,9 @@
       <workItem from="1577635146213" duration="3664000" />
       <workItem from="1577674102918" duration="3007000" />
       <workItem from="1577693892420" duration="3749000" />
+      <workItem from="1578314170661" duration="662000" />
+      <workItem from="1578319613737" duration="3708000" />
+      <workItem from="1578326250239" duration="6736000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577590129388</created>
@@ -270,127 +376,88 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22996000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34918034" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3295082" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/blog-front" />
+    </ignored-roots>
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-back/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/HelloWorld.vue" />
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/card/CardArchive.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/article/ArticleItem.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#2#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-app/src/api/tag.js" />
-    <entry file="file://$PROJECT_DIR$/blog-front/src/views/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="e#264#312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/views/BaseHeader.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/store/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/views/home/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/router/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="e#2#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/BaseFooter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog-front/src/components/gotop/GoTop.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="336" y="0" key="#ESLint" timestamp="1578326032106">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="336" y="0" key="#ESLint/0.0.1366.714@0.0.1366.714" timestamp="1578326032106" />
+    <state x="272" y="25" key="#Project_Structure" timestamp="1578327779847">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="272" y="25" key="#Project_Structure/0.0.1366.714@0.0.1366.714" timestamp="1578327779847" />
+    <state x="146" y="0" width="1073" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578326949621">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="146" y="0" width="1073" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.714@0.0.1366.714" timestamp="1578326949621" />
+    <state x="527" y="243" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1578289968530">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="527" y="243" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.714@0.0.1366.714" timestamp="1578289968530" />
+    <state x="420" y="100" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578402295935">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="420" y="100" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.714@0.0.1366.714" timestamp="1578402295935" />
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1578290253892">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1366.714@0.0.1366.714" timestamp="1578290253892" />
+    <state x="262" y="61" key="FileChooserDialogImpl" timestamp="1578303384201">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="262" y="61" key="FileChooserDialogImpl/0.0.1366.714@0.0.1366.714" timestamp="1578303384201" />
+    <state width="1320" height="212" key="GridCell.Tab.0.bottom" timestamp="1578321095969">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state width="1320" height="212" key="GridCell.Tab.0.bottom/0.0.1366.714@0.0.1366.714" timestamp="1578321095969" />
+    <state width="1320" height="212" key="GridCell.Tab.0.center" timestamp="1578321095969">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state width="1320" height="212" key="GridCell.Tab.0.center/0.0.1366.714@0.0.1366.714" timestamp="1578321095969" />
+    <state width="1320" height="212" key="GridCell.Tab.0.left" timestamp="1578321095969">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state width="1320" height="212" key="GridCell.Tab.0.left/0.0.1366.714@0.0.1366.714" timestamp="1578321095969" />
+    <state width="1320" height="212" key="GridCell.Tab.0.right" timestamp="1578321095969">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state width="1320" height="212" key="GridCell.Tab.0.right/0.0.1366.714@0.0.1366.714" timestamp="1578321095969" />
+    <state x="0" y="0" width="1366" height="714" key="SettingsEditor" timestamp="1578327599006">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="0" y="0" width="1366" height="714" key="SettingsEditor/0.0.1366.714@0.0.1366.714" timestamp="1578327599006" />
+    <state x="110" y="120" width="1146" height="474" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1578290224650">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="110" y="120" width="1146" height="474" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.714@0.0.1366.714" timestamp="1578290224650" />
+    <state x="331" y="204" key="com.intellij.ide.util.TipDialog" timestamp="1578326257533">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="331" y="204" key="com.intellij.ide.util.TipDialog/0.0.1366.714@0.0.1366.714" timestamp="1578326257533" />
+    <state x="458" y="271" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578290243546">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="458" y="271" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.714@0.0.1366.714" timestamp="1578290243546" />
+    <state x="0" y="0" key="new project wizard" timestamp="1578318445142">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="0" y="0" key="new project wizard/0.0.1366.714@0.0.1366.714" timestamp="1578318445142" />
+    <state x="347" y="153" key="run.anything.popup" timestamp="1578303443809">
+      <screen x="0" y="0" width="1366" height="714" />
+    </state>
+    <state x="347" y="153" key="run.anything.popup/0.0.1366.714@0.0.1366.714" timestamp="1578303443809" />
   </component>
 </project>
