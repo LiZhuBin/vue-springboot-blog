@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
+<<<<<<< HEAD
+    "element-ui": "^2.13.0",
+=======
+>>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"

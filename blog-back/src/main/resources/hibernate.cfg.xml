@@ -6,6 +6,13 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/vue_springboot_blog</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
+    <mapping class="com.springboot.blog.entity.db.Account"/>
+<!--    <mapping class="com.springboot.blog.entity.db.Label"/>-->
+<!--    <mapping class="com.springboot.blog.entity.db.Communication"/>-->
+<!--    <mapping class="com.springboot.blog.entity.db.Comment"/>-->
+    <!-- <property name="connection.username"/> -->
+=======
       <mapping class="com.springboot.blogback.entity.db.Article"/>
       <mapping class="com.springboot.blogback.entity.db.ArticleBody"/>
       <mapping class="com.springboot.blogback.entity.db.ArticleTag"/>
@@ -15,6 +22,7 @@
       <mapping class="com.springboot.blogback.entity.db.Tag"/>
       <mapping class="com.springboot.blogback.entity.db.User"/>
       <!-- <property name="connection.username"/> -->
+>>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->

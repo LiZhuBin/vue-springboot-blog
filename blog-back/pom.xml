@@ -9,9 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.springboot</groupId>
+<<<<<<< HEAD
+    <artifactId>blog</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>blog</name>
+=======
     <artifactId>blog-back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>blog-back</name>
+>>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -25,6 +31,17 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+=======
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
@@ -37,14 +54,26 @@
         </dependency>
 
         <dependency>
+>>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.46</version>
+=======
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.6</version>
+>>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

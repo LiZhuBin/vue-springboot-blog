@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="8cde4f2e-4be3-494d-9fa2-109883a85680">
+    <data-source source="LOCAL" name="vue_springboot_blog@localhost" uuid="0a95dc23-758c-4fea-be17-9b7c313387c1">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-/home/asus/Desktop/projects/idea/vue-springboot-blog/blog-back/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/vue_springboot_blog</jdbc-url>
     </data-source>
