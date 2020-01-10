@@ -19,11 +19,7 @@
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-<<<<<<< HEAD
-# Maven Start Up Batch script
-=======
-# Maven2 Start Up Batch script
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
+
 #
 # Required ENV vars:
 # ------------------
@@ -38,15 +34,7 @@
 #   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
 # ----------------------------------------------------------------------------
 
-<<<<<<< HEAD
-if [ -z "$MAVEN_SKIP_RC" ] ; then
 
-  if [ -f /etc/mavenrc ] ; then
-    . /etc/mavenrc
-  fi
-
-  if [ -f "$HOME/.mavenrc" ] ; then
-=======
 if [ -z "$MAVEN_SKIP_RC" ]; then
 
   if [ -f /etc/mavenrc ]; then
@@ -54,41 +42,14 @@ if [ -z "$MAVEN_SKIP_RC" ]; then
   fi
 
   if [ -f "$HOME/.mavenrc" ]; then
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
+
     . "$HOME/.mavenrc"
   fi
 
 fi
 
 # OS specific support.  $var _must_ be set to either true or false.
-<<<<<<< HEAD
-cygwin=false;
-darwin=false;
-mingw=false
-case "`uname`" in
-  CYGWIN*) cygwin=true ;;
-  MINGW*) mingw=true;;
-  Darwin*) darwin=true
-    # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
-    # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
-    if [ -z "$JAVA_HOME" ]; then
-      if [ -x "/usr/libexec/java_home" ]; then
-        export JAVA_HOME="`/usr/libexec/java_home`"
-      else
-        export JAVA_HOME="/Library/Java/Home"
-      fi
-    fi
-    ;;
-esac
 
-if [ -z "$JAVA_HOME" ] ; then
-  if [ -r /etc/gentoo-release ] ; then
-    JAVA_HOME=`java-config --jre-home`
-  fi
-fi
-
-if [ -z "$M2_HOME" ] ; then
-=======
 cygwin=false
 darwin=false
 mingw=false
@@ -116,7 +77,7 @@ if [ -z "$JAVA_HOME" ]; then
 fi
 
 if [ -z "$M2_HOME" ]; then
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
+
   ## resolve links - $0 may be a link to maven's home
   PRG="$0"
 
@@ -509,15 +470,7 @@ MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
   [ -n "$M2_HOME" ] &&
-<<<<<<< HEAD
-    M2_HOME=`cygpath --path --windows "$M2_HOME"`
-  [ -n "$JAVA_HOME" ] &&
-    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
-  [ -n "$CLASSPATH" ] &&
-    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
-  [ -n "$MAVEN_PROJECTBASEDIR" ] &&
-    MAVEN_PROJECTBASEDIR=`cygpath --path --windows "$MAVEN_PROJECTBASEDIR"`
-=======
+
     M2_HOME=$(cygpath --path --windows "$M2_HOME")
   [ -n "$JAVA_HOME" ] &&
     JAVA_HOME=$(cygpath --path --windows "$JAVA_HOME")
@@ -525,7 +478,7 @@ if $cygwin; then
     CLASSPATH=$(cygpath --path --windows "$CLASSPATH")
   [ -n "$MAVEN_PROJECTBASEDIR" ] &&
     MAVEN_PROJECTBASEDIR=$(cygpath --path --windows "$MAVEN_PROJECTBASEDIR")
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
+
 fi
 
 # Provide a "standardized" way to retrieve the CLI args that will

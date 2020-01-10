@@ -9,11 +9,11 @@
         -[x] label
         -[x] article_to_label
      
-     -[ ] 后台环境搭建
-     -[ ] 前台环境搭建
+     -[x] 后台环境搭建
+     -[x] 前台环境搭建
 
 -[ ] 后台数据接口
-     -[ ] account
+     -[x] account
      -[ ] communication
      -[ ] comment
      -[ ] article
@@ -21,7 +21,7 @@
      -[ ] resource
  
 -[ ] 博客页面设计数据交互
-    -[ ] 登录
+    -[x] 登录
     -[ ] 首页
         -[ ] 主框架
         -[ ] 用户数据

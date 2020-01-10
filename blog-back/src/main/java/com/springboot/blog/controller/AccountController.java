@@ -35,7 +35,11 @@ class AccountController {
     @GetMapping("account/actions/check")
 
     public Result checkAccount(@ModelAttribute Account mode ){
-        return new Result<>(HttpStatus.OK.value(),"success",accountService.checkAccount(mode.getAccountName(),mode.getAccountPassword()));
+        Account account = accountService.checkAccount(mode.getAccountName(),mode.getAccountPassword());
+        if(account==null){
+            return new Result<>(HttpStatus.NOT_FOUND.value(),"查找失败"," ");
+        }
+        return new Result<>(HttpStatus.OK.value(),"success",account);
     }
 }
 //

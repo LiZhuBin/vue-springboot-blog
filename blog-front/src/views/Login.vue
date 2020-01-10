@@ -17,7 +17,7 @@
                 </el-form-item>
 
                 <el-form-item size="small" class="me-login-button">
-                    <el-button type="primary" @click.native.prevent="login('userForm')">登录</el-button>
+                    <el-button type="primary" @click.native.prevent="login()">登录</el-button>
                 </el-form-item>
             </el-form>
 
@@ -33,39 +33,34 @@
         data() {
             return {
                 userForm: {
-                    account: '',
-                    password: ''
+                    account: 'Wendy Wilkinson',
+                    password: 'NOL53HNU8LZ'
                 },
                 rules: {
                     account: [
                         {required: true, message: '请输入用户名', trigger: 'blur'},
-                        {max: 10, message: '不能大于10个字符', trigger: 'blur'}
+                        {max: 15, message: '不能大于10个字符', trigger: 'blur'}
                     ],
                     password: [
                         {required: true, message: '请输入密码', trigger: 'blur'},
-                        {max: 10, message: '不能大于10个字符', trigger: 'blur'}
+                        {max: 15, message: '不能大于10个字符', trigger: 'blur'}
                     ]
                 }
             }
         },
         methods: {
-            login(formName) {
-                let that = this
+            login() {
+                this.$http.get('account/actions/check',{params:{accountName:this.userForm.account,accountPassword:this.userForm.password}})
+                .then((response)=>{
+                    console.log(response);
 
-                this.$refs[formName].validate((valid) => {
-                    if (valid) {
-
-                        that.$store.dispatch('login', that.userForm).then(() => {
-                            that.$router.go(-1)
-                        }).catch((error) => {
-                            if (error !== 'error') {
-                                that.$message({message: error, type: 'error', showClose: true});
-                            }
-                        })
-                    } else {
-                        return false;
+                    if(response.data.data.id){
+                        this.$store.state.accountData = response.data.data;
+                        this.$router.push('/');
+                    }else {
+                        alert(response.data.message);
                     }
-                });
+                })
             }
         }
     }

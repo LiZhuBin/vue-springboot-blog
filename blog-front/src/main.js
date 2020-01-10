@@ -2,20 +2,22 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+import axios from 'axios'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import qs from 'qs'
 
-Vue.config.productionTip = false
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// axios 配置
+axios.defaults.timeout = 8000;
+axios.defaults.baseURL = "http://localhost:9877/v1/";
+Vue.config.productionTip = false;
+Vue.prototype.qs = qs;
 Vue.use(ElementUI);
+Vue.prototype.$http = axios;
+Vue.prototype.$qs = qs;
 new Vue({
-<<<<<<< HEAD
     router,
     store,
     render: h => h(App)
-=======
-  router,
-  store,
-  render: h => h(App)
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
 }).$mount('#app')

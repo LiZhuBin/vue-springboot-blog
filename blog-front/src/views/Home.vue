@@ -1,5 +1,5 @@
 <template >
-  <div style="background-image: url('https://source.unsplash.com/user/erondu/1600x900');">
+  <div >
 
     <el-container >
       <el-header>

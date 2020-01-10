@@ -4,19 +4,25 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-<<<<<<< HEAD
-    state: {},
+
+    state: {
+        accountData:{
+            "id": 0,
+            "accountHead": "",
+            "accountSign": "",
+            "communicationId": 0,
+            "accountName": "",
+            "accountPassword": "",
+            "accountCreateDate": "",
+            "accountBirthDate": "dd",
+            "accountCompany": "",
+            "accountSite": ""
+        }
+    },
     mutations: {},
     actions: {},
     modules: {}
-=======
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
->>>>>>> 1fbb1ac11604c5850c9236f6ff98ecf83269e4f4
+
+
+
 })

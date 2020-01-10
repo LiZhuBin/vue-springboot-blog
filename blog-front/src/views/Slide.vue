@@ -1,6 +1,6 @@
 <template>
     <div >
-        <card-me style=" background-color: transparent;"></card-me>
+        <card-me ></card-me>
         <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
