@@ -1,23 +1,41 @@
 <template>
   <el-card>
-    <h1 class="me-author-name">shimh</h1>
+    <el-image id="pic"
+            style="width: 100px; height: 100px"
+            v-bind:src="url"
+            >
+    </el-image>
+    <h2 class="me-author-name">{{name}}</h2>
+    <h3 >{{sign}}</h3>
     <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;山东&济南</span>
-      <span><i class="me-icon-job"></i> &nbsp;java开发工程师</span>
+      <span><i class="el-icon-location-outline"></i> &nbsp;{{site}}</span>
+      <span><i class="me-icon-job"></i> &nbsp;{{company}}</span>
     </div>
     <div class="me-author-tool">
-      <i @click="showTool(qq)" :title="qq.title" class="me-icon-QQ"></i>
-      <i @click="showTool(github)" :title="github.title" class="me-icon-github"></i>
+
+
+      <i class="el-icon-message" ></i>
+      <i class="el-icon-phone"></i>
     </div>
+
   </el-card>
 
 </template>
 
 <script>
+
   export default {
     name: 'CardMe',
+
     data() {
       return {
+
+        url:this.$store.state.accountData.accountHead,
+        name:this.$store.state.accountData.accountName,
+        sign:this.$store.state.accountData.accountSign,
+        site:this.$store.state.accountData.accountSite,
+        company:this.$store.state.accountData.accountCompany,
+
         qq: {title: 'QQ', message: '919431514'},
         github: {
           title: 'github',

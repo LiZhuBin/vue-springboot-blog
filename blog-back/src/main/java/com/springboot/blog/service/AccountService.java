@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AccountService {
-    public List<Account> getAccounts();
+    List<Account> getAccounts();
 
-    public Optional<Account> getAccountById(int id);
-    public Account checkAccount(String name,String password);
+    Optional<Account> getAccountById(int id);
+    Account checkAccount(String name,String password);
+    Boolean exists(int id);
 }

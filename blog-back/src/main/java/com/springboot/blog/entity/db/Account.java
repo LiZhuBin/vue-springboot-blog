@@ -1,33 +1,40 @@
 package com.springboot.blog.entity.db;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.springboot.blog.manager.AccountManager;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
-import org.springframework.web.servlet.View;
+import com.springboot.blog.manager.AccountViews;
+
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "account")
 public class Account{
+    @JsonView(AccountViews.BaseView.class)
     private int id;
-    @JsonView(AccountManager.Entity_1.class)
-    private String accountHead;
-    @JsonView(AccountManager.Entity_1.class)
-    private String accountSign;
-    @JsonView(AccountManager.Entity_1.class)
-    private Integer communicationId;
-    @JsonView(AccountManager.Entity_1.class)
+    @JsonView(AccountViews.BaseView.class)
     private String accountName;
-    @JsonView(AccountManager.Entity_2.class)
-    private String accountPassword;
-    private String accountCreateDate;
-    private String accountBirthDate;
-    private String accountCompany;
 
+
+    @JsonView(AccountViews.OthersView.class)
+    private String accountHead;
+    @JsonView(AccountViews.OthersView.class)
+    private String accountSign;
+    @JsonView(AccountViews.OthersView.class)
+    private Integer communicationId;
+    @JsonView(AccountViews.OthersView.class)
+    private String accountCompany;
+    @JsonView(AccountViews.OthersView.class)
     private String accountSite;
+
+
+
+    @JsonView(AccountViews.SelfView.class)
+    private String accountCreateDate;
+    @JsonView(AccountViews.SelfView.class)
+    private String accountBirthDate;
+
+    private String accountPassword;
 
     @Id
     @Column(name = "id")

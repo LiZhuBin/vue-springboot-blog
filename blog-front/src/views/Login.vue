@@ -50,17 +50,17 @@
         },
         methods: {
             login() {
-                this.$http.get('account/actions/check',{params:{accountName:this.userForm.account,accountPassword:this.userForm.password}})
-                .then((response)=>{
-                    console.log(response);
+                this.$api.account.checkAccount({accountName:this.userForm.account,accountPassword:this.userForm.password})
+                    .then((response) => {
+                        console.log(response);
 
-                    if(response.data.data.id){
-                        this.$store.state.accountData = response.data.data;
-                        this.$router.push('/');
-                    }else {
-                        alert(response.data.message);
-                    }
-                })
+                        if (response.data.data.id) {
+                            this.$store.state.accountData = response.data.data;
+                            this.$router.push('/');
+                        } else {
+                            alert(response.data.message);
+                        }
+                    });
             }
         }
     }

@@ -2,16 +2,14 @@ package com.springboot.blog.controller;
 
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.springboot.blog.entity.Result;
 import com.springboot.blog.entity.db.Account;
-import com.springboot.blog.manager.AccountManager;
+import com.springboot.blog.manager.AccountViews;
 import com.springboot.blog.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 
@@ -21,26 +19,35 @@ class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @JsonView(AccountManager.Entity_1.class)
+
     @GetMapping("accounts")
+    @JsonView(AccountViews.OthersView.class)
     public List<Account> getAllAccounts() {
         return accountService.getAccounts();
     }
 
     @GetMapping("accounts/{id}")
+    @JsonView(AccountViews.OthersView.class)
+    public Optional<Account> getAccountsById(@PathVariable(value = "id") int id) {
 
-    public Result getAccountsById(@PathVariable(value = "id") int id) {
-        return new Result<>(HttpStatus.OK.value(), "success", accountService.getAccountById(id));
+        return accountService.getAccountById(id);
     }
+
     @GetMapping("account/actions/check")
+    @JsonView(AccountViews.SelfView.class)
+    public Account checkAccount(@ModelAttribute Account mode) {
 
-    public Result checkAccount(@ModelAttribute Account mode ){
-        Account account = accountService.checkAccount(mode.getAccountName(),mode.getAccountPassword());
-        if(account==null){
-            return new Result<>(HttpStatus.NOT_FOUND.value(),"查找失败"," ");
-        }
-        return new Result<>(HttpStatus.OK.value(),"success",account);
+        return accountService.checkAccount(mode.getAccountName(), mode.getAccountPassword());
     }
+
+
+    @GetMapping("test")
+
+    @JsonView(AccountViews.BaseView.class)
+    public List<Account> test() {
+        return accountService.getAccounts();
+    }
+
 }
 //
 //

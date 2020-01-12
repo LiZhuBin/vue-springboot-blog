@@ -1,19 +1,25 @@
 package com.springboot.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.blog.manager.ResultViews;
 import jdk.nashorn.internal.objects.annotations.Getter;
+import org.springframework.http.HttpStatus;
 
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Result<T> {
 
 
+    @JsonView(ResultViews.Base.class)
     private Integer code;
 
     public Result() {
     }
-
+    @JsonView(ResultViews.Base.class)
     private String message;
+    @JsonView(ResultViews.Base.class)
+    private T data;
 
     public Integer getCode() {
         return code;
@@ -39,7 +45,7 @@ public class Result<T> {
         this.data = data;
     }
 
-    private T data;
+
 
     public Result(Integer code, String message, T data) {
         this.code = code;
@@ -47,5 +53,11 @@ public class Result<T> {
 
         this.data = data;
     }
+    public  Result<String> faith(){
 
+            return new Result<>(HttpStatus.NOT_FOUND.value(),"查找失败"," ");
+    }
+    public  Result<T> success(T data){
+        return new Result<T>(HttpStatus.OK.value(), "success", data);
+    }
 }

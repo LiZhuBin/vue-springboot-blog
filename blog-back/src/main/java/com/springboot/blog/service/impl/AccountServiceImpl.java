@@ -30,4 +30,9 @@ public class AccountServiceImpl implements AccountService {
     public Account checkAccount(String name, String password) {
         return accountRepository.findByAccountNameAndAccountPassword(name,password);
     }
+
+    @Override
+    public Boolean exists(int id) {
+        return accountRepository.existsById(id);
+    }
 }

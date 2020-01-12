@@ -12,7 +12,6 @@ export default new Vuex.Store({
             "accountSign": "",
             "communicationId": 0,
             "accountName": "",
-            "accountPassword": "",
             "accountCreateDate": "",
             "accountBirthDate": "dd",
             "accountCompany": "",
@@ -21,7 +20,9 @@ export default new Vuex.Store({
     },
     mutations: {},
     actions: {},
-    modules: {}
+    modules: {
+
+    }
 
 
 

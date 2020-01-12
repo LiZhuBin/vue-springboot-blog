@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     Account findByAccountNameAndAccountPassword(String name, String password);
+
 }
