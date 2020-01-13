@@ -1,10 +1,7 @@
 package com.springboot.blog.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.entity.db.Article;
 import com.springboot.blog.manager.ArticleViews;
 import com.springboot.blog.service.AccountService;
@@ -14,9 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -44,17 +39,18 @@ public class ArticleController {
     @JsonView(ArticleViews.baseView.class)
 
     @GetMapping("articles/account-id/{id}")
-    public JSONObject GetArticleByAccountId(@PathVariable(value = "id") int id){
+    public List<JSONObject> GetArticleByAccountId(@PathVariable(value = "id") int id){
 
-        JSONObject articleInfo = new JSONObject();
-        for(Article article :articleService.getArticlesByAccountId(id)){
-            Optional<Account> accountInfo = accountService.getAccountById(article.getAccountId());
-            articleInfo.put("article-info",article);
-            articleInfo.put("author-info",JSON.toJSON(accountInfo));
-        }
+//        JSONObject articleInfo = new JSONObject();
+//        for(Article article :articleService.getArticlesByAccountId(id)){
+//            Optional<Account> accountInfo = accountService.getAccountById(article.getAccountId());
+//            articleInfo.put("article-info",article);
+//            articleInfo.put("author-info",JSON.toJSON(accountInfo));
+//        }
 
 
-        return articleInfo;
+        return articleService.selectArticlesList(id);
     }
+
 //    @GetMapping("articles/actions/")
 }

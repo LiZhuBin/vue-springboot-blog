@@ -1,44 +1,23 @@
 <template>
-    <div >
-        <card-me ></card-me>
-        <card-tag></card-tag>
-        <card-archive></card-archive>
-        <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose">
-            <el-menu-item index="1">
-                <i class="el-icon-menu"></i>
-                <span slot="title">首页</span>
-            </el-menu-item>
-            <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
-            </el-menu-item>
-            <el-menu-item index="3" >
-                <i class="el-icon-document"></i>
-                <span slot="title">导航三</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航四</span>
-            </el-menu-item>
-        </el-menu>
-    </div>
+    <el-menu :default-openeds="['1', '3']">
+        <el-menu-item index="1" route="/">
+            <i class="el-icon-setting"></i>
+            <span slot="title">博客</span>
+        </el-menu-item>
+        <el-menu-item index="2">
+            <i class="el-icon-setting"></i>
+            <span slot="title">导航四</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+            <i class="el-icon-setting"></i>
+            <span slot="title">导航四</span>
+        </el-menu-item>
+    </el-menu>
 </template>
 
 <script>
-    import CardMe from "@/components/card/CardMe.vue";
-    import CardArchive from "../components/card/CardArchive";
-    import CardTag from "../components/card/CardTag";
     export default {
-        name: "Slide",
-        components:{
-            CardMe,
-            CardArchive,
-            CardTag
-        }
+        name: "Slide"
     }
 </script>
 

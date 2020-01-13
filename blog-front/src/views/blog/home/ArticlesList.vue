@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import ArticleItem from "../../components/article/ArticleItem";
+    import ArticleItem from "./components/ArticleItem";
     export default {
         name: "Article",
 

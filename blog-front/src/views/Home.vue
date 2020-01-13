@@ -1,59 +1,32 @@
-<template >
-  <div >
+<template>
+    <div id="app">
+        <el-container style="height: 600px; border: 1px solid #eee">
+            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+               <Slide></Slide>
+            </el-aside>
+            <el-container>
 
-    <el-container >
-      <el-header>
-        <Head></Head>
-      </el-header>
-      <el-container>
-        <el-aside width="300px">
-          <Slide></Slide>
-        </el-aside>
-        <el-container>
-          <el-main>
-           <router-view></router-view>
-          </el-main>
-          <el-footer>Footer</el-footer>
+
+                <el-main>
+                    <router-view/>
+                </el-main>
+            </el-container>
         </el-container>
-      </el-container>
-    </el-container>
-  </div>
 
+    </div>
 </template>
 
-
-
 <script>
-  import Slide from "@/views/Slide.vue"
-  import Head from "@/views/Head.vue"
+    import Slide from "./Slide";
+    export default {
+        name: "Home",
+        components:{
+            Slide
+        }
 
-// @ is an alias to /src
-
-
-export default {
-  name: 'home',
-  components: {
-
-    Slide,
-    Head
-  },
-
-  data(){
-  return{
-    note: {
-
-      backgroundPosition: "center center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-    },
-
-  }
-  }
-}
+    }
 </script>
-<style>
-  .el-container{
-    margin-left: 30px;
-    margin-right: 30px;
-  }
+
+<style scoped>
+
 </style>

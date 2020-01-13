@@ -7,7 +7,7 @@
 
     <div class="me-article-header" >
 
-      <a @click="view(id)" class="me-article-title">{{article.articleTitle}}</a>
+      <a @click="view(id)" class="me-article-title">{{article.article_title}}</a>
       <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
       <span class="me-pull-right me-article-count">
 	    	<i class="me-icon-comment"></i>&nbsp;{{commentCounts}}
@@ -17,20 +17,19 @@
 	    </span>
     </div>
 
-<!--        <div class="me-artile-description">-->
-<!--          {{article.articleDetail}}-->
-<!--        </div>-->
 
-            <el-image v-bind:src="article.articlePicture"></el-image>
-            <span class="me-article-author">
-                <i class="me-icon-author"></i>&nbsp;{{article.id}}
-            </span>
 
-<!--          <el-tag v-for="t in tags" :key="t.tagname" size="mini" type="success">{{t.tagname}}</el-tag>-->
+            <el-image v-bind:src="article.article_picture"></el-image>
 
-<!--          <span class="me-pull-right me-article-count">-->
-<!--                <i class="el-icon-time"></i>&nbsp;{{createDate | format}}-->
-<!--            </span>-->
+
+          <el-tag v-for="t in tags" :key="t.tagname" size="mini" type="success">{{t.tagname}}</el-tag>
+
+          <div>
+
+              <el-avatar  :size="50" :src="article.account_head" ></el-avatar>
+
+                <i class="el-icon-time">{{article.article_create_time }}</i>&nbsp;
+            </div>
 
 
 
@@ -50,15 +49,17 @@
     props: {
         "article":
             {
+                "article_title": "nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et",
+                "account_head": "https://source.unsplash.com/user/erondu/100x100",
+                "article_detail": "nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas.",
+                "article_create_time": "2020-12-03 07:56:01",
+                "account_id": 1,
+                "article_detail_type": 0,
+                "label_id": 7,
                 "id": 1,
-                "articleDetail": "nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas.",
-                "labelId": 7,
-                "articleReadCount": 9,
-                "articleCreateTime": "2020-12-03 07:56:01",
-                "articleTitle": "nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et",
-                "articlePicture": "https://source.unsplash.com/user/jackie/likes/1600x900",
-                "articleDetailType": 0,
-                "accountId": 1
+                "article_picture": "https://source.unsplash.com/random/900x300",
+                "article_read_count": 9,
+                "account_name": "Wendy Wilkinson"
             }
     },
     data() {
@@ -98,6 +99,7 @@
     color: #a6a6a6;
     padding-left: 14px;
     font-size: 13px;
+
   }
 
   .me-pull-right {
@@ -114,6 +116,7 @@
     color: #a6a6a6;
     padding-right: 18px;
     font-size: 13px;
+      height: 20px;
   }
 
   .el-tag {

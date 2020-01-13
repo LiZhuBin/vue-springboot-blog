@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Article from "../views/home/ArticlesList";
+import Article from "../views/blog/home/ArticlesList";
 
 Vue.use(VueRouter)
 
@@ -10,23 +9,38 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: Home,
-        redirect:'articles/list',
-        children:[{path:'articles/list',name:'articleslist',component:()=>import('../views/home/ArticlesList.vue')},
+        component: () => import('@/views/Home.vue'),
+        redirect:'blog/articleslist',
+        children: [{path: 'blog',
+            name: 'blog',
+            component: () => import('@/views/blog/BlogHome.vue'),
 
-        ],
+            children: [{
+                path: 'articleslist',
+                name: 'articleslist',
+                component: () => import('../views/blog/home/ArticlesList.vue')
+            },
+
+            ],
+        },
+        ]
+
 
     },
 
-    {path: '/login', name: 'login', component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')},
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import(/* webpackChunkName: "about" */ '../views/login/Login.vue')
+    },
 
 ]
 
 const router = new VueRouter({
 
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 
 })
 
