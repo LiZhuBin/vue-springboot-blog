@@ -1,126 +1,139 @@
 <template>
-    <div>
-
-  <el-card class="me-area" :body-style="{ padding: '16px' }" >
 
 
+    <el-card class="me-area" :body-style="{ padding: '16px' }">
 
-    <div class="me-article-header" >
 
-      <a @click="view(id)" class="me-article-title">{{article.article_title}}</a>
-      <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
-      <span class="me-pull-right me-article-count">
+        <div class="me-article-header">
+
+            <a @click="view(id)" class="me-article-title">{{data.article.article_title}}</a>
+            <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
+            <span class="me-pull-right me-article-count">
 	    	<i class="me-icon-comment"></i>&nbsp;{{commentCounts}}
 	    </span>
-      <span class="me-pull-right me-article-count">
+            <span class="me-pull-right me-article-count">
 	    	<i class="el-icon-view"></i>&nbsp;{{viewCounts}}
 	    </span>
-    </div>
+        </div>
+
+
+        <el-image v-bind:src="data.article.article_picture"></el-image>
+
+        <div class="lables-list">
+
+            <el-tag v-for="label in data.labels" :key="label.id" size="mini" type="success">{{label.label_name}}
+            </el-tag>
+        </div>
+        <div class="article-author">
+
+            <el-avatar  :size="50" :src="data.account.account_head"></el-avatar>
+            {{data.account.account_name}}
 
 
 
-            <el-image v-bind:src="article.article_picture"></el-image>
+        </div>
+
+        <i class="article-date">{{data.article.article_create_time }}</i>&nbsp;
 
 
-          <el-tag v-for="t in tags" :key="t.tagname" size="mini" type="success">{{t.tagname}}</el-tag>
-
-          <div>
-
-              <el-avatar  :size="50" :src="article.account_head" ></el-avatar>
-
-                <i class="el-icon-time">{{article.article_create_time }}</i>&nbsp;
-            </div>
+    </el-card>
 
 
-
-
-
-  </el-card>
-
-
-    </div>
 </template>
 
 <script>
 
 
-  export default {
-    name: 'ArticleItem',
-    props: {
-        "article":
-            {
-                "article_title": "nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et",
-                "account_head": "https://source.unsplash.com/user/erondu/100x100",
-                "article_detail": "nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas.",
-                "article_create_time": "2020-12-03 07:56:01",
-                "account_id": 1,
-                "article_detail_type": 0,
-                "label_id": 7,
-                "id": 1,
-                "article_picture": "https://source.unsplash.com/random/900x300",
-                "article_read_count": 9,
-                "account_name": "Wendy Wilkinson"
+    export default {
+        name: 'ArticleItem',
+        props: {
+            data: {
+                "account": {
+                    "account_head": "https://source.unsplash.com/user/erondu/100x100",
+                    "account_name": "Wendy Wilkinson"
+                },
+                "article": {
+                    "article_read_count": 6,
+                    "account_id": 1,
+                    "article_detail": "vitae erat vel pede blandit congue. In scelerisque scelerisque dui.",
+                    "article_create_time": "2020-07-29 08:38:24",
+                    "article_detail_type": 1,
+                    "article_picture": "https://source.unsplash.com/random/900x300",
+                    "id": 5,
+                    "article_title": "velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,"
+                },
+                "labels": [
+                    {
+                        "id": 48,
+                        "label_name": "生活"
+                    },
+                    {
+                        "id": 70,
+                        "label_name": "生活"
+                    }
+                ]
+
             }
-    },
-    data() {
-      return {
+        },
+        data() {
+            return {}
+        },
+        mounted() {
 
-      }
-    },
-      mounted() {
+        },
+        methods: {
 
-      },
-      methods: {
+            view(id) {
+                this.$router.push({path: `/view/${id}`})
+            },
 
-      view(id) {
-        this.$router.push({path: `/view/${id}`})
-      },
-
+        }
     }
-  }
 </script>
 
 <style scoped>
 
-  .me-article-header {
-    /*padding: 10px 18px;*/
-    padding-bottom: 10px;
-  }
+    .me-article-header {
+        /*padding: 10px 18px;*/
+        padding-bottom: 10px;
+    }
 
-  .me-article-title {
-    font-weight: 600;
-  }
+    .me-article-title {
+        font-weight: 600;
+    }
 
-  .me-article-icon {
-    padding: 3px 8px;
-  }
+    .me-article-icon {
+        padding: 3px 8px;
+    }
 
-  .me-article-count {
-    color: #a6a6a6;
-    padding-left: 14px;
-    font-size: 13px;
+    .me-article-count {
+        color: #a6a6a6;
+        padding-left: 14px;
+        font-size: 13px;
 
-  }
+    }
 
-  .me-pull-right {
-    float: right;
-  }
+    .me-pull-right {
+        float: right;
+    }
 
-  .me-artile-description {
-    font-size: 13px;
-    line-height: 24px;
-    margin-bottom: 10px;
-  }
 
-  .me-article-author {
-    color: #a6a6a6;
-    padding-right: 18px;
-    font-size: 13px;
-      height: 20px;
-  }
+    .article-author {
+        float: left;
+    }
 
-  .el-tag {
-    margin-left: 6px;
-  }
+    .article-date {
+        text-align: right;
+        float: right;
+    }
 
+    .el-tag {
+        margin-left: 10px;
+
+        /*float:right;*/
+    }
+
+    .lables-list {
+        text-align: right;
+    }
 </style>

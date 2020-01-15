@@ -14,19 +14,19 @@
 
 -[ ] 后台数据接口
      -[x] account
-     -[ ] communication
+     -[x] communication
      -[ ] comment
-     -[ ] article
-     -[ ] label
+     -[x] article
+     -[x] label
      -[ ] resource
  
 -[ ] 博客页面设计数据交互
     -[x] 登录
-    -[ ] 首页
-        -[ ] 主框架
-        -[ ] 用户数据
-        -[ ] 博客显示
-        -[ ] 标签显示
+    -[x] 首页
+        -[x] 主框架
+        -[x] 用户数据
+        -[x] 博客显示
+        -[x] 标签显示
         
     -[ ] 博客内容
     -[ ] 标签归档

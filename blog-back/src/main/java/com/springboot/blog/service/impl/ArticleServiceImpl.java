@@ -10,10 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -40,12 +37,21 @@ public class ArticleServiceImpl implements ArticleService {
     public List<JSONObject> selectArticlesList(int accountId) {
         List<JSONObject> jsonObjects = new ArrayList<>();;
         List<Map> objects = articleRepository.selectArticleInfo(accountId);
-        JSONObject jsonObject = new JSONObject();
+
         for(int i=0;i<objects.size();i++){
+            JSONObject jsonObject = new JSONObject();
             Map map = articleRepository.selectArticleInfo(accountId).get(i);
-            jsonObject.put("accounts", articleRepository.accountInfo(accountId));
-            jsonObject.put("articles",map);
-//            jsonObject.put("labels",articleRepository.LabelInfo((Integer) map.get("label_id")));
+            jsonObject.put("account", articleRepository.accountInfo(accountId));
+            jsonObject.put("article",map);
+
+
+            List<Map > labelNames =articleRepository.labelInfo((Integer) map.get("id")) ;
+//            Map<String,List<String>> m = new HashMap<String, List<String>>();
+//
+//            m.put("label_name", labelNames);
+//
+            jsonObject.put("labels",labelNames);
+
             jsonObjects.add(jsonObject);
         }
 

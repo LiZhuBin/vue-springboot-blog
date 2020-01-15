@@ -17,7 +17,7 @@ public interface ArticleRepository extends JpaRepository<Article,Integer> {
         @Query(nativeQuery = true,value = "select * from article where article.account_id =  :#{#accountId} ")
         List<Map> selectArticleInfo(@Param("accountId") int accountId);
         //文章关联的标签信息
-        @Query(nativeQuery = true,value = "select label.label_name from label where label.id = :#{#articleId};")
-        List<Map> LabelInfo(@Param("articleId") int articleId);
+        @Query(nativeQuery = true,value = "select label.label_name,label.id from label where label.id = any(select article_to_label.label_id from article_to_label where article_to_label.article_id = :#{#labelId})")
+        List<Map> labelInfo(@Param("labelId") int labelId);
 
 }

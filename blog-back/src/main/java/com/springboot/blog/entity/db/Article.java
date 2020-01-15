@@ -12,8 +12,7 @@ public class Article {
     @JsonView(ArticleViews.baseView.class)
     private int id;
 
-    @JsonView(ArticleViews.baseView.class)
-    private Integer labelId;
+
     @JsonView(ArticleViews.baseView.class)
     private Integer articleReadCount;
     @JsonView(ArticleViews.baseView.class)
@@ -50,15 +49,7 @@ public class Article {
         this.articleDetail = articleDetail;
     }
 
-    @Basic
-    @Column(name = "label_id")
-    public Integer getLabelId() {
-        return labelId;
-    }
 
-    public void setLabelId(Integer labelId) {
-        this.labelId = labelId;
-    }
 
     @Basic
     @Column(name = "article_read_count")
@@ -128,7 +119,7 @@ public class Article {
         return id == article.id &&
                 accountId == article.accountId &&
                 Objects.equals(articleDetail, article.articleDetail) &&
-                Objects.equals(labelId, article.labelId) &&
+
                 Objects.equals(articleReadCount, article.articleReadCount) &&
                 Objects.equals(articleCreateTime, article.articleCreateTime) &&
                 Objects.equals(articleTitle, article.articleTitle) &&
@@ -138,6 +129,6 @@ public class Article {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, articleDetail, labelId, articleReadCount, articleCreateTime, articleTitle, articlePicture, articleDetailType, accountId);
+        return Objects.hash(id, articleDetail, articleReadCount, articleCreateTime, articleTitle, articlePicture, articleDetailType, accountId);
     }
 }
