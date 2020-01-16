@@ -2,13 +2,13 @@
   <el-card :body-style="{ padding: '8px 18px' }">
     <div slot="header" class="me-tag-header">
       <span>最热标签</span>
-      <a @click="moreTags" class="me-pull-right me-tag-more">查看全部</a>
+
     </div>
 
     <ul class="me-tag-list">
       <li class="me-tag-item" v-for="t in tags" :key="t.id">
         <!--type="primary"-->
-        <el-button @click="tag(t.id)" size="mini" type="primary" round plain>{{t.tagname}}</el-button>
+        <el-button @click="tag(t.id)" size="mini" type="primary" round plain>{{t.label_name}}</el-button>
       </li>
     </ul>
   </el-card>
@@ -19,19 +19,42 @@
   export default {
     name: 'CardTag',
     props: {
-      tags: Array
+      // tags: Array
     },
     data() {
-      return {}
+      return {
+        tags:[ {
+          "id": 38,
+          "label_name": "生ff活"
+        }]
+      }
+    },
+    mounted() {
+      this.init();
     },
     methods: {
-      moreTags() {
-        this.$router.push('/tag/all')
+      init(){
+        var data = this.$qs.stringify({way:"account",id:1});
+        this.$http({
+          url: 'labels',
+          data: data,
+          method: 'post',
+
+        })
+        // this.$api.label.getLabels(this.$qs.stringify(),{
+        //   headers:{
+        //     'Content-Type':'application/x-www-form-urlencoded'
+        //   }
+        // })
+                .then((response)=>{
+                  this.tags = response.data.data;
+                })
       },
       tag(id) {
         this.$router.push({path: `/tag/${id}`})
-      }
-    }
+
+
+      }}
   }
 </script>
 

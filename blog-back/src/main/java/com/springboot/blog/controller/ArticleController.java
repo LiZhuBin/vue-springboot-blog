@@ -25,19 +25,20 @@ public class ArticleController {
     private AccountService accountService;
 
 
+    /*获得所有文章信息*/
     @GetMapping("articles")
-
     public List<Article> getAllArticles(@PageableDefault(page=2,size=17,sort="username,asc") Pageable pageable){
         return articleService.getArticles();
     }
+    /*通过文章id查找文章详细信息*/
     @GetMapping("articles/{id}")
     @JsonView(ArticleViews.DetailView.class)
-    public Optional<Article> GetArticleById(@PathVariable(value = "id") int id){
+    public JSONObject GetArticleById(@PathVariable(value = "id") int id){
         return articleService.getArticlesById(id);
     }
 
+    /*通过作者id查找文章列表的粗略信息*/
     @JsonView(ArticleViews.baseView.class)
-
     @GetMapping("articles/account-id/{id}")
     public List<JSONObject> GetArticleByAccountId(@PathVariable(value = "id") int id){
 

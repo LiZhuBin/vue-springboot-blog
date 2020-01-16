@@ -1,12 +1,15 @@
 <template>
     <div  >
-        <ArticleItem v-for="article in articles.slice(0, 10)"  :key="article" :article="article"></ArticleItem>
+
+        <ArticleItem v-for="article in data.slice(0, 10)"  :key="article" :data="article"></ArticleItem>
         <el-pagination
                 background
                 layout="prev, pager, next"
                 :total="1000">
         </el-pagination>
+
     </div>
+
 </template>
 
 <script>
@@ -16,7 +19,8 @@
 
         data(){
             return{
-                articles:[]
+                data:[],
+
             }
         },
         mounted() {
@@ -26,8 +30,10 @@
             articlesInit(){
                 this.$api.article.recentArticles(this.$store.state.accountData.id)
                     .then((response)=>{
-                        this.articles = response.data.data;
+                        this.data = response.data.data;
+
                     })
+
             }
         },
         components:{

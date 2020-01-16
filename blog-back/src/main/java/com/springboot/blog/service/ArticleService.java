@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface ArticleService {
     List<Article> getArticles();
     List<Article> getArticlesByAccountId(int id);
-    Optional<Article> getArticlesById(int id);
+    JSONObject getArticlesById(int id);
 
     List<JSONObject> selectArticlesList(int accountId);
 }

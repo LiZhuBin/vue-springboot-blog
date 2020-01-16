@@ -13,7 +13,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.defaults.timeout = 8000;
 axios.defaults.baseURL = "http://localhost:9877/v1/";
 Vue.config.productionTip = false;
-Vue.prototype.qs = qs;
+Vue.prototype.$qs = qs;
 Vue.use(ElementUI);
 Vue.prototype.$http = axios;
 

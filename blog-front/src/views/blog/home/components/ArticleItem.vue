@@ -1,18 +1,18 @@
 <template>
 
 
-    <el-card class="me-area" :body-style="{ padding: '16px' }">
+    <el-card class="me-area" :body-style="{ padding: '16px' }" >
 
+    <div @click="view(data.article.id)">
+        <div class="me-article-header" >
 
-        <div class="me-article-header">
-
-            <a @click="view(id)" class="me-article-title">{{data.article.article_title}}</a>
+            <a  class="me-article-title">{{data.article.article_title}}</a>
             <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
             <span class="me-pull-right me-article-count">
-	    	<i class="me-icon-comment"></i>&nbsp;{{commentCounts}}
+	    	<i class="me-icon-comment"></i>&nbsp;
 	    </span>
             <span class="me-pull-right me-article-count">
-	    	<i class="el-icon-view"></i>&nbsp;{{viewCounts}}
+	    	<i class="el-icon-view"></i>&nbsp;{{data.article.article_read_count}}
 	    </span>
         </div>
 
@@ -33,9 +33,10 @@
 
         </div>
 
+
         <i class="article-date">{{data.article.article_create_time }}</i>&nbsp;
 
-
+    </div>
     </el-card>
 
 
@@ -84,7 +85,7 @@
         methods: {
 
             view(id) {
-                this.$router.push({path: `/view/${id}`})
+                this.$router.push({path: `/blog/article/${id}`})
             },
 
         }

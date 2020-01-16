@@ -36,11 +36,7 @@
         site:this.$store.state.accountData.accountSite,
         company:this.$store.state.accountData.accountCompany,
 
-        qq: {title: 'QQ', message: '919431514'},
-        github: {
-          title: 'github',
-          message: '<a target="_blank" href="https://github.com/shimh-develop">https://github.com/shimh-develop</a>'
-        }
+
       }
     },
     methods: {
