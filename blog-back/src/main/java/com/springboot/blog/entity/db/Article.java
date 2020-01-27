@@ -4,24 +4,38 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.manager.ArticleViews;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "article")
-public class Article {
-    @JsonView(ArticleViews.baseView.class)
+public class Article implements Serializable {
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "account_id",referencedColumnName = "id",insertable = false, updatable = false)
+//    public Account getAccount() {
+//        return account;
+//    }
+//
+//    public void setAccount(Account account) {
+//        this.account = account;
+//    }
+//
+//    private Account account;
+
+    @JsonView(ArticleViews.BaseView.class)
     private int id;
-
-
-    @JsonView(ArticleViews.baseView.class)
-    private Integer articleReadCount;
-    @JsonView(ArticleViews.baseView.class)
+    @JsonView(ArticleViews.BaseView.class)
     private String articleCreateTime;
-    @JsonView(ArticleViews.baseView.class)
+
+    @JsonView(ArticleViews.BaseView.class)
+    private Integer articleReadCount;
+
+    @JsonView(ArticleViews.ListView.class)
     private String articleTitle;
-    @JsonView(ArticleViews.baseView.class)
+    @JsonView(ArticleViews.ListView.class)
     private String articlePicture;
-    @JsonView(ArticleViews.baseView.class)
+    @JsonView(ArticleViews.ListView.class)
+
     private int accountId;
     @JsonView(ArticleViews.DetailView.class)
     private String articleDetail;
@@ -102,7 +116,7 @@ public class Article {
     }
 
     @Basic
-    @Column(name = "account_id")
+    @Column(name = "account_id",insertable=false,updatable=false)
     public int getAccountId() {
         return accountId;
     }

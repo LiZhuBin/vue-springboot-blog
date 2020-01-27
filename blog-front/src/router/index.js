@@ -20,9 +20,11 @@ const routes = [
                 name: 'articleslist',
                 component: () => import('../views/blog/home/ArticlesList.vue')
             },
-
+                {path:'article/:id',name: 'article',component:()=>import ('../views/blog/article/Article.vue')},
+                {path:'label/:id',name:'label',component:()=>import('../views/blog/label/Label.vue')}
             ],
         },
+            {path:'/blog-manage',name:'blog-manage',component:()=>import('../views/blog-manage/BlogManageHome.vue')},
         ]
 
 

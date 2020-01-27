@@ -2,14 +2,14 @@
   <el-card>
     <el-image id="pic"
             style="width: 100px; height: 100px"
-            v-bind:src="url"
+            v-bind:src="account.accountHead"
             >
     </el-image>
-    <h2 class="me-author-name">{{name}}</h2>
-    <h3 >{{sign}}</h3>
+    <h2 class="me-author-name">{{account.accountName}}</h2>
+    <h3 >{{account.accountSign}}</h3>
     <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;{{site}}</span>
-      <span><i class="me-icon-job"></i> &nbsp;{{company}}</span>
+      <span><i class="el-icon-location-outline"></i> &nbsp;{{account.accountSite}}</span>
+      <span><i class="me-icon-job"></i> &nbsp;{{account.accountCompany}}</span>
     </div>
     <div class="me-author-tool">
 
@@ -26,28 +26,25 @@
 
   export default {
     name: 'CardMe',
-
+    props:{
+      "account": {
+        "id": 1,
+        "accountName": "Wendy Wilkinson",
+        "accountHead": "https://source.unsplash.com/user/erondu/100x100",
+        "accountSign": "我的标签我做主",
+        "communicationId": 1,
+        "accountCompany": "A Company",
+        "accountSite": "Gonnosnò"
+      },
+    },
     data() {
       return {
-
-        url:this.$store.state.accountData.accountHead,
-        name:this.$store.state.accountData.accountName,
-        sign:this.$store.state.accountData.accountSign,
-        site:this.$store.state.accountData.accountSite,
-        company:this.$store.state.accountData.accountCompany,
 
 
       }
     },
     methods: {
-      showTool(tool) {
-        this.$message({
-          duration: 0,
-          showClose: true,
-          dangerouslyUseHTMLString: true,
-          message: '<strong>' + tool.message + '</strong>'
-        });
-      }
+
     }
   }
 </script>

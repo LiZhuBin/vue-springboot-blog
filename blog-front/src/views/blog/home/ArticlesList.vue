@@ -1,6 +1,6 @@
 <template>
     <div  >
-
+       
         <ArticleItem v-for="article in data.slice(0, 10)"  :key="article" :data="article"></ArticleItem>
         <el-pagination
                 background

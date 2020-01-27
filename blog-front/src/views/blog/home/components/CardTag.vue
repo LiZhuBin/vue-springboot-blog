@@ -1,5 +1,6 @@
 <template>
   <el-card :body-style="{ padding: '8px 18px' }">
+
     <div slot="header" class="me-tag-header">
       <span>最热标签</span>
 
@@ -19,39 +20,27 @@
   export default {
     name: 'CardTag',
     props: {
-      // tags: Array
+      tags: Array
     },
     data() {
       return {
-        tags:[ {
-          "id": 38,
-          "label_name": "生ff活"
-        }]
+        
       }
     },
     mounted() {
-      this.init();
+
     },
     methods: {
-      init(){
-        var data = this.$qs.stringify({way:"account",id:1});
-        this.$http({
-          url: 'labels',
-          data: data,
-          method: 'post',
 
-        })
         // this.$api.label.getLabels(this.$qs.stringify(),{
         //   headers:{
         //     'Content-Type':'application/x-www-form-urlencoded'
         //   }
         // })
-                .then((response)=>{
-                  this.tags = response.data.data;
-                })
-      },
+
       tag(id) {
-        this.$router.push({path: `/tag/${id}`})
+
+        this.$router.push({path: `/blog/label/${id}`})
 
 
       }}

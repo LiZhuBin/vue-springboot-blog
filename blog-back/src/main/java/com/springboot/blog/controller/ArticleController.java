@@ -4,15 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.entity.db.Article;
 import com.springboot.blog.manager.ArticleViews;
-import com.springboot.blog.service.AccountService;
 import com.springboot.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 
@@ -21,15 +17,14 @@ import java.util.Optional;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
-    @Autowired
-    private AccountService accountService;
-
-
-    /*获得所有文章信息*/
-    @GetMapping("articles")
-    public List<Article> getAllArticles(@PageableDefault(page=2,size=17,sort="username,asc") Pageable pageable){
-        return articleService.getArticles();
-    }
+//    @Autowired
+//    private ArticleRepository articleRepository;
+//
+//    /*获得所有文章信息*/
+//    @GetMapping("articles")
+//    public List<Article> getAllArticles(@PageableDefault(page=2,size=17,sort="username,asc") Pageable pageable){
+//        return articleRepository.findByAccountId_Id(1);
+//    }
     /*通过文章id查找文章详细信息*/
     @GetMapping("articles/{id}")
     @JsonView(ArticleViews.DetailView.class)
@@ -37,21 +32,16 @@ public class ArticleController {
         return articleService.getArticlesById(id);
     }
 
-    /*通过作者id查找文章列表的粗略信息*/
-    @JsonView(ArticleViews.baseView.class)
+    @JsonView(ArticleViews.ListView.class)
     @GetMapping("articles/account-id/{id}")
     public List<JSONObject> GetArticleByAccountId(@PathVariable(value = "id") int id){
-
-//        JSONObject articleInfo = new JSONObject();
-//        for(Article article :articleService.getArticlesByAccountId(id)){
-//            Optional<Account> accountInfo = accountService.getAccountById(article.getAccountId());
-//            articleInfo.put("article-info",article);
-//            articleInfo.put("author-info",JSON.toJSON(accountInfo));
-//        }
-
 
         return articleService.selectArticlesList(id);
     }
 
-//    @GetMapping("articles/actions/")
+    @GetMapping("labels/{id}")
+    @JsonView(ArticleViews.ListView.class)
+    public List<Article> GetArticlesByLabelId(@PathVariable(value = "id") int id){
+        return articleService.getArticlesByLabelId(id);
+    }
 }

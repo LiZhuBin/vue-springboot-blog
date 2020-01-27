@@ -1,11 +1,12 @@
 package com.springboot.blog.entity.db;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "communication")
-public class Communication {
+public class Communication implements Serializable {
     private int id;
     private String communicationPhone;
     private String communicationEmail;

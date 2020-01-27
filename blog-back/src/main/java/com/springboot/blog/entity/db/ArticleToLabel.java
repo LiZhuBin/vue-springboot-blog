@@ -1,11 +1,12 @@
 package com.springboot.blog.entity.db;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "article_to_label", schema = "vue_springboot_blog", catalog = "")
-public class ArticleToLabel {
+public class ArticleToLabel implements Serializable {
     private int id;
     private Integer articleId;
     private Integer labelId;

@@ -3,18 +3,27 @@
 
     <el-container >
 
-      <el-container >
-        <el-aside width="300px">
+
+
+        <el-aside width="280px">
           <Slide></Slide>
         </el-aside>
+
         <el-container >
+
           <el-main>
-           <router-view></router-view>
+           <router-view>
+
+           </router-view>
+
           </el-main>
-          <el-footer>Footer</el-footer>
+
         </el-container>
+
       </el-container>
-    </el-container>
+
+
+
   </div>
 
 </template>

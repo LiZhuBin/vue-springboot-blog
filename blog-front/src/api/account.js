@@ -5,6 +5,8 @@ const account = {
         return axios.get('account/actions/check', {params:param});
 
     },
-    
+    getAccount(id){
+        return axios.get('accounts/'+id)
+    }
 };
 export default account;

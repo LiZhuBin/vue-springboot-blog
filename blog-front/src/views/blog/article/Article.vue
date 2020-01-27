@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<PageHeader></PageHeader>
     <el-main>
         <el-image :src="article.articlePicture"></el-image>
         <div class="me-view-card">
@@ -105,16 +105,45 @@
 </template>
 
 <script>
+    import PageHeader from "../../../components/detail/PageHeader";
     export default {
         name: "Article",
-        created() {
-            this.getArticle()
-        },
+
         watch: {
-            '$route': 'getArticle'
+            '$route': function (to, from) {
+                // console.log(to)
+                // console.log(from)
+                // 我这里还是用了Vuex，不过应该不影响理解
+                this.$store.dispatch('updateActiveTemplateId', this.$route.params.templateId)
+                // 通过更新Vuex中的store的数据，让数据发生变化
+                this.init()
+            }
+        },
+        created() {
+            this.init();
+        },
+
+        methods:{
+
+          init(){
+
+            this.$api.article.articleDetail(this.$route.params.id)
+              .then((response)=>{
+                  this.article = response.data.data.article;
+                  this.account = response.data.data.account;
+                  this.labels = response.data.data.labels;
+              })
+              .catch((error)=>{
+              })
+          },
+
+        },
+        components:{
+          PageHeader,
         },
         data() {
             return {
+
                 "article": {
                     "id": 1,
                     "articleReadCount": 9,

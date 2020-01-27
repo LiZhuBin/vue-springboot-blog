@@ -1,15 +1,15 @@
 package com.springboot.blog.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.manager.AccountViews;
 import com.springboot.blog.service.AccountService;
+import com.springboot.blog.service.ArticleService;
+import com.springboot.blog.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 
@@ -18,19 +18,25 @@ import java.util.Optional;
 class AccountController {
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private ArticleService articleService;
+    @Autowired
+    private LabelService labelService;
 
+    int ArticleLine = 5;
 
-    @GetMapping("accounts")
-    @JsonView(AccountViews.OthersView.class)
-    public List<Account> getAllAccounts() {
-        return accountService.getAccounts();
-    }
 
     @GetMapping("accounts/{id}")
     @JsonView(AccountViews.OthersView.class)
-    public Optional<Account> getAccountsById(@PathVariable(value = "id") int id) {
-
-        return accountService.getAccountById(id);
+    public JSONObject getAccountsById(@PathVariable(value = "id") int id) {
+        JSONObject jsonObject = new JSONObject();
+        JSONObject accountJson = new JSONObject();
+        accountJson.put("newArticles",articleService.newArticles(id,ArticleLine));
+        accountJson.put("hotArticles",articleService.hotArticles(id,ArticleLine));
+        jsonObject.put("account",accountService.getAccountById(id));
+        jsonObject.put("articles",accountJson);
+        jsonObject.put("labels",labelService.getAccountLabels(id));
+        return jsonObject;
     }
 
     @GetMapping("account/actions/check")
@@ -41,12 +47,6 @@ class AccountController {
     }
 
 
-    @GetMapping("test")
-
-    @JsonView(AccountViews.BaseView.class)
-    public List<Account> test() {
-        return accountService.getAccounts();
-    }
 
 }
 //

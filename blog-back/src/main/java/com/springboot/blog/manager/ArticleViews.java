@@ -1,6 +1,7 @@
 package com.springboot.blog.manager;
 
 public class ArticleViews {
-    public interface baseView extends ResultViews.Base{}
-    public interface DetailView extends baseView{}
+    public interface BaseView extends ResultViews.Base{}
+    public interface ListView extends BaseView{}
+    public interface DetailView extends ListView{}
 }

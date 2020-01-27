@@ -3,13 +3,27 @@ package com.springboot.blog.entity.db;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.manager.AccountViews;
 
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "account")
-public class Account{
+public class Account implements Serializable {
+
+
+//    private Set<Article> articles = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "account",cascade = CascadeType.ALL)
+//    @JoinColumn(name = "account_id",referencedColumnName = "id")
+//    public Set<Article> getArticles() {
+//        return articles;
+//    }
+//
+//    public void setArticles(Set<Article> articles) {
+//        this.articles = articles;
+//    }
+
     @JsonView(AccountViews.BaseView.class)
     private int id;
     @JsonView(AccountViews.BaseView.class)

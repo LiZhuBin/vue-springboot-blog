@@ -1,0 +1,3 @@
+sudo su
+systemctl start mysql
+sudo redis-server /etc/redis/redis.conf

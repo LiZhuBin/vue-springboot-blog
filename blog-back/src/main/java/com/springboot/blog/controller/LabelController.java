@@ -1,9 +1,7 @@
 package com.springboot.blog.controller;
 
-import com.springboot.blog.entity.db.Label;
 import com.springboot.blog.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,9 +22,8 @@ public class LabelController  {
             return labelService.getAccountLabels(id);
         return null;
     }
-//    @PostMapping("labels")
-//    public List<Map> getLabelsByAccountId(@RequestParam("account-id") int id){
-//        return labelService.getAccountLabels(id);
-//    }
+
+
+
 
 }

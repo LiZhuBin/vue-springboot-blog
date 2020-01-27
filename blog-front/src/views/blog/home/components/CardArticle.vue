@@ -1,57 +1,52 @@
 <template>
     <el-card :body-style="{ padding: '8px 18px' }">
-        <div slot="header" class="me-category-header">
-            <span>{{cardHeader}}</span>
-        </div>
+        <el-tabs v-model="activeName" active-name="first">
+            <el-tab-pane label="最热文章" name="first">
+                <HotArticles :articles ="hotArticles"></HotArticles>
+            </el-tab-pane>
+            <el-tab-pane label="最新文章" name="second" >
+                <NewArticles :articles="newArticles"></NewArticles>
 
-        <ul class="me-category-list">
-            <li v-for="a in articles" @click="view(a.id)" :style="itemStyle" :key="a.id" class="me-category-item"><a>{{a.title}}</a>
-            </li>
-        </ul>
+            </el-tab-pane>
+        </el-tabs>
     </el-card>
 
 </template>
 
 <script>
+    import NewArticles from "./NewArticles";
+    import HotArticles from "./HotArticles";
     export default {
         name: 'CardArticle',
         props: {
 
-            articles: {
+            hotArticles: {
                 type: Array,
                 required: true
             },
-            itemStyle: Object
+            newArticles:{
+                type: Array,
+                required: true
+            }
+
+
+        },
+        mounted() {
+
         },
         data() {
             return {
-                cardHeader:"最新文章"
+                cardHeader:"最新文章",
             }
         },
-        methods: {
-            view(id) {
-                this.$router.push({path: `/view/${id}`})
-            }
+        components:{
+            NewArticles,
+            HotArticles
         }
+
     }
 </script>
 
 <style scoped>
-    .me-category-header {
-        font-weight: 600;
-    }
 
-    .me-category-list {
-        list-style-type: none;
-    }
-
-    .me-category-item {
-        padding: 4px;
-        font-size: 14px;
-        color: #5FB878;
-    }
-
-    .me-category-item a:hover {
-        text-decoration: underline;
-    }
 </style>
