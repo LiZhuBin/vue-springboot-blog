@@ -1,20 +1,22 @@
 <template>
 <div>
 <PageHeader></PageHeader>
-    <el-main>
-        <el-image :src="article.articlePicture"></el-image>
+  <el-card>
+      <el-image :src="article.articlePicture"></el-image>
+
+
         <div class="me-view-card">
             <h1 class="me-view-title">{{article.articleTitle}}</h1>
             <div class="me-view-time">{{article.articleCreateTime}}</div>
             <div class="me-view-author">
                 <a class="me-view-author">
-                    <el-avatar class="me-view-picture" :src="account.account_head"></el-avatar>
+                    <el-avatar class="me-view-picture" :src="account.accountHead"></el-avatar>
                 </a>
 
                 <div class="me-view-info">
-                    <span>{{account.account_name}}</span>
+                    <span>{{account.accountName}}</span>
                     <div class="me-view-meta">
-                        <span>{{article.createDate | format}}</span>
+                        <span>{{article.articleCreateTime | format}}</span>
                         <span>阅读   {{article.articleReadCount}}</span>
                         <span>评论   {{article.commentCounts}}</span>
                     </div>
@@ -29,10 +31,18 @@
 <!--                        icon="el-icon-edit">编辑</el-button>-->
             </div>
             <el-divider></el-divider>
-            <div class="me-view-container" >
-                {{article.articleDetail}}
-<!--                <markdown-editor :editor=article.editor></markdown-editor>-->
-            </div>
+
+                <mavon-editor
+                        class="md"
+                        :value="article.articleDetail"
+
+                        :subfield = "false"
+                        :defaultOpen = "'preview'"
+                        :toolbarsFlag = "false"
+                        :editable="false"
+                        :scrollStyle="true"
+                        :ishljs = "true"
+                ></mavon-editor>
 
             <div class="me-view-end">
                 <el-alert
@@ -99,7 +109,7 @@
 <!--            </div>-->
 
         </div>
-    </el-main>
+  </el-card>
 
 </div>
 </template>
@@ -108,18 +118,15 @@
     import PageHeader from "../../../components/detail/PageHeader";
     export default {
         name: "Article",
+        props:{
 
+        },
         watch: {
             '$route': function (to, from) {
-                // console.log(to)
-                // console.log(from)
-                // 我这里还是用了Vuex，不过应该不影响理解
-                this.$store.dispatch('updateActiveTemplateId', this.$route.params.templateId)
-                // 通过更新Vuex中的store的数据，让数据发生变化
                 this.init()
             }
         },
-        created() {
+        mounted() {
             this.init();
         },
 
@@ -130,6 +137,7 @@
             this.$api.article.articleDetail(this.$route.params.id)
               .then((response)=>{
                   this.article = response.data.data.article;
+
                   this.account = response.data.data.account;
                   this.labels = response.data.data.labels;
               })
@@ -143,25 +151,17 @@
         },
         data() {
             return {
-
+                detail:"# fff   ",
+                src:"https://raw.githubusercontent.com/LiZhuBin/lizhubin-blog/master/content/blog/others/%E4%BD%BF%E7%94%A8Picgo%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0(%E4%B8%83%E7%89%9B%E4%BA%91%E3%80%81%E9%98%BF%E9%87%8C%E4%BA%91).md",
                 "article": {
-                    "id": 1,
-                    "articleReadCount": 9,
-                    "articleCreateTime": "2020-12-03 07:56:01",
-                    "articleTitle": "nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et",
-                    "articlePicture": "https://source.unsplash.com/random/900x300",
-                    "accountId": 1,
-                    "articleDetail": "nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas.",
-                    "articleDetailType": 0
+
                 },
                 "account": {
-                    "account_head": "https://source.unsplash.com/user/erondu/100x100",
-                    "account_name": "Wendy Wilkinson"
+
                 },
                 "labels": [
                     {
-                        "id": 38,
-                        "label_name": "生活"
+
                     }
                 ],
                 comments: [],
@@ -226,37 +226,6 @@
         margin-top: 20px;
     }
 
-    .me-view-tag {
-        margin-top: 20px;
-        padding-left: 6px;
-        border-left: 4px solid #c5cac3;
-    }
-
-    .me-view-tag-item {
-        margin: 0 4px;
-    }
-
-    .me-view-comment {
-        margin-top: 60px;
-    }
-
-    .me-view-comment-title {
-        font-weight: 600;
-        border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 20px;
-    }
-
-    .me-view-comment-write {
-        margin-top: 20px;
-    }
-
-    .me-view-comment-text {
-        font-size: 16px;
-    }
-
-    .v-show-content {
-        padding: 8px 25px 15px 0px !important;
-    }
 
     .v-note-wrapper .v-note-panel {
         box-shadow: none !important;

@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card  >
     <el-image id="pic"
             style="width: 100px; height: 100px"
             v-bind:src="account.accountHead"
@@ -7,6 +7,11 @@
     </el-image>
     <h2 class="me-author-name">{{account.accountName}}</h2>
     <h3 >{{account.accountSign}}</h3>
+    <div style="text-align: center">
+      <span>文章数{{accountSumary.article_num}}</span>
+      <el-divider  direction="vertical" ></el-divider>
+      <span>阅读数{{accountSumary.read_num}}</span>
+    </div>
     <div class="me-author-description">
       <span><i class="el-icon-location-outline"></i> &nbsp;{{account.accountSite}}</span>
       <span><i class="me-icon-job"></i> &nbsp;{{account.accountCompany}}</span>
@@ -36,6 +41,24 @@
         "accountCompany": "A Company",
         "accountSite": "Gonnosnò"
       },
+        "accountSumary": {
+            "label_num": 30,
+            "classify_num": 20,
+            "read_num": 44,
+            "account_id": 1,
+            "article_num": 40,
+            "id": "5e39aaeba3d8424345f8f72a",
+            "article_date": [
+                {
+                    "month": 1,
+                    "year": 2020
+                },
+                {
+                    "month": 2,
+                    "year": 2020
+                }
+            ]
+        },
     },
     data() {
       return {

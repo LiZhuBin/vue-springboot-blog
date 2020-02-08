@@ -1,7 +1,7 @@
 <template>
     <div  >
-       
-        <ArticleItem v-for="article in data.slice(0, 10)"  :key="article" :data="article"></ArticleItem>
+
+        <ArticleItem v-for="info in data.slice(0, 5)"  :key="info" :article="info.article" :labels="info.labels" :account="info.account"></ArticleItem>
         <el-pagination
                 background
                 layout="prev, pager, next"
@@ -23,7 +23,7 @@
 
             }
         },
-        mounted() {
+        created() {
             this.articlesInit();
         },
         methods:{
@@ -34,7 +34,8 @@
 
                     })
 
-            }
+            },
+
         },
         components:{
             ArticleItem

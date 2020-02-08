@@ -1,11 +1,14 @@
 package com.springboot.blog.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.blog.entity.db.Article;
+import com.springboot.blog.manager.ArticleViews;
+import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 
@@ -14,15 +17,23 @@ import java.util.Map;
 public class LabelController  {
     @Autowired
     private LabelService labelService;
-    @PostMapping("labels")
-    public List<Map> getLabelsByArticleId(@RequestParam("way") String param, @RequestParam("id") int id){
-        if(param.equals("article"))
-            return labelService.getArticleLabels(id);
-        else if (param.equals("account"))
-            return labelService.getAccountLabels(id);
-        return null;
-    }
+    @Autowired
+    private ArticleService articleService;
+//    @PostMapping("labels")
+//    public List<Map> getLabelsByArticleId(@RequestParam("way") String param, @RequestParam("id") int id){
+//        if(param.equals("article"))
+//            return labelService.getArticleLabels(id);
+//        else if (param.equals("account"))
+//            return labelService.getAccountLabels(id);
+//        return null;
+//    }
 
+    @PostMapping("labels")
+    @JsonView(ArticleViews.ListView.class)
+    public List<Article> GetArticlesByLabelId(@RequestParam("accountId") int accountId,@RequestParam("labelName") String labelId){
+
+        return articleService.getArticlesByLabelName(accountId,labelId);
+    }
 
 
 

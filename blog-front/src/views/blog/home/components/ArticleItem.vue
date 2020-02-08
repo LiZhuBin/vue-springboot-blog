@@ -1,40 +1,40 @@
 <template>
 
 
-    <el-card class="me-area" :body-style="{ padding: '16px' }" >
+    <el-card class="me-area" :body-style="{ padding: '16px' }" @click="view(article.id)" >
 
-    <div @click="view(data.article.id)">
+    <div >
         <div class="me-article-header" >
 
-            <a  class="me-article-title">{{data.article.article_title}}</a>
-            <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
+            <a  class="me-article-title">{{article.articleTitle}}</a>
+
             <span class="me-pull-right me-article-count">
 	    	<i class="me-icon-comment"></i>&nbsp;
 	    </span>
             <span class="me-pull-right me-article-count">
-	    	<i class="el-icon-view"></i>&nbsp;{{data.article.article_read_count}}
+	    	<i class="el-icon-view"></i>&nbsp;{{article.articleReadCount}}
 	    </span>
         </div>
 
 
-        <el-image v-bind:src="data.article.article_picture"></el-image>
+        <el-image v-bind:src="article.articlePicture" ></el-image>
 
         <div class="lables-list">
 
-            <el-tag v-for="label in data.labels" :key="label.id" size="mini" type="success">{{label.label_name}}
+            <el-tag v-for="label in labels" :key="label.id" size="mini" type="success">{{label.labelName}}
             </el-tag>
         </div>
         <div class="article-author">
 
-            <el-avatar  :size="50" :src="data.account.account_head"></el-avatar>
-            {{data.account.account_name}}
+            <el-avatar  :size="50" :src="account.accountHead"></el-avatar>
+            {{account.accountName}}
 
 
 
         </div>
 
 
-        <i class="article-date">{{data.article.article_create_time }}</i>&nbsp;
+        <i class="article-date">{{article.articleCreateTime }}</i>&nbsp;
 
     </div>
     </el-card>
@@ -45,36 +45,36 @@
 <script>
 
 
+
     export default {
         name: 'ArticleItem',
         props: {
-            data: {
-                "account": {
-                    "account_head": "https://source.unsplash.com/user/erondu/100x100",
-                    "account_name": "Wendy Wilkinson"
-                },
-                "article": {
-                    "article_read_count": 6,
-                    "account_id": 1,
-                    "article_detail": "vitae erat vel pede blandit congue. In scelerisque scelerisque dui.",
-                    "article_create_time": "2020-07-29 08:38:24",
-                    "article_detail_type": 1,
-                    "article_picture": "https://source.unsplash.com/random/900x300",
-                    "id": 5,
-                    "article_title": "velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,"
-                },
-                "labels": [
-                    {
-                        "id": 48,
-                        "label_name": "生活"
-                    },
-                    {
-                        "id": 70,
-                        "label_name": "生活"
-                    }
-                ]
 
-            }
+            "article": {
+                "accountId": 1,
+                "articleTitle": "urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus",
+                "articleCreateTime": "2020-02-23 03:09:51",
+                "articleReadCount": 14,
+                "articleDetailType": 1,
+                "articlePicture": "https://images.unsplash.com/photo-1578559882096-8db60729f4b6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=900",
+                "id": 2,
+                "articleDetail": "molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est,"
+            },
+            "account": {
+                "accountCompany": "A Company",
+                "accountBirthDate": "2019-01-08 01:51:53",
+                "accountName": "彬",
+                "accountSign": "我的标签我做主",
+                "accountHead": "https://images.unsplash.com/photo-1578539046812-74308e093283?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixlib=rb-1.2.1&q=80&w=400",
+                "communicationId": 1,
+                "accountSite": "Gonnosnò",
+                "id": 1,
+                "accountPassword": "NOL53HNU8LZ",
+                "accountCreateDate": "2019-03-01 01:07:17"
+            },
+            "labels": [
+
+            ],
         },
         data() {
             return {}

@@ -1,8 +1,10 @@
 package com.springboot.blog.service.impl;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.querydsl.core.BooleanBuilder;
 import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.entity.db.QAccount;
+import com.springboot.blog.manager.AccountViews;
 import com.springboot.blog.repository.AccountRepository;
 import com.springboot.blog.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,12 @@ public class AccountServiceImpl implements AccountService {
 //                .where(account.id.eq(id))
 //                .fetchOne();
 
+    }
+
+    @Override
+    @JsonView(AccountViews.OthersView.class)
+    public Account otherViewAccountById(int id) {
+        return accountRepository.findById(id).get();
     }
 
     @CachePut(value = "account",key = "#p0")

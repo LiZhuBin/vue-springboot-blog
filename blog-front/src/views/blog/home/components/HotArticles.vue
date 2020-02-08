@@ -32,7 +32,7 @@
             view(id) {
 
                 this.$router.push({path: `/blog/article/${id}`})
-                this.reload()
+
             }
         }
     }

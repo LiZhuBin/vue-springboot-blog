@@ -1,12 +1,12 @@
 <template>
     <div>
-<PageHeader></PageHeader>
-        <div class="label-articles">
-            <el-timeline v-for="article in articles" :key="article">
-                <el-timeline-item :timestamp=article.articleCreateTime placement="top">
+        <PageHeader :headerName="this.$route.params.id"></PageHeader>
+        <div class="label-articles" v-for="article in articles" :key="article" @click="view(article.id)">
+            <el-timeline>
+                <el-timeline-item :timestamp=article.articleCreateTime placement="top" @click="go(d=article.id)">
                     <el-card>
                         <h4>{{article.articleTitle}}</h4>
-                        <p>	<i class="el-icon-view"></i>&nbsp;{{article.articleReadCount}}</p>
+                        <p><i class="el-icon-view"></i>&nbsp;{{article.articleReadCount}}</p>
                     </el-card>
                 </el-timeline-item>
 
@@ -17,15 +17,14 @@
 
 <script>
     import PageHeader from "../../../components/detail/PageHeader";
+
     export default {
         name: "Label",
-        props:{
-
-        },
+        props: {},
         watch: {
             '$route': function (to, from) {
 
-                this.$store.dispatch('updateActiveTemplateId', this.$route.params.templateId)
+                //this.$store.dispatch('updateActiveTemplateId', this.$route.params.id)
 
                 this.init()
             }
@@ -33,8 +32,8 @@
         created() {
             this.init();
         },
-        data(){
-            return{
+        data() {
+            return {
                 "articles": [
                     {
                         "id": 46,
@@ -47,16 +46,30 @@
                 ]
             }
         },
-        components:{
+        components: {
             PageHeader
         },
-        methods:{
-            init(){
-                this.$api.label.getArticleByLabelId(this.$route.params.id)
-                .then((response)=>{
-                    this.articles = response.data.data;
+        methods: {
+            init() {
+                let param = {
+                    "accountId": this.$store.state.accountData.id, "labelName": this.$route.params.id
+                };
+                this.$http({
+                    method:'post',
+                    url:'/labels',
+                    data:this.$qs.stringify(param)
                 })
+
+                    .then((response) => {
+                        this.articles = response.data.data;
+                    })
+                    .catch((error) => {
+                    })
+            },
+            view(id) {
+                this.$router.push({path: `/blog/article/${id}`})
             }
+            ,
         }
     }
 

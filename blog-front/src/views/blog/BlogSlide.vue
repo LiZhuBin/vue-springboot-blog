@@ -1,29 +1,23 @@
 <template>
-    <div >
-        <card-me :account="account"></card-me>
-        <card-article :hotArticles="articles.hotArticles" :newArticles="articles.newArticles"></card-article>
-        <card-tag :tags="labels"></card-tag>
+    <el-scrollbar >
+        <div>
+        <card-me :account="account" :account-sumary="accountSumary"></card-me>
+        <card-article :hotArticles="articles.hotArticles" :newArticles="articles.newArticles" ></card-article>
+        </div>
 
-        <card-archive></card-archive>
-        <card-resource></card-resource>
-
-    </div>
+    </el-scrollbar>
 </template>
 
 <script>
     import CardMe from "./home/components/CardMe";
-    import CardArchive from "./home/components/CardArchive";
-    import CardTag from "./home/components/CardTag";
-    import CardResource from "./home/components/CardResource";
+
     import CardArticle from "./home/components/CardArticle";
 
     export default {
-        name: "Slide",
+        name: "BlogSlide",
         components:{
             CardMe,
-            CardArchive,
-            CardTag,
-            CardResource,
+
             CardArticle
         },
         data(){
@@ -39,8 +33,8 @@
 
                         ]
                     },
-                    "labels": [
-                    ]
+
+                "accountSumary": {},
                 }
         },
         mounted() {
@@ -52,7 +46,8 @@
                 .then((response)=>{
                     this.account = response.data.data.account;
                     this.articles = response.data.data.articles;
-                    this.labels = response.data.data.labels;
+
+                    this.accountSumary = response.data.data.accountSumary;
                 })
             }
         }

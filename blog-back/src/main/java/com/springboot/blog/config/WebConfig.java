@@ -18,6 +18,11 @@ import java.util.List;
 @EnableRedisHttpSession
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    /**
+     * @Description: 装配
+     * @Param: [entityManager]
+     * @return: com.querydsl.jpa.impl.JPAQueryFactory
+     */
     @Bean
     public JPAQueryFactory jpaQuery(EntityManager entityManager) {
         return new JPAQueryFactory(entityManager);
