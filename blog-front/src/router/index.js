@@ -13,7 +13,7 @@ const routes = [
         redirect:'blog/articleslist'},
     {path: '/blog',
         name: 'blog',
-        component: () => import('@/views/blog/BlogHome.vue'),
+        component: () => import('../views/blog/BlogHome.vue'),
         redirect:'blog/articleslist',
         children: [{
             path: 'articleslist',
@@ -21,8 +21,11 @@ const routes = [
             component: () => import('../views/blog/home/ArticlesList.vue')
         },
             {path:'article/:id',name: 'article',component:()=>import ('../views/blog/article/Article.vue')},
-            {path:'label/:id',name:'label',component:()=>import('../views/blog/label/Label.vue')},
-        ]
+            {path:'label/:labelName',name:'label',component:()=>import('../views/blog/label/Label.vue')},
+            {path:'archive/:year/:month',name:'archive',component:()=>import('../views/blog/archive/Archive.vue')},
+            {path:'classify/:classifyName',name:'classify',component:()=>import('../views/blog/classify/Classify')},
+        ],
+
     },
     {
         path:'/manage',

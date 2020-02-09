@@ -1,5 +1,6 @@
 package com.springboot.blog.service.impl;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.ArticleRepository;
@@ -49,34 +50,7 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.newArticles(accountId, line);
     }
 
-//    @Override
-//    @CachePut(value = "article-date-classify",key = "#p0")
-//    public List<AccountSumary> articleDateClassify(int accountId) {
-//        return accountSumaryService.findAllByAccountId(accountId);
 
-//        Set<String> dateClassifies = new HashSet<>();
-//        List<String> fetches = (List<String>) jpaQueryFactory.select(article.articleCreateTime).from(article).where(article.accountId.eq(accountId)).orderBy(article.articleCreateTime.asc()).fetch();
-//        for (String fetch :fetches) {
-//            ArticleDateClassify dateClassify = new ArticleDateClassify(fetch.substring(0,4),fetch.substring(5,7));
-//
-//            dateClassifies.add( dateClassify.toString());
-//        }
-//        JSONObject jsonObject = new JSONObject();
-//        List<JSONObject> jsonObjectList = new ArrayList<JSONObject>();
-//        Map map = new HashMap<String,String>();
-//        for (Iterator<String> it = dateClassifies.iterator(); it.hasNext(); ) {
-//            String date = it.next();
-//            jsonObject.put("year",date.substring(0,4));
-//            jsonObject.put("month",date.substring(4,6));
-//            jsonObjectList.add(jsonObject);
-//        }
-//        return jsonObjectList;
-//    }
-
-//    @CacheEvict(value = "getAllArticles")
-//    public void clearAllArticles(){
-//
-//    }
 
 
     /*通过作者id查找文章*/
@@ -108,11 +82,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    /**
+    * @Description: 通过label名和作者名得到文章信息
+    * @Param: [accountId, labelName]
+    * @return: java.util.List<com.springboot.blog.entity.db.Article>
+    */
     public List<Article> getArticlesByLabelName(int accountId,String labelName) {
-//        List<Integer> articlesId = jpaQueryFactory.select(article.id)
-//                .from(article)
-//                .where(article.accountId.eq(accountId))
-//                .fetch();
         Criteria criteria =new Criteria();
         criteria.and("account_id").is(accountId);
         criteria.and("labels").in(labelName);
@@ -124,15 +99,34 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return articleList;
 
-//        return jpaQueryFactory.select(article)
-//                .from(article)
-//                .where(article.id.in(articlesId))
-//                .orderBy(article.articleCreateTime.asc())
-//                .fetch();
     }
 
+    @Override
+    public List<Article> getArticlesByArchive(int accountId, String year, String month) {
+        BooleanBuilder booleanBuilder = new BooleanBuilder();
+        booleanBuilder.and(article.accountId.eq(accountId));
+        StringBuffer stringBuffer =new StringBuffer();
+        stringBuffer.append(year);
+        stringBuffer.append('-');
+        stringBuffer.append(month);
+        booleanBuilder.and(article.articleCreateTime.startsWith(stringBuffer.toString()));
+        return jpaQueryFactory.selectFrom(article).where(booleanBuilder).fetch();
 
+    }
 
+    @Override
+    public List<Article> getArticlesByClassifyName(int accountId, String classifyName) {
+        Criteria criteria =new Criteria();
+        criteria.and("account_id").is(accountId);
+        criteria.and("classify").in(classifyName);
+        Query query = new Query(criteria);
+        List<ArticleClassify> articleClassifies = mongoTemplate.find(query, ArticleClassify.class);
+        List<Article> articleList= new ArrayList<>();
+        for(ArticleClassify articleClassify :articleClassifies){
+            articleList.add(getArticlesById(articleClassify.getArticleId()));
+        }
+        return articleList;
+    }
 
 
 }

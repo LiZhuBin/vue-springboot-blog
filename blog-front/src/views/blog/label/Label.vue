@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PageHeader :headerName="this.$route.params.id"></PageHeader>
+        <PageHeader :headerName="this.$route.params.labelName"></PageHeader>
         <div class="label-articles" v-for="article in articles" :key="article" @click="view(article.id)">
             <el-timeline>
                 <el-timeline-item :timestamp=article.articleCreateTime placement="top" @click="go(d=article.id)">
@@ -52,11 +52,11 @@
         methods: {
             init() {
                 let param = {
-                    "accountId": this.$store.state.accountData.id, "labelName": this.$route.params.id
+                    "accountId": this.$store.state.accountData.id
                 };
                 this.$http({
                     method:'post',
-                    url:'/labels',
+                    url:'labels/'+this.$route.params.labelName,
                     data:this.$qs.stringify(param)
                 })
 

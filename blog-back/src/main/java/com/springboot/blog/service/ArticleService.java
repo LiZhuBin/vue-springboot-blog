@@ -12,4 +12,6 @@ public interface ArticleService {
     List<Article> getArticlesByAccountId(int id);
     Article getArticlesById(int id);
     List<Article> getArticlesByLabelName(int accountId,String labelName);
+    List<Article> getArticlesByArchive(int accountId,String year,String month);
+    List<Article> getArticlesByClassifyName(int accountId,String classifyName);
 }

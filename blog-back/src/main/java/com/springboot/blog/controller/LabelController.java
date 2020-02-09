@@ -28,11 +28,11 @@ public class LabelController  {
 //        return null;
 //    }
 
-    @PostMapping("labels")
+    @PostMapping("labels/{labelName}")
     @JsonView(ArticleViews.ListView.class)
-    public List<Article> GetArticlesByLabelId(@RequestParam("accountId") int accountId,@RequestParam("labelName") String labelId){
+    public List<Article> GetArticlesByLabelId(@RequestParam("accountId") int accountId,@PathVariable(value = "labelName") String labelName){
 
-        return articleService.getArticlesByLabelName(accountId,labelId);
+        return articleService.getArticlesByLabelName(accountId,labelName);
     }
 
 

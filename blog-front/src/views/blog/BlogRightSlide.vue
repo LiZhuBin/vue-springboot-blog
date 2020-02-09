@@ -3,6 +3,7 @@
     <card-tag :tags="accountSumary.labels"></card-tag>
 
     <card-archive :articleDate = "accountSumary.articleDate"></card-archive>
+        <card-classify :classify="accountSumary.classify"></card-classify>
     <card-resource ></card-resource>
     </div>
 </template>
@@ -11,12 +12,14 @@
     import CardArchive from "./home/components/CardArchive";
     import CardTag from "./home/components/CardTag";
     import CardResource from "./home/components/CardResource";
+    import CardClassify from "./home/components/CardClassify";
     export default {
         name: "BlogRightSlide",
         components:{
             CardArchive,
             CardTag,
             CardResource,
+            CardClassify
         },
         data(){
             return{
