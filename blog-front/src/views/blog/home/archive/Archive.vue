@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PageHeader :headerName="this.$route.params.id"></PageHeader>
+        <PageHeader :headerName="this.$route.params.year+'/'+this.$route.params.month"></PageHeader>
         <div class="label-articles" v-for="article in articles" :key="article" @click="view(article.id)">
             <el-timeline>
                 <el-timeline-item :timestamp=article.articleCreateTime placement="top" @click="go(d=article.id)">
@@ -21,6 +21,7 @@
     export default {
         name: "Archive",
         props: {},
+
         watch: {
             '$route': function (to, from) {
 
@@ -30,6 +31,7 @@
             }
         },
         created() {
+
             this.init();
         },
         data() {
@@ -56,10 +58,9 @@
                 };
                 this.$http({
                     method:'post',
-                    url:'labels/'+this.$route.params.id,
+                    url:'archive/'+this.$route.params.year+'/'+this.$route.params.month,
                     data:this.$qs.stringify(param)
                 })
-
                     .then((response) => {
                         this.articles = response.data.data;
                     })
@@ -67,7 +68,7 @@
                     })
             },
             view(id) {
-                this.$router.push({path: `/blog/article/${id}`})
+                this.$router.push({path: `/blog/home/article/${id}`})
             }
             ,
         }

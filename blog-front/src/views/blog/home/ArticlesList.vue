@@ -1,7 +1,8 @@
 <template>
     <div  >
-
-        <ArticleItem v-for="info in data.slice(0, 5)"  :key="info" :article="info.article" :labels="info.labels" :account="info.account"></ArticleItem>
+        <div v-for="info in data.slice(0, 5)"  :key="info" >
+        <ArticleItem :article="info.article" :labels="info.labels" :account="info.account"></ArticleItem>
+        </div>
         <el-pagination
                 background
                 layout="prev, pager, next"

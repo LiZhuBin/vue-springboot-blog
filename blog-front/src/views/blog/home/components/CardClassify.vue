@@ -35,7 +35,7 @@
 
             go(name) {
 
-                this.$router.push({path: `/blog/classify/${name}`})
+                this.$router.push({path: `/blog/home/classify/${name}`})
 
 
             }}

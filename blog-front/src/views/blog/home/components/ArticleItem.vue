@@ -1,9 +1,9 @@
 <template>
 
 
-    <el-card class="me-area" :body-style="{ padding: '16px' }" @click="view(article.id)" >
+    <el-card class="me-article-card" :body-style="{ padding: '16px' }" >
 
-    <div >
+    <div @click="view(article.id)" >
         <div class="me-article-header" >
 
             <a  class="me-article-title">{{article.articleTitle}}</a>
@@ -26,7 +26,7 @@
         </div>
         <div class="article-author">
 
-            <el-avatar  :size="50" :src="account.accountHead"></el-avatar>
+            <el-avatar  :size="40" :src="account.accountHead"></el-avatar>
             {{account.accountName}}
 
 
@@ -85,7 +85,7 @@
         methods: {
 
             view(id) {
-                this.$router.push({path: `/blog/article/${id}`})
+                this.$router.push({path: `/blog/home/article/${id}`})
             },
 
         }
@@ -93,7 +93,9 @@
 </script>
 
 <style scoped>
-
+    .me-article-card{
+        padding-bottom: 10px;
+    }
     .me-article-header {
         /*padding: 10px 18px;*/
         padding-bottom: 10px;

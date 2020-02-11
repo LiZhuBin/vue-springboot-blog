@@ -40,7 +40,7 @@
 
       tag(name) {
 
-        this.$router.push({path: `/blog/label/${name}`})
+        this.$router.push({path: `/blog/home/label/${name}`})
 
 
       }}
