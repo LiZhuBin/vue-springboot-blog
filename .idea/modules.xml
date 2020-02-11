@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/blog-back/blog-back.iml" filepath="$PROJECT_DIR$/blog-back/blog-back.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/vue-springboot-blog.iml" filepath="$PROJECT_DIR$/.idea/vue-springboot-blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-admin/vue-springboot-blog.iml" filepath="$PROJECT_DIR$/blog-admin/vue-springboot-blog.iml" />
     </modules>
   </component>
 </project>

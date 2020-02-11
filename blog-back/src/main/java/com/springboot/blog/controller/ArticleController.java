@@ -8,6 +8,7 @@ import com.springboot.blog.manager.ArticleViews;
 import com.springboot.blog.service.AccountService;
 import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.LabelService;
+import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,8 @@ public class ArticleController {
     @Autowired
     private AccountService accountService;
     @Autowired
+    private ResourcesService resourcesService;
+    @Autowired
     private LabelService labelService;
 
     @GetMapping("articles/{id}")
@@ -36,7 +39,9 @@ public class ArticleController {
         */
     public JSONObject GetArticlaeById(@PathVariable(value = "id") int id){
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("article",articleService.getArticlesById(id));
+        Article article = articleService.getArticlesById(id);
+        article.setArticlePicture(resourcesService.randomImage(article.getAccountId()));
+        jsonObject.put("article",article);
         jsonObject.put("account", JSON.toJSON((accountService.otherViewAccountById(id))));
         jsonObject.put("labels", JSON.toJSON(labelService.getArticleLabels(id)));
         return jsonObject;
@@ -54,6 +59,7 @@ public class ArticleController {
         List<Article> articleList = articleService.getArticlesByAccountId(id);
         for(Article article :articleList){
             JSONObject jsonObject = new JSONObject();
+            article.setArticlePicture(resourcesService.randomImage(article.getAccountId()));
             jsonObject.put("article", JSON.toJSON(article));
             jsonObject.put("account", JSON.toJSON(accountService.otherViewAccountById(id)));
             List<Map> labelNames = labelService.getArticleLabels(id);

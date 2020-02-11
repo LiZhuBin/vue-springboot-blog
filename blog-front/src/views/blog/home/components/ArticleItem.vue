@@ -94,6 +94,7 @@
 
 <style scoped>
     .me-article-card{
+        height: 300px;
         padding-bottom: 10px;
     }
     .me-article-header {

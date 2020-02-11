@@ -6,6 +6,7 @@ import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.ArticleRepository;
 import com.springboot.blog.service.AccountSumaryService;
 import com.springboot.blog.service.ArticleService;
+import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.PageRequest;
@@ -28,6 +29,8 @@ public class ArticleServiceImpl implements ArticleService {
     ArticleRepository articleRepository;
     @Autowired
     JPAQueryFactory jpaQueryFactory;
+    @Autowired
+    ResourcesService resourcesService;
     @Autowired
     AccountSumaryService accountSumaryService;
     @Autowired

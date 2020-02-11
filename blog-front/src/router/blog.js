@@ -14,6 +14,7 @@ export default {
         },
             {path: 'article/:id', name: 'article', component: () => import ('../views/blog/home/article/Article.vue')},
             {path: 'label/:labelName', name: 'label', component: () => import('../views/blog/home/label/Label.vue')},
+            {path:'resources/images',name:'resources',component:()=>import('../views/blog/home/resources/images/Index.vue')},
             {
                 path: 'archive/:year/:month',
                 name: 'archive',

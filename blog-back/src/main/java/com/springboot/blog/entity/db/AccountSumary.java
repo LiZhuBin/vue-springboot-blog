@@ -18,6 +18,7 @@ import java.util.List;
 @Component
 
 public class AccountSumary  implements Serializable {
+
     /**
      * _id : 5e39aaeba3d8424345f8f72a
      * account_id : 1
@@ -28,6 +29,7 @@ public class AccountSumary  implements Serializable {
      * article_date : [{"year":2020,"month":1,"num":1},{"year":2020,"month":2,"num":1}]
      * labels : [{"name":"picgo","num":1},{"name":"markdown","num":1}]
      * classify : [{"name":"前端","num":1},{"name":"工具","num":1}]
+     * resource : {"images":[{"name":"东京食尸鬼","num":1}],"video":[{"name":"自然","num":1}],"files":[{"name":"test","num":1}]}
      */
 
     private String id;
@@ -36,9 +38,54 @@ public class AccountSumary  implements Serializable {
     private int labelNum;
     private int readNum;
     private int classifyNum;
+    private ResourceBean resource;
     private List<ArticleDateBean> articleDate;
     private List<LabelsBean> labels;
     private List<ClassifyBean> classify;
+
+    @NoArgsConstructor
+    @Data
+    public static class ResourceBean {
+        private List<ImagesBean> images;
+        private List<VideoBean> video;
+        private List<FilesBean> files;
+
+        @NoArgsConstructor
+        @Data
+        public static class ImagesBean {
+            /**
+             * name : 东京食尸鬼
+             * num : 1
+             */
+
+            private String name;
+            private int num;
+        }
+
+        @NoArgsConstructor
+        @Data
+        public static class VideoBean {
+            /**
+             * name : 自然
+             * num : 1
+             */
+
+            private String name;
+            private int num;
+        }
+
+        @NoArgsConstructor
+        @Data
+        public static class FilesBean {
+            /**
+             * name : test
+             * num : 1
+             */
+
+            private String name;
+            private int num;
+        }
+    }
 
     @NoArgsConstructor
     @Data

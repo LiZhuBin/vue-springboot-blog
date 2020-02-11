@@ -4,7 +4,7 @@
 
     <card-archive :articleDate = "accountSumary.articleDate"></card-archive>
         <card-classify :classify="accountSumary.classify"></card-classify>
-    <card-resource ></card-resource>
+    <card-resource :resource="accountSumary.resource"></card-resource>
     </div>
 </template>
 

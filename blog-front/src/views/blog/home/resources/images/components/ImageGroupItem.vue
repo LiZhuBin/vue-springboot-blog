@@ -1,0 +1,31 @@
+<template>
+    <el-card :body-style="{ padding: '0px' }">
+        <el-image
+
+                :src="image.detail[0].url"
+                :fit="cover"></el-image>
+        <div style="padding: 9px;">
+            <span>{{image.description}}</span>
+            <i class="el-icon-view">{{image.view}}</i>&nbsp;
+        </div>
+
+    </el-card>
+</template>
+
+<script>
+    export default {
+        name: "ImageGroupItem",
+        props:{
+            image:{
+                request: String,
+
+            },
+
+        }
+
+    }
+</script>
+
+<style scoped>
+
+</style>
