@@ -87,10 +87,16 @@ public class ResourcesServiceImpl implements ResourcesService {
 
     @Override
     public List<?> resourceClassify(int accountId, String way, String classify) {
-//        Criteria criteria = new Criteria();
-//        criteria.and("account_id").is(accountId);
-//        criteria.and("")
-//        Query query = new Query(Criteria.where("account_id").is(accountId));
+        Resources.ResourcesBean resources = byAccountId(accountId).getResources();
+        if ("images".equals(way)) {
+
+            return resources.getImages();
+        }else if("video".equals(way)){
+            return resources.getVideos();
+        }else if("files".equals(way)){
+            return resources.getVideos();
+        }
+        Query query = new Query(Criteria.where("account_id").is(accountId));
 //        return mongoTemplate.findOne(query,Resources.class);
         return null;
     }

@@ -25,8 +25,23 @@ export default {
                 name: 'classify',
                 component: () => import('../views/blog/home/classify/Classify')
             },
+
         ],
-    }],
+
+    },
+        {
+            path:'manage',
+            name:'manage',
+            component:()=>import('../views/blog/manage/Home.vue'),
+            redirect:'manage/blog-manage',
+            children:[
+                {path: 'my-blog',name: 'my-blog',component:()=>import('../views/blog/manage/blog-manage/my-blog/index')},
+                {path:'blog-manage',name:'blog-manage',component:()=>import('../views/blog/manage/blog-manage/BlogManageHome.vue')},
+                {path:'write-article',name:'write-article',component:()=>import('../views/blog/manage/blog-manage/write-article/index.vue')},
+                {path:'info-manage',name:'info-manage',component:()=>import('../views/blog/manage/info-manage/InfoManage')}
+            ],
+        }
+    ],
 
 
 

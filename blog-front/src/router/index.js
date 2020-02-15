@@ -4,7 +4,7 @@ import home from "./home";
 import login from "./login"
 import register from "./register";
 import blog from "./blog";
-import manage from "./manage";
+
 import developer from "./developer";
 
 Vue.use(VueRouter)
@@ -14,7 +14,6 @@ const routes = [
     login,
     register,
     blog,
-    manage,
     developer,
 
 
