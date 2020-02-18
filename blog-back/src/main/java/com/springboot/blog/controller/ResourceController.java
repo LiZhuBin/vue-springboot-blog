@@ -1,8 +1,8 @@
 package com.springboot.blog.controller;
 
-import com.springboot.blog.entity.db.Resources;
 import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +21,12 @@ import java.util.List;
 public class ResourceController {
     @Autowired
     ResourcesService resourcesService;
+    @Autowired
+    MongoTemplate mongoTemplate;
     @GetMapping("/resources/{id}")
-    public Resources byAccountId(@PathVariable("id") int id){
-        return resourcesService.byAccountId(id);
+    public Object byAccountId(@PathVariable("id") int id){
+
+       return resourcesService.byAccountId(id);
 
     }
     @GetMapping("/resources/images/{id}")
@@ -32,10 +35,16 @@ public class ResourceController {
     }
     @PostMapping("/resources")
     public List<?> detail(@RequestParam("accountId") int accountId,@RequestParam("way") String way){
-        return resourcesService.detailByAccountId(way,accountId);
+        return resourcesService.detailByAccountId(resourcesService.byAccountId(accountId),way);
     }
     @PostMapping("/resources/{way}/{classify}")
-    public List<?> detail(@RequestParam("accountId") int accountId,@PathVariable("way") String way,@PathVariable("classify") String classify){
+        public List<?> resourcesClassify(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify){
+
         return resourcesService.resourceClassify(accountId,way,classify);
+    }
+    @PostMapping("/resources/{way}/{classify}/{name}")
+    public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify,@PathVariable("name") String name){
+
+        return resourcesService.detail(accountId,way,classify,name);
     }
 }

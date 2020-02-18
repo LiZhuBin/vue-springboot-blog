@@ -3,7 +3,9 @@
 
 
         <el-page-header @back="goBack" :content="headerName">
+
         </el-page-header>
+
         <el-divider></el-divider>
 
     </div>

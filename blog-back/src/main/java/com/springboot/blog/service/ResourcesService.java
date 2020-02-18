@@ -8,6 +8,8 @@ public interface ResourcesService {
     public Resources byAccountId(int accountId);
     public List<String> allImages(int accountId);
     public String randomImage(int accountId);
-    public List<?> detailByAccountId(String way, int accountId);
-    public List<?> resourceClassify(int accountId,String way,String classify);
+    public List<?> detailByAccountId(Resources resources,String way);
+    public List<?> resourceClassify(int accountId, String way, String classify);
+    List<?> detail(int accountId,String way,String classify,String name);
+
 }

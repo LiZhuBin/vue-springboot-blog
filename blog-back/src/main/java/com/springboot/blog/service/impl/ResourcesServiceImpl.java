@@ -5,6 +5,7 @@ import com.springboot.blog.repository.ResourcesRepository;
 import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,10 @@ public class ResourcesServiceImpl implements ResourcesService {
     @Autowired
     MongoTemplate mongoTemplate;
     public Random random = new Random();
+    // 1 初始化用户身份信息（secretId, secretKey）。
+    String secretId = "1258635419";
+    String secretKey = "jEXUCpHgqlaDSRBmywjHai4IHyQcSRDs";
+
     @Override
     public Resources byAccountId(int accountId) {
         Query query = new Query(Criteria.where("account_id").is(accountId));
@@ -49,9 +54,9 @@ public class ResourcesServiceImpl implements ResourcesService {
 
         List<String> nameList = new ArrayList<>();
 
-        for(Resources.ResourcesBean.ImagesBean s:r.getResources().getImages()){
+        for(Resources.ImagesBean s:r.getImages()){
             if(s.getPower().equals("private")) break;
-            for(Resources.ResourcesBean.ImagesBean.DetailBean detailBean:s.getDetail()){
+            for(Resources.ImagesBean.DetailBean detailBean:s.getDetail()){
                 nameList.add(detailBean.getUrl());
             }
         }
@@ -71,8 +76,8 @@ public class ResourcesServiceImpl implements ResourcesService {
     * @Param: [way, accountId]
     * @return: java.util.List<?>
     */
-    public List<?> detailByAccountId(String way, int accountId) {
-        Resources.ResourcesBean resources = byAccountId(accountId).getResources();
+    public List<?> detailByAccountId( Resources resources,String way) {
+
         if ("images".equals(way)) {
 
             return resources.getImages();
@@ -87,17 +92,35 @@ public class ResourcesServiceImpl implements ResourcesService {
 
     @Override
     public List<?> resourceClassify(int accountId, String way, String classify) {
-        Resources.ResourcesBean resources = byAccountId(accountId).getResources();
-        if ("images".equals(way)) {
 
-            return resources.getImages();
-        }else if("video".equals(way)){
-            return resources.getVideos();
-        }else if("files".equals(way)){
-            return resources.getVideos();
-        }
-        Query query = new Query(Criteria.where("account_id").is(accountId));
-//        return mongoTemplate.findOne(query,Resources.class);
-        return null;
+        Criteria criteria = new Criteria();
+        criteria.and("account_id").is(accountId);
+        criteria.and("images.classify").is(classify);
+                Aggregation aggregation = Aggregation.newAggregation(
+          Aggregation.match(criteria)
+        );
+        Query query = new Query(criteria);
+
+        Resources r = mongoTemplate.findOne(query,Resources.class);
+        List<?> objects = detailByAccountId(r, way);
+        return objects;
     }
+
+    @Override
+    public List<?> detail(int accountId, String way, String classify, String name) {
+        Criteria criteria = new Criteria();
+        criteria.and("account_id").is(accountId);
+        criteria.and("images.classify").is(classify);
+        criteria.and("images.description").is(name);
+        Aggregation aggregation = Aggregation.newAggregation(
+                Aggregation.match(criteria)
+        );
+        Query query = new Query(criteria);
+
+        Resources r = mongoTemplate.findOne(query,Resources.class);
+        List<?> objects = detailByAccountId(r, way);
+        return objects;
+    }
+
+
 }

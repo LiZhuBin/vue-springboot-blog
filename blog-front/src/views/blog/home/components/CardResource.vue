@@ -2,7 +2,7 @@
     <el-card :body-style="{ padding: '8px 18px' }">
         <el-collapse  >
             <el-collapse-item title="图片" name="1"  v-for="image in resource.images" :key="image.name" >
-                <el-link @click="go('images')">
+                <el-link @click="go('images',image.name)">
                     {{image.name}}
                 </el-link>
 <!--                <div>{{image.name}}</div>-->
@@ -49,8 +49,8 @@
             }
         },
         methods:{
-            go(id){
-                this.$router.push('/blog/home/resources/'+id);
+            go(way,classify){
+                this.$router.push('/blog/home/resources/'+way+'/'+classify);
             }
         }
     }

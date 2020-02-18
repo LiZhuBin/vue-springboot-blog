@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 
@@ -43,7 +42,7 @@ public class ArticleController {
         article.setArticlePicture(resourcesService.randomImage(article.getAccountId()));
         jsonObject.put("article",article);
         jsonObject.put("account", JSON.toJSON((accountService.otherViewAccountById(id))));
-        jsonObject.put("labels", JSON.toJSON(labelService.getArticleLabels(id)));
+        jsonObject.put("labels", JSON.toJSON(labelService.getArticleLabels(article.getId())));
         return jsonObject;
     }
 
@@ -62,8 +61,7 @@ public class ArticleController {
             article.setArticlePicture(resourcesService.randomImage(article.getAccountId()));
             jsonObject.put("article", JSON.toJSON(article));
             jsonObject.put("account", JSON.toJSON(accountService.otherViewAccountById(id)));
-            List<Map> labelNames = labelService.getArticleLabels(id);
-            jsonObject.put("labels", labelNames);
+            jsonObject.put("labels", labelService.getArticleLabels(id));
             jsonObjects.add(jsonObject);
         }
         return jsonObjects;

@@ -21,7 +21,7 @@
 
         <div class="lables-list">
 
-            <el-tag v-for="label in labels" :key="label.id" size="mini" type="success">{{label.labelName}}
+            <el-tag v-for="label in labels" :key="label" size="mini" type="success">{{label}}
             </el-tag>
         </div>
         <div class="article-author">

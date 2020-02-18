@@ -1,10 +1,11 @@
 <template>
     <div>
-        <page-header :header-name="this.headName"></page-header>
+
+        <page-header :header-name="this.$route.params.classify"></page-header>
         <el-row :gutter="20" v-for="group in imgGroups" :key="group">
             <el-col :span="6">
                 <el-badge :value="group.detail.length" class="item" type="primary">
-               <ImageGroupItem  :image="group"></ImageGroupItem>
+                    <ImageGroupItem  :image="group"></ImageGroupItem>
                 </el-badge>
             </el-col>
 
@@ -19,9 +20,11 @@
         name: "Index",
         data(){
             return{
-                headName:"相册集",
                 imgGroups:[]
             }
+        },
+        props:{
+
         },
         mounted() {
             this.init();
@@ -32,10 +35,11 @@
         },
         methods:{
             init(){
-                this.$http.post('/resources',this.$qs.stringify({'way':'images','accountId':this.$store.state.accountData.id}))
-                .then((response)=>{
-                    this.imgGroups= response.data.data;
-                }).catch((error)=>{
+                this.$http.post('/resources/images/'+this.$route.params.classify,this.$qs.stringify({'accountId':this.$store.state.accountData.id}))
+                    .then((response)=>{
+
+                        this.imgGroups= response.data.data;
+                    }).catch((error)=>{
                     alert(error);
                 })
             },
@@ -44,6 +48,7 @@
             }
         }
     }
+
 </script>
 
 <style scoped>

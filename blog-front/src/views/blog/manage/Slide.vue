@@ -13,9 +13,9 @@
             <i class="el-icon-edit"></i>
             <span slot="title">写博客</span>
         </el-menu-item>
-        <el-menu-item index="info-manage">
-            <i class="el-icon-setting"></i>
-            <span slot="title">个人信息</span>
+        <el-menu-item index="resources-manage">
+            <i class="el-icon-edit"></i>
+            <span slot="title">资源管理</span>
         </el-menu-item>
     </el-menu>
 </template>
