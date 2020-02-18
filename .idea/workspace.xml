@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27088f40-c117-4215-bbcf-703d9462b30a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/ImageUploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/entity/TencentCOS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/src/resources/AppendObjectDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-classify/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-classify/Slide.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-classify/classify/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-classify/components/ClassifyItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-classify/labels/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/Detail/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/manage/resources-manage/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/manage/resources-manage/files/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/manage/resources-manage/images/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog-front/src/views/blog/manage/resources-manage/videos/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/config/RedisAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/config/RedisAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/ResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/ResourceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/entity/db/AccountSumary.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/entity/db/AccountSumary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/entity/db/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/entity/db/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/repository/LabelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/repository/LabelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/LabelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/LabelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/ResourcesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/ResourcesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/impl/LabelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/impl/LabelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/impl/ResourcesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/java/com/springboot/blog/service/impl/ResourcesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/blog-back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/components/detail/PageHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/components/detail/PageHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/router/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/router/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/BaseHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/BaseHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/components/ArticleItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/home/components/ArticleItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/components/CardResource.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/home/components/CardResource.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/article-archive/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/Content.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/components/ImageGroupItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/home/resources/images/components/ImageGroupItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/manage/Slide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/manage/Slide.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-front/src/views/blog/manage/info-manage/InfoManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-front/src/views/blog/info/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spy.log" beforeDir="false" afterPath="$PROJECT_DIR$/spy.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +359,7 @@
       <workItem from="1581669618646" duration="6427000" />
       <workItem from="1581752859228" duration="1115000" />
       <workItem from="1581754016709" duration="29323000" />
-      <workItem from="1581865116815" duration="4560000" />
+      <workItem from="1581865116815" duration="6593000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577590129388</created>
@@ -448,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581406468131</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="文章分类页">
+      <created>1582035920736</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582035920736</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +438,8 @@
     <MESSAGE value="框架修整" />
     <MESSAGE value="文章正文页面" />
     <MESSAGE value="增加baseheader,重构主页框架" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加baseheader,重构主页框架" />
+    <MESSAGE value="文章分类页" />
+    <option name="LAST_COMMIT_MESSAGE" value="文章分类页" />
   </component>
   <component name="WindowStateProjectService">
     <state x="282" y="12" key="#Assign_Data_Sources" timestamp="1579543107333">
@@ -564,10 +534,10 @@
       <screen x="0" y="0" width="1366" height="714" />
     </state>
     <state x="420" y="100" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.714@0.0.1366.714" timestamp="1580832748831" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581406462952">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582035915767">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.714@0.0.1366.714" timestamp="1581406462952" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.714@0.0.1366.714" timestamp="1582035915767" />
     <state x="99" y="99" width="1168" height="516" key="DiffContextDialog" timestamp="1578554460513">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
@@ -576,38 +546,38 @@
       <screen x="0" y="0" width="1366" height="714" />
     </state>
     <state x="576" y="63" key="FileChooserDialogImpl/0.0.1366.714@0.0.1366.714" timestamp="1581413180087" />
-    <state width="1320" height="230" key="GridCell.Tab.0.bottom" timestamp="1581865985421">
+    <state width="1320" height="230" key="GridCell.Tab.0.bottom" timestamp="1582037914534">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.0.bottom/0.0.1366.714@0.0.1366.714" timestamp="1581865985421" />
-    <state width="1320" height="230" key="GridCell.Tab.0.center" timestamp="1581865985420">
+    <state width="1320" height="230" key="GridCell.Tab.0.bottom/0.0.1366.714@0.0.1366.714" timestamp="1582037914534" />
+    <state width="1320" height="230" key="GridCell.Tab.0.center" timestamp="1582037914533">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.0.center/0.0.1366.714@0.0.1366.714" timestamp="1581865985420" />
-    <state width="1320" height="230" key="GridCell.Tab.0.left" timestamp="1581865985420">
+    <state width="1320" height="230" key="GridCell.Tab.0.center/0.0.1366.714@0.0.1366.714" timestamp="1582037914533" />
+    <state width="1320" height="230" key="GridCell.Tab.0.left" timestamp="1582037914533">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.0.left/0.0.1366.714@0.0.1366.714" timestamp="1581865985420" />
-    <state width="1320" height="230" key="GridCell.Tab.0.right" timestamp="1581865985420">
+    <state width="1320" height="230" key="GridCell.Tab.0.left/0.0.1366.714@0.0.1366.714" timestamp="1582037914533" />
+    <state width="1320" height="230" key="GridCell.Tab.0.right" timestamp="1582037914534">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.0.right/0.0.1366.714@0.0.1366.714" timestamp="1581865985420" />
-    <state width="1320" height="230" key="GridCell.Tab.1.bottom" timestamp="1581865985423">
+    <state width="1320" height="230" key="GridCell.Tab.0.right/0.0.1366.714@0.0.1366.714" timestamp="1582037914534" />
+    <state width="1320" height="230" key="GridCell.Tab.1.bottom" timestamp="1582037914541">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.1.bottom/0.0.1366.714@0.0.1366.714" timestamp="1581865985423" />
-    <state width="1320" height="230" key="GridCell.Tab.1.center" timestamp="1581865985421">
+    <state width="1320" height="230" key="GridCell.Tab.1.bottom/0.0.1366.714@0.0.1366.714" timestamp="1582037914541" />
+    <state width="1320" height="230" key="GridCell.Tab.1.center" timestamp="1582037914538">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.1.center/0.0.1366.714@0.0.1366.714" timestamp="1581865985421" />
-    <state width="1320" height="230" key="GridCell.Tab.1.left" timestamp="1581865985421">
+    <state width="1320" height="230" key="GridCell.Tab.1.center/0.0.1366.714@0.0.1366.714" timestamp="1582037914538" />
+    <state width="1320" height="230" key="GridCell.Tab.1.left" timestamp="1582037914535">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.1.left/0.0.1366.714@0.0.1366.714" timestamp="1581865985421" />
-    <state width="1320" height="230" key="GridCell.Tab.1.right" timestamp="1581865985422">
+    <state width="1320" height="230" key="GridCell.Tab.1.left/0.0.1366.714@0.0.1366.714" timestamp="1582037914535" />
+    <state width="1320" height="230" key="GridCell.Tab.1.right" timestamp="1582037914539">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state width="1320" height="230" key="GridCell.Tab.1.right/0.0.1366.714@0.0.1366.714" timestamp="1581865985422" />
+    <state width="1320" height="230" key="GridCell.Tab.1.right/0.0.1366.714@0.0.1366.714" timestamp="1582037914539" />
     <state width="1320" height="263" key="GridCell.Tab.2.bottom" timestamp="1581863430907">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
@@ -640,10 +610,10 @@
       <screen x="0" y="0" width="1366" height="714" />
     </state>
     <state width="498" height="540" key="SwitcherDM/0.0.1366.714@0.0.1366.714" timestamp="1581788765767" />
-    <state x="282" y="87" key="Vcs.Push.Dialog.v2" timestamp="1581406471725">
+    <state x="282" y="87" key="Vcs.Push.Dialog.v2" timestamp="1582035935030">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
-    <state x="282" y="87" key="Vcs.Push.Dialog.v2/0.0.1366.714@0.0.1366.714" timestamp="1581406471725" />
+    <state x="282" y="87" key="Vcs.Push.Dialog.v2/0.0.1366.714@0.0.1366.714" timestamp="1582035935030" />
     <state x="110" y="120" width="1146" height="474" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580047237665">
       <screen x="0" y="0" width="1366" height="714" />
     </state>
