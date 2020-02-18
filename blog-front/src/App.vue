@@ -1,10 +1,12 @@
 <template>
   <div>
+
   <router-view></router-view>
 
   </div>
 </template>
 <script>
+
   export default {
     name: 'App',
     inject:['reload'],
@@ -12,6 +14,9 @@
       return{
 
       }
+    },
+    components:{
+
     },
     created () {
       //在页面加载时读取sessionStorage里的状态信息

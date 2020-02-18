@@ -19,6 +19,9 @@
                 <el-form-item size="small" class="me-login-button">
                     <el-button type="primary" @click.native.prevent="login()">登录</el-button>
                 </el-form-item>
+                <div class="me-go-register-button">
+                    <el-button  @click="go()">注册</el-button>
+                </div>
             </el-form>
 
 
@@ -61,7 +64,11 @@
                             alert(response.data.message);
                         }
                     });
+            },
+            go(){
+                this.$router.push('/register')
             }
+
         }
     }
 </script>
@@ -124,5 +131,7 @@
     .me-login-button button {
         width: 100%;
     }
-
+    .me-go-register-button{
+        text-align: right;
+    }
 </style>

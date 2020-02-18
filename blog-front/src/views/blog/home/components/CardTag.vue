@@ -7,9 +7,9 @@
     </div>
 
     <ul class="me-tag-list">
-      <li class="me-tag-item" v-for="t in tags" :key="t.id">
+      <li class="me-tag-item" v-for="t in tags" :key="t.name">
         <!--type="primary"-->
-        <el-button @click="tag(t.id)" size="mini" type="primary" round plain>{{t.label_name}}</el-button>
+        <el-button @click="tag(t.name)" size="mini" type="primary" round plain>{{t.name}}</el-button>
       </li>
     </ul>
   </el-card>
@@ -38,9 +38,9 @@
         //   }
         // })
 
-      tag(id) {
+      tag(name) {
 
-        this.$router.push({path: `/blog/label/${id}`})
+        this.$router.push({path: `/blog/home/label/${name}`})
 
 
       }}

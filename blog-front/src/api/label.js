@@ -1,11 +1,14 @@
-import axios from 'axios'
+
 const label = {
 
     getLabels(param){
-        return axios.post('labels',{param:param});
+
+        return this.$http({
+            method:'post',
+            url:'/labels',
+            data:this.$qs.stringify(param)
+        })
     },
-    getArticleByLabelId(id){
-        return axios.get('labels/'+id)
-    }
+
 };
 export default label;

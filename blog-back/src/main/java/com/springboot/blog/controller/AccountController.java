@@ -1,11 +1,13 @@
 package com.springboot.blog.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.manager.AccountViews;
 import com.springboot.blog.service.AccountService;
+import com.springboot.blog.service.AccountSumaryService;
 import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ class AccountController {
     @Autowired
     private LabelService labelService;
 
+    @Autowired
+    AccountSumaryService accountSumaryService;
+
     int ArticleLine = 5;
 
 
@@ -31,9 +36,12 @@ class AccountController {
     public JSONObject getAccountsById(@PathVariable(value = "id") int id) {
         JSONObject jsonObject = new JSONObject();
         JSONObject accountJson = new JSONObject();
+
         accountJson.put("newArticles",articleService.newArticles(id,ArticleLine));
         accountJson.put("hotArticles",articleService.hotArticles(id,ArticleLine));
         jsonObject.put("account",accountService.getAccountById(id));
+        jsonObject.put("accountSumary", JSON.toJSON(accountSumaryService.findAllByAccountId(id)));
+
         jsonObject.put("articles",accountJson);
         jsonObject.put("labels",labelService.getAccountLabels(id));
         return jsonObject;

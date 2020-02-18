@@ -31,8 +31,8 @@
 
             view(id) {
 
-                this.$router.push({path: `/blog/article/${id}`})
-                this.reload()
+                this.$router.push({path: `/blog/home/article/${id}`})
+
             }
         }
     }

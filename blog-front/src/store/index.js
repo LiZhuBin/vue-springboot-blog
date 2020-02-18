@@ -7,15 +7,8 @@ export default new Vuex.Store({
 
     state: {
         accountData:{
-            "id": 0,
-            "accountHead": "",
-            "accountSign": "",
-            "communicationId": 0,
-            "accountName": "",
-            "accountCreateDate": "",
-            "accountBirthDate": "dd",
-            "accountCompany": "",
-            "accountSite": ""
+            "id": 1,
+
         }
     },
     mutations: {},
