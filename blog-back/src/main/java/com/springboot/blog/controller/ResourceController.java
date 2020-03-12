@@ -42,9 +42,9 @@ public class ResourceController {
 
         return resourcesService.resourceClassify(accountId,way,classify);
     }
-    @PostMapping("/resources/{way}/{classify}/{name}")
-    public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify,@PathVariable("name") String name){
+    @PostMapping("/resources/{way}/{classify}/{description}")
+    public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify,@PathVariable("description") String description){
 
-        return resourcesService.detail(accountId,way,classify,name);
+        return resourcesService.detail(accountId,way,classify,description);
     }
 }

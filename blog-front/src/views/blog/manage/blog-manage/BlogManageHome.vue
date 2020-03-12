@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="me-write-article">
-            <el-button type="primary" icon="el-icon-edit" @click="writeArticle">写文章</el-button>
-        </div>
+
         <el-table
                 :data="tableData"
         >
@@ -22,7 +20,7 @@
                     label="操作"
                     width="100">
                 <template slot-scope="scope">
-                    <el-button @click="handleClick(scope.$index+1)" type="text" size="small"> 查看</el-button>
+                    <el-button @click="handleClick(scope.$index)" type="text" size="small"> 查看</el-button>
                     <el-button type="text" size="small">编辑</el-button>
                 </template>
             </el-table-column>
@@ -91,7 +89,8 @@
         methods: {
 
             handleClick(row) {
-                alert(row);
+                // alert(this.tableData[row].article.id)
+                this.$router.push('blog-detail/'+this.tableData[row].article.id);
             },
             init() {
                 this.$api.article.recentArticles(this.$store.state.accountData.id)

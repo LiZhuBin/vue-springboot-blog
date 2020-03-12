@@ -15,7 +15,11 @@ const routes = [
     register,
     blog,
     developer,
-
+    {
+        path: '*',
+        redirect: '/404',
+        hidden: true
+    }
 
 
 

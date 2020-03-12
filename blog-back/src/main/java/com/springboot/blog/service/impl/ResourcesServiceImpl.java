@@ -107,14 +107,12 @@ public class ResourcesServiceImpl implements ResourcesService {
     }
 
     @Override
-    public List<?> detail(int accountId, String way, String classify, String name) {
+    public List<?> detail(int accountId, String way, String classify, String description) {
         Criteria criteria = new Criteria();
         criteria.and("account_id").is(accountId);
         criteria.and("images.classify").is(classify);
-        criteria.and("images.description").is(name);
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(criteria)
-        );
+        criteria.and("images.description").is(description);
+
         Query query = new Query(criteria);
 
         Resources r = mongoTemplate.findOne(query,Resources.class);

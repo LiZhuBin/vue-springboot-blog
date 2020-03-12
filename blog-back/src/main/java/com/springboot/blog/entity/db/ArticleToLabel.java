@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "article_to_label", schema = "vue_springboot_blog", catalog = "")
+@Table(name = "article_to_label", schema = "vue_springboot_blog")
 public class ArticleToLabel implements Serializable {
     private int id;
     private Integer articleId;

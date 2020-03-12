@@ -29,10 +29,11 @@
         },
         methods:{
             init(){
-                this.$http.post('/resources/images/'+this.$route.params.classify,this.$qs.stringify({'accountId':this.$store.state.accountData.id}))
+                this.$http.post('/resources/images/'+this.$route.params.classify+'/'+this.$route.params.description,this.$qs.stringify({'accountId':this.$store.state.accountData.id}))
                     .then((response)=>{
 
                         this.imgGroups= response.data.data;
+                        alert(this.imgGroups)
                     }).catch((error)=>{
                     alert(error);
                 })

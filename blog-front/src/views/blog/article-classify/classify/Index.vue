@@ -21,7 +21,7 @@
         data(){
             return{
                 classify:[],
-                headName:"类型"
+                headName:"分类"
             }
         },
         components:{

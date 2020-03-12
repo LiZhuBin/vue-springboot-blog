@@ -32,7 +32,7 @@ class AccountController {
 
 
     @GetMapping("accounts/{id}")
-    @JsonView(AccountViews.OthersView.class)
+            @JsonView(AccountViews.OthersView.class)
     public JSONObject getAccountsById(@PathVariable(value = "id") int id) {
         JSONObject jsonObject = new JSONObject();
         JSONObject accountJson = new JSONObject();

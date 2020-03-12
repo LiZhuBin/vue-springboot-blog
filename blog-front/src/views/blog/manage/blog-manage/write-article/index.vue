@@ -12,7 +12,7 @@
             <el-form-item label="内容">
                 <el-tabs :tab-position="tabPosition" >
                     <el-tab-pane label="markdown">、
-                        <MarkdownEditor></MarkdownEditor>
+                        <mavon-editor :ishljs = "true"></mavon-editor>
                     </el-tab-pane>
                     <el-tab-pane label="富文本">
                         <Tinymce></Tinymce>
@@ -35,14 +35,12 @@
 
 <script>
         import PageHeader from "../../../../../components/detail/PageHeader";
-        import MarkdownEditor from "../../../../../components/MarkdownEditor/index.vue"
         import Tinymce from "../../../../../components/Tinymce/index"
         import TagSelect from "./TagSelect";
     export default {
         name: "WriteArticle",
         components:{
             PageHeader,
-            MarkdownEditor,
             Tinymce,
             TagSelect
         },

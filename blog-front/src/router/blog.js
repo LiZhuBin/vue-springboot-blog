@@ -25,7 +25,7 @@ export default {
                 component: () => import('../views/blog/home/resources/images/Index')
             },
             {
-                path: 'resources/images/:classify/:name',
+                path: 'resources/images/:classify/:description',
                 name: 'resources',
                 component: () => import('../views/blog/home/resources/images/Detail/Index')
             },
@@ -68,7 +68,9 @@ export default {
                     path: 'resources-manage',
                     name: 'resources-manage',
                     component: () => import('../views/blog/manage/resources-manage/Index')
-                }
+                },
+                {path: 'blog-detail/:id', name: 'blog-detail', component: () => import ('../views/blog/home/article/Article.vue')},
+
             ],
         },
         {

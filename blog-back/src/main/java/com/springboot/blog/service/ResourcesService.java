@@ -10,6 +10,6 @@ public interface ResourcesService {
     public String randomImage(int accountId);
     public List<?> detailByAccountId(Resources resources,String way);
     public List<?> resourceClassify(int accountId, String way, String classify);
-    List<?> detail(int accountId,String way,String classify,String name);
+    List<?> detail(int accountId,String way,String classify,String description);
 
 }

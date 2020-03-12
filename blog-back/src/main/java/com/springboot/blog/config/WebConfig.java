@@ -34,12 +34,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Override
+    /**
+    * @Description: 解决跨哉
+    * @Param: [registry]
+    * @return: void
+    */
     public void addCorsMappings(CorsRegistry registry) {
 
         registry.addMapping("/**")
-
-
-
-                .allowCredentials(false).maxAge(3600);
+//                .allowedOrigins("http://localhost:8080")
+                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
+                .maxAge(3600)
+                .allowCredentials(true);
     }
 }

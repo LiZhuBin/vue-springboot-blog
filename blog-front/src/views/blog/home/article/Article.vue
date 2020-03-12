@@ -6,6 +6,7 @@
 
 
         <div class="me-view-card">
+
             <h1 class="me-view-title">{{article.articleTitle}}</h1>
             <div class="me-view-time">{{article.articleCreateTime}}</div>
             <div class="me-view-author">
@@ -31,18 +32,27 @@
 <!--                        icon="el-icon-edit">编辑</el-button>-->
             </div>
             <el-divider></el-divider>
+            <template>
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane label="内容" name="first">
+                        <mavon-editor
+                                class="md"
+                                :value="article.articleDetail"
 
-                <mavon-editor
-                        class="md"
-                        :value="article.articleDetail"
+                                :subfield = "false"
+                                :defaultOpen = "'preview'"
+                                :toolbarsFlag = "false"
+                                :editable="false"
+                                :scrollStyle="true"
+                                :ishljs = "true"
+                        ></mavon-editor>
+                    </el-tab-pane>
+                    <el-tab-pane label="评论" name="second">
+                        <comment></comment>
+                    </el-tab-pane>
+                </el-tabs>
+            </template>
 
-                        :subfield = "false"
-                        :defaultOpen = "'preview'"
-                        :toolbarsFlag = "false"
-                        :editable="false"
-                        :scrollStyle="true"
-                        :ishljs = "true"
-                ></mavon-editor>
 
             <div class="me-view-end">
                 <el-alert
@@ -116,6 +126,7 @@
 
 <script>
     import PageHeader from "../../../../components/detail/PageHeader";
+    import Comment from "./Comment";
     export default {
         name: "Article",
         props:{
@@ -140,17 +151,23 @@
 
                   this.account = response.data.data.account;
                   this.labels = response.data.data.labels;
+
+
               })
               .catch((error)=>{
-              })
+              });
+
           },
 
         },
         components:{
           PageHeader,
+            Comment
         },
         data() {
             return {
+                activeName:'first',
+                content:"",
                 detail:"# fff   ",
                 src:"https://raw.githubusercontent.com/LiZhuBin/lizhubin-blog/master/content/blog/others/%E4%BD%BF%E7%94%A8Picgo%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0(%E4%B8%83%E7%89%9B%E4%BA%91%E3%80%81%E9%98%BF%E9%87%8C%E4%BA%91).md",
                 "article": {

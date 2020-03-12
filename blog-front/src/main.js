@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Qs from 'qs'
 import api from './api/api'
 import mavonEditor from 'mavon-editor'
+import marked from 'marked'
 import 'mavon-editor/dist/css/index.css'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';

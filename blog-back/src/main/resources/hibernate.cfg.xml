@@ -10,7 +10,9 @@
     <mapping class="com.springboot.blog.entity.db.Account"/>
     <mapping class="com.springboot.blog.entity.db.Label"/>
     <mapping class="com.springboot.blog.entity.db.Communication"/>
-<!--    <mapping class="com.springboot.blog.entity.db.Comment"/>-->
+      <mapping class="com.springboot.blog.entity.db.Comment"/>
+    <mapping class="com.springboot.blog.entity.db.Reply"/>
+    <!--    <mapping class="com.springboot.blog.entity.db.Comment"/>-->
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

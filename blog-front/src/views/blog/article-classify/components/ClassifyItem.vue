@@ -1,6 +1,6 @@
 <template>
-
-    <el-card :body-style="{ padding: '0px' }" @click="go(image.name)" >
+<div @click="go(image.name)" >
+    <el-card :body-style="{ padding: '0px' }" >
         <el-image class="me-author-image"
 
                 :src="image.path"
@@ -11,6 +11,7 @@
         </div>
 
     </el-card>
+</div>
 </template>
 
 <script>
@@ -25,8 +26,7 @@
         },
         methods:{
             go(name){
-                alert("ff")
-                this.$router.push({path: `/blog/home`})
+                this.$router.push({path: name})
             }
         }
     }

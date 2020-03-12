@@ -10,6 +10,6 @@ public interface AccountRepository extends JpaRepository<Account, Integer> , Que
 //    Map accountInfo(@Param("accountId") int accountId);
 
     Account findByAccountNameAndAccountPassword(String name, String password);
-
+    Account findByAccountName(String name);
 
 }

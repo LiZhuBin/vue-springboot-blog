@@ -1,5 +1,7 @@
 <template>
-    <el-card :body-style="{ padding: '0px' }" @click="go()">
+
+    <el-card :body-style="{ padding: '0px' }">
+
         <el-image
 
                 :src="image.detail[0].url"
@@ -23,9 +25,7 @@
 
         },
         methods:{
-            go(){
-                this.$router.push('/aa')
-            }
+
         }
 
     }

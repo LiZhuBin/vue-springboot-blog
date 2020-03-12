@@ -9,8 +9,6 @@ import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -36,10 +34,8 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    Pageable pageable = PageRequest.of(0, 10);
     QArticle article = QArticle.article;
-    QLabel label = QLabel.label;
-    QArticleToLabel articleToLabel = QArticleToLabel.articleToLabel;
+
 
 
     @Override
@@ -80,7 +76,6 @@ public class ArticleServiceImpl implements ArticleService {
 //
 //        jpaQueryFactory.update(article).set(article.articleReadCount,num+1).where(article.accountId.eq(id)).execute();
         Article article1 = jpaQueryFactory.select(article).from(article).where(article.id.eq(id)).fetchOne();
-
         return article1;
     }
 

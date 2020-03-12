@@ -5,7 +5,9 @@
         <el-row :gutter="20" v-for="group in imgGroups" :key="group">
             <el-col :span="6">
                 <el-badge :value="group.detail.length" class="item" type="primary">
+                    <div  @click="go(group.classify,group.description)">
                     <ImageGroupItem  :image="group"></ImageGroupItem>
+                    </div>
                 </el-badge>
             </el-col>
 
@@ -45,6 +47,9 @@
             },
             itemImage(group){
                 return group.description
+            },
+            go(classify,description){
+                this.$router.push(classify+'/'+description);
             }
         }
     }

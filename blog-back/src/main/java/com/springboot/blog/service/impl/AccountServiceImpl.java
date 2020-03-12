@@ -53,6 +53,12 @@ public class AccountServiceImpl implements AccountService {
     public Account checkAccount(String name, String password) {
         return accountRepository.findByAccountNameAndAccountPassword(name,password);
     }
+
+    @Override
+    public Account byName(String name) {
+        return accountRepository.findByAccountName(name);
+    }
+
     @CacheEvict(value = "account")
     public void clearAccountCache(Integer pId)
     {
