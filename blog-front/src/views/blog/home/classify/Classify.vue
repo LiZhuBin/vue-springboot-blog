@@ -58,7 +58,7 @@
                 };
                 this.$http({
                     method: 'post',
-                    url: 'classify/' + this.$route.params.classifyName,
+                    url: 'classifies/' + this.$route.params.classifyName,
                     data: this.$qs.stringify(param)
                 })
                     .then((response) => {

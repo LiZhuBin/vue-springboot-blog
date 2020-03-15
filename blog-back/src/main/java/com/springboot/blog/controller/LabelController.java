@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/labels")
 @ResponseBody
 public class LabelController  {
     @Autowired
@@ -28,7 +28,7 @@ public class LabelController  {
 //        return null;
 //    }
 
-    @PostMapping("labels/{labelName}")
+    @PostMapping("{labelName}")
     @JsonView(ArticleViews.ListView.class)
     public List<Article> GetArticlesByLabelId(@RequestParam("accountId") int accountId,@PathVariable(value = "labelName") String labelName){
 

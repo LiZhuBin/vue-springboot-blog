@@ -37,13 +37,15 @@
         },
         methods:{
             init(){
-                this.$http.post('/resources/images/'+this.$route.params.classify,this.$qs.stringify({'accountId':this.$store.state.accountData.id}))
-                    .then((response)=>{
+                this.$api.resource.imagesByClassify(this.$route.params.classify,{'accountId':this.$store.state.accountData.id})
+                .then((response)=>{
+                    this.imgGroups= response.data.data.detail;
 
-                        this.imgGroups= response.data.data;
-                    }).catch((error)=>{
-                    alert(error);
                 })
+                .catch((error)=>{
+                    alert(error)
+                })
+
             },
             itemImage(group){
                 return group.description

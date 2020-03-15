@@ -10,13 +10,16 @@ import com.springboot.blog.service.AccountService;
 import com.springboot.blog.service.AccountSumaryService;
 import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.LabelService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/accounts")
 @ResponseBody
+@Api(value = "Swagger Test Control", description = "演示Swagger用法的Control类", tags = "Swagger Test Control Tag")
 class AccountController {
     @Autowired
     private AccountService accountService;
@@ -30,9 +33,9 @@ class AccountController {
 
     int ArticleLine = 5;
 
-
-    @GetMapping("accounts/{id}")
-            @JsonView(AccountViews.OthersView.class)
+    @ApiOperation(value = "得到用户数据",produces = "application/json")
+    @RequestMapping(value = "{id}",method=RequestMethod.GET)
+    @JsonView(AccountViews.OthersView.class)
     public JSONObject getAccountsById(@PathVariable(value = "id") int id) {
         JSONObject jsonObject = new JSONObject();
         JSONObject accountJson = new JSONObject();
@@ -47,7 +50,7 @@ class AccountController {
         return jsonObject;
     }
 
-    @GetMapping("account/actions/check")
+    @GetMapping("actions/check")
     @JsonView(AccountViews.SelfView.class)
     public Account checkAccount(@ModelAttribute Account mode) {
 

@@ -1,18 +1,17 @@
 package com.springboot.blog.service.impl;
 
-import com.springboot.blog.entity.db.Resources;
-import com.springboot.blog.repository.ResourcesRepository;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.springboot.blog.entity.db.*;
+import com.springboot.blog.repository.ResourceRepository;
 import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @program: vue-springboot-blog
@@ -24,10 +23,12 @@ import java.util.Random;
 
 public class ResourcesServiceImpl implements ResourcesService {
     @Autowired
-    ResourcesRepository resourcesRepository;
+    ResourceRepository resourcesRepository;
     @Autowired
     MongoTemplate mongoTemplate;
-    public Random random = new Random();
+    @Autowired
+    JPAQueryFactory jpaQueryFactory;
+
     // 1 初始化用户身份信息（secretId, secretKey）。
     String secretId = "1258635419";
     String secretKey = "jEXUCpHgqlaDSRBmywjHai4IHyQcSRDs";
@@ -38,37 +39,7 @@ public class ResourcesServiceImpl implements ResourcesService {
         return mongoTemplate.findOne(query,Resources.class);
     }
 
-    @Override
-    /**
-    * @Description: 得到所有公开的图片
-    * @Param: [accountId]
-    * @return: java.util.List<java.lang.String>
-    */
-    public List<String> allImages(int accountId) {
-        Criteria criteria = new Criteria();
-        criteria.and("account_id").is(accountId);
-        Query query = new Query(criteria);
 
-        Resources r = mongoTemplate.findOne(query,Resources.class);
-        assert r != null;
-
-        List<String> nameList = new ArrayList<>();
-
-        for(Resources.ImagesBean s:r.getImages()){
-            if(s.getPower().equals("private")) break;
-            for(Resources.ImagesBean.DetailBean detailBean:s.getDetail()){
-                nameList.add(detailBean.getUrl());
-            }
-        }
-        return nameList;
-    }
-
-    @Override
-    public String randomImage(int accountId) {
-        List<String> allImages = allImages(accountId);
-        if(allImages.size()==0) return "";
-        return allImages.get(random.nextInt(allImages.size()));
-    }
 
     @Override
     /**
@@ -89,35 +60,45 @@ public class ResourcesServiceImpl implements ResourcesService {
         return null;
 
     }
+    public List<Description> getDescription(int accountId,String classify){
+        QClassify classify1 = QClassify.classify;
+        QDescription description = QDescription.description;
+        return jpaQueryFactory.select(description).from(classify1,description).where(classify1.name.eq(classify).and(classify1.id.eq(description.classifyId))).fetch();
+    }
+    public List<Resource> getResource(int accountId,List<Description> d){
+        QResource resource = QResource.resource;
+        List<Resource> resourceList = new ArrayList<>();
 
+        for(Description description:d){
+            resourceList.addAll(jpaQueryFactory.select(resource).from(resource).where(resource.descriptionId.eq(description.getId())).fetch());
+
+        }
+        return resourceList;
+    }
+    public List<Resource> getResource(int accountId,String c,String d){
+        QResource resource = QResource.resource;
+        List<Resource> resourceList = new ArrayList<>();
+
+        for(Description description:getDescription(accountId,c)){
+            resourceList.addAll(jpaQueryFactory.select(resource).from(resource).where(resource.descriptionId.eq(description.getId())).fetch());
+
+        }
+       return resourceList;
+    }
     @Override
-    public List<?> resourceClassify(int accountId, String way, String classify) {
+    public List<Resource> resourceClassify(int accountId, String way, String classify) {
 
-        Criteria criteria = new Criteria();
-        criteria.and("account_id").is(accountId);
-        criteria.and("images.classify").is(classify);
-                Aggregation aggregation = Aggregation.newAggregation(
-          Aggregation.match(criteria)
-        );
-        Query query = new Query(criteria);
-
-        Resources r = mongoTemplate.findOne(query,Resources.class);
-        List<?> objects = detailByAccountId(r, way);
-        return objects;
+        QResource resource = QResource.resource;
+        QClassify classify1 = QClassify.classify;
+//        BooleanBuilder builder = new BooleanBuilder();
+//        builder.and(resource.accountId.eq(accountId));
+        return getResource(accountId,getDescription(accountId,classify)) ;
     }
 
     @Override
     public List<?> detail(int accountId, String way, String classify, String description) {
-        Criteria criteria = new Criteria();
-        criteria.and("account_id").is(accountId);
-        criteria.and("images.classify").is(classify);
-        criteria.and("images.description").is(description);
 
-        Query query = new Query(criteria);
-
-        Resources r = mongoTemplate.findOne(query,Resources.class);
-        List<?> objects = detailByAccountId(r, way);
-        return objects;
+        return getResource(accountId,classify,description);
     }
 
 

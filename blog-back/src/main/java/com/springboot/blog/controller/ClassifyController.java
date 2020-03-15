@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/classifies")
 @ResponseBody
 public class ClassifyController {
 
@@ -19,11 +19,12 @@ public class ClassifyController {
     ArticleClassifyService articleClassifyService;
     @Autowired
     ArticleService articleService;
-    @GetMapping("/classifies")
+    @GetMapping("")
     public List<ArticleClassify> byArticleId(){
         return articleClassifyService.findAll();
     }
-    @PostMapping("classify/{classifyName}")
+
+    @PostMapping("{classifyName}")
     public List<Article> getArticlesByClassifyName(@RequestParam("accountId") int accountId, @PathVariable(value = "classifyName") String name){
         return articleService.getArticlesByClassifyName(accountId,name);
     }

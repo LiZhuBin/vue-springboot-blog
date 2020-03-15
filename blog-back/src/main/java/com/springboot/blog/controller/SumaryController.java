@@ -9,16 +9,16 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/account-sumaries")
 @ResponseBody
 public class SumaryController {
     @Autowired
     AccountSumaryService accountSumaryService;
-    @GetMapping("/account-sumaries")
+    @GetMapping("")
     public List<AccountSumary> allSumaries(){
         return accountSumaryService.findAll();
     }
-    @PostMapping("/account-sumaries")
+    @PostMapping("")
     public Object byAccountId(@RequestParam("accountId") int accountId){
         return accountSumaryService.findAllByAccountId(accountId);
     }

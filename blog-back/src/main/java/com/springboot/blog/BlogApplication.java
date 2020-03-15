@@ -11,11 +11,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @EnableScheduling
 @EnableCaching
-
+@EnableWebMvc
 @EnableMongoRepositories
 @EnableJpaRepositories
 public class BlogApplication {

@@ -50,6 +50,7 @@
             return {
                 headName:"时间 ",
                 "articleDate":[],
+                archives:[],
                 "articles": [
                     {
                         "id": 46,
@@ -64,7 +65,12 @@
         },
         methods:{
             init() {
-                
+
+                    this.$api.account.getAccount(this.$store.state.accountData.id)
+                        .then((response)=>{
+                            this.archives = response.data.data.accountSumary.articleDate;
+                        });
+
                 let param = {
                     "accountId": this.$store.state.accountData.id
                 };

@@ -2,7 +2,7 @@
 import axios from 'axios'
 const account = {
     checkAccount(param) {
-        return axios.get('account/actions/check', {params:param});
+        return axios.get('accounts/actions/check', {params:param});
 
     },
     getAccount(id){

@@ -25,6 +25,7 @@ public class AccountServiceImpl implements AccountService {
 
     /*通过作者id查找用户信息*/
     @CachePut(value = "account", key = "#p0")
+    @JsonView(AccountViews.SelfView.class)
     @Override
     public Optional<Account> getAccountById(int id) {
 
@@ -47,7 +48,6 @@ public class AccountServiceImpl implements AccountService {
     public Account otherViewAccountById(int id) {
         return accountRepository.findById(id).get();
     }
-
     @CachePut(value = "account",key = "#p0")
     @Override
     public Account checkAccount(String name, String password) {

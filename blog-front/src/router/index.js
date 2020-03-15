@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import home from "./home";
+
 import login from "./login"
 import register from "./register";
 import blog from "./blog";
@@ -10,11 +10,16 @@ import developer from "./developer";
 Vue.use(VueRouter)
 
 const routes = [
-    home,
+
     login,
     register,
     blog,
     developer,
+    {
+        path: '/',
+        name: 'home',
+        redirect:'/login',
+        hidden: true},
     {
         path: '*',
         redirect: '/404',

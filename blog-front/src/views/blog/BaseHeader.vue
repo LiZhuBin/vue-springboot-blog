@@ -11,9 +11,9 @@
       <el-col  :span="16">
         <el-menu :router=true menu-trigger="click" active-text-color="#5FB878" :default-active="activeIndex"
                  mode="horizontal">
-          <el-menu-item index="/">首页</el-menu-item>
+          <el-menu-item index="/blog">首页</el-menu-item>
           <el-menu-item index="/blog/article-classify">文章分类</el-menu-item>
-          <el-menu-item index="/archives">文章归档</el-menu-item>
+          <el-menu-item index="/blog/article-archive">文章归档</el-menu-item>
 
 
           <el-menu-item index="/messageBoard">留言板</el-menu-item>
@@ -29,22 +29,19 @@
       <el-col :span="4">
         <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#5FB878">
 
-          <template v-if="!user.login">
-            <el-menu-item index="/login">
+          <template v-if="this.$store.state.userLogin">
+            <el-menu-item index="/login" >
               <el-button type="text">登录</el-button>
-            </el-menu-item>
-            <el-menu-item index="/register">
-              <el-button type="text">注册</el-button>
             </el-menu-item>
           </template>
 
           <template v-else>
+
             <el-submenu index>
-              <template slot="title">
-                <img class="me-header-picture" :src="this.store.state.accountData.id"/>
-              </template>
-              <el-menu-item index @click="logout"><i class="el-icon-back"></i>退出</el-menu-item>
+
+              <el-menu-item index @click="registerEvent"><i class="el-icon-back"></i>退出</el-menu-item>
             </el-submenu>
+            <div>{{auth()}}</div>
           </template>
         </el-menu>
       </el-col>
@@ -65,14 +62,28 @@
       return {
         user:{
           login:false,
-        }
+          auth:'游客',
+        },
+
       }
+    },
+    mounted() {
+      auth()
     },
     computed: {
 
     },
     methods: {
+      registerEvent(){
+        alert(this.$store.state.userLogin)
+        this.$store.state.userLogin = false;
+      },
+      auth(){
 
+        if(this.$store.state.isLogin){
+          this.user.auth = this.$store.state.accountData.name;
+        }
+      }
     }
   }
 </script>

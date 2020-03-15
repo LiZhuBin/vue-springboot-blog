@@ -24,8 +24,6 @@
         watch: {
             '$route': function (to, from) {
 
-                //this.$store.dispatch('updateActiveTemplateId', this.$route.params.id)
-
                 this.init()
             }
         },
@@ -67,7 +65,7 @@
                     })
             },
             view(id) {
-                this.$router.push({path: `/blog/home/article/${id}`})
+                this.$router.push({path: `${id}`})
             }
             ,
         }

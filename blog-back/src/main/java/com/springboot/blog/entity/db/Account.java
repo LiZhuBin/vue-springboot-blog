@@ -28,8 +28,6 @@ public class Account implements Serializable {
     private int id;
     @JsonView(AccountViews.BaseView.class)
     private String accountName;
-
-
     @JsonView(AccountViews.OthersView.class)
     private String accountHead;
     @JsonView(AccountViews.OthersView.class)
@@ -40,21 +38,21 @@ public class Account implements Serializable {
     private String accountCompany;
     @JsonView(AccountViews.OthersView.class)
     private String accountSite;
-
-
-
     @JsonView(AccountViews.SelfView.class)
     private String accountCreateDate;
     @JsonView(AccountViews.SelfView.class)
     private String accountBirthDate;
-
     private String accountPassword;
+    @JsonView(AccountViews.OthersView.class)
+    private Boolean accountAdmin;
 
     @Id
     @Column(name = "id")
     public int getId() {
         return id;
     }
+
+
 
     public void setId(int id) {
         this.id = id;
@@ -170,5 +168,15 @@ public class Account implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, accountHead, accountSign, communicationId, accountName, accountPassword, accountCreateDate, accountBirthDate, accountCompany, accountSite);
+    }
+
+    @Basic
+    @Column(name = "account_admin")
+    public Boolean getAccountAdmin() {
+        return accountAdmin;
+    }
+
+    public void setAccountAdmin(Boolean accountAdmin) {
+        this.accountAdmin = accountAdmin;
     }
 }

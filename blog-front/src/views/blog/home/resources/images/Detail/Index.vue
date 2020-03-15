@@ -1,9 +1,9 @@
 <template>
     <div>
 
-        <page-header :header-name="this.$route.params.classify"></page-header>
+        <page-header :header-name="this.$route.params.description"></page-header>
         <div class="demo-image__lazy">
-            <el-image v-for="url in imgGroups" :key="url" :src="url" lazy></el-image>
+            <el-image v-for="group in imgGroups" :key="group" :src="group.url" lazy></el-image>
         </div>
     </div>
 </template>
@@ -32,10 +32,9 @@
                 this.$http.post('/resources/images/'+this.$route.params.classify+'/'+this.$route.params.description,this.$qs.stringify({'accountId':this.$store.state.accountData.id}))
                     .then((response)=>{
 
-                        this.imgGroups= response.data.data;
-                        alert(this.imgGroups)
+                        this.imgGroups= response.data.data[0].detail;
                     }).catch((error)=>{
-                    alert(error);
+
                 })
             },
             itemImage(group){

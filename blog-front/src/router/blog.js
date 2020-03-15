@@ -2,6 +2,9 @@ export default {
     path: '/blog',
     name: 'blog',
     component: () => import('../views/blog/Index'),
+    meta: {
+        isLogin: true
+    },
     redirect: 'blog/home/articleslist',
     children: [{
         path: 'home',
@@ -14,11 +17,7 @@ export default {
         },
             {path: 'article/:id', name: 'article', component: () => import ('../views/blog/home/article/Article.vue')},
             {path: 'label/:labelName', name: 'label', component: () => import('../views/blog/home/label/Label.vue')},
-            {
-                path: 'resources/images',
-                name: 'resources',
-                component: () => import('../views/blog/home/resources/images/Index.vue')
-            },
+
             {
                 path: 'resources/images/:classify',
                 name: 'resources',
@@ -28,6 +27,11 @@ export default {
                 path: 'resources/images/:classify/:description',
                 name: 'resources',
                 component: () => import('../views/blog/home/resources/images/Detail/Index')
+            },
+            {
+                path: 'resources/videos/:classify',
+                name: 'videos',
+                component:()=>import('../views/blog/home/resources/video/Index')
             },
             {
                 path: 'archive/:year/:month',
@@ -47,6 +51,9 @@ export default {
             path: 'manage',
             name: 'manage',
             component: () => import('../views/blog/manage/Home.vue'),
+            meta: {
+                permissions: ['admin']
+            },
             redirect: 'manage/blog-manage',
             children: [
                 {
@@ -89,6 +96,20 @@ export default {
                     path: 'classify/:classifyName',
                     name: 'classify',
                     component: () => import('../views/blog/home/classify/Classify')
+                },
+                {path: 'labels/:labelName', name: 'labels', component: () => import('../views/blog/home/label/Label.vue')},
+            ]
+        },
+        {
+            path:'article-archive',
+            name:'article-archive',
+            component:()=>import('../views/blog/article-archive/Index'),
+
+            children:[
+                {
+                    path: 'archive/:year/:month',
+                    name: 'archive',
+                    component: () => import('../views/blog/home/archive/Archive.vue')
                 },
             ]
         },

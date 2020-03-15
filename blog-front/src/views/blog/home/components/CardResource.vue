@@ -8,7 +8,7 @@
 <!--                <div>{{image.name}}</div>-->
             </el-collapse-item>
             <el-collapse-item title="视频" name="2" v-for="video in resource.video" :key="video.name" >
-                <el-link @click="go('video')">
+                <el-link @click="go('videos',video.name)">
                     {{video.name}}
                 </el-link>
             </el-collapse-item>

@@ -17,8 +17,13 @@
                 </el-form-item>
 
                 <el-form-item size="small" class="me-login-button">
+
                     <el-button type="primary" @click.native.prevent="login()">登录</el-button>
+                    <div>
+                        <el-button  @click="pass()">游客登录</el-button>
+                    </div>
                 </el-form-item>
+
                 <div class="me-go-register-button">
                     <el-button  @click="go()">注册</el-button>
                 </div>
@@ -55,15 +60,22 @@
             login() {
                 this.$api.account.checkAccount({accountName:this.userForm.account,accountPassword:this.userForm.password})
                     .then((response) => {
-                        console.log(response);
 
                         if (response.data.data.id) {
+                            this.$store.dispatch("userLogin", true);
+                            //Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
+                            //我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
+                            localStorage.setItem("Flag", "isLogin");
                             this.$store.state.accountData = response.data.data;
-                            this.$router.push('/');
+                            this.$router.push('/blog');
+
                         } else {
                             alert(response.data.message);
                         }
                     });
+            },
+            pass(){
+                this.$router.push('/blog');
             },
             go(){
                 this.$router.push('/register')
