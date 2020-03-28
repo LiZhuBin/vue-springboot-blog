@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: 8802
+
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8802
+spring:
+  application:
+    name: user-service
+  profiles: 8802
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8803
+spring:
+  application:
+    name: user-service
+  profiles: 8803
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8804
+spring:
+  application:
+    name: user-service
+  profiles: 8804

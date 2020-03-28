@@ -32,41 +32,25 @@ public class ResourcesServiceImpl implements ResourcesService {
     // 1 初始化用户身份信息（secretId, secretKey）。
     String secretId = "1258635419";
     String secretKey = "jEXUCpHgqlaDSRBmywjHai4IHyQcSRDs";
+    QClassify classify = QClassify.classify;
+    QDescription description = QDescription.description;
+    QResource resource = QResource.resource;
 
-    @Override
-    public Resources byAccountId(int accountId) {
-        Query query = new Query(Criteria.where("account_id").is(accountId));
-        return mongoTemplate.findOne(query,Resources.class);
+
+
+
+
+
+    public List<Description> getDescription(int accountId,String c,String way){
+
+        return jpaQueryFactory.select(description).from(classify,description).where(classify.name.eq(c).and(classify.type.eq(way)).and(classify.id.eq(description.classifyId))).fetch();
     }
+    public List<Description> getDescription(int accountId,String c,String way,String d){
 
-
-
-    @Override
-    /**
-    * @Description: 得到相应文件类型下的数据
-    * @Param: [way, accountId]
-    * @return: java.util.List<?>
-    */
-    public List<?> detailByAccountId( Resources resources,String way) {
-
-        if ("images".equals(way)) {
-
-            return resources.getImages();
-        }else if("video".equals(way)){
-            return resources.getVideos();
-        }else if("files".equals(way)){
-            return resources.getVideos();
-        }
-        return null;
-
-    }
-    public List<Description> getDescription(int accountId,String classify){
-        QClassify classify1 = QClassify.classify;
-        QDescription description = QDescription.description;
-        return jpaQueryFactory.select(description).from(classify1,description).where(classify1.name.eq(classify).and(classify1.id.eq(description.classifyId))).fetch();
+        return jpaQueryFactory.select(description).from(classify,description).where(description.name.eq(d).and(classify.name.eq(c)).and(classify.type.eq(way)).and(classify.id.eq(description.classifyId))).fetch();
     }
     public List<Resource> getResource(int accountId,List<Description> d){
-        QResource resource = QResource.resource;
+
         List<Resource> resourceList = new ArrayList<>();
 
         for(Description description:d){
@@ -75,30 +59,23 @@ public class ResourcesServiceImpl implements ResourcesService {
         }
         return resourceList;
     }
-    public List<Resource> getResource(int accountId,String c,String d){
-        QResource resource = QResource.resource;
-        List<Resource> resourceList = new ArrayList<>();
 
-        for(Description description:getDescription(accountId,c)){
-            resourceList.addAll(jpaQueryFactory.select(resource).from(resource).where(resource.descriptionId.eq(description.getId())).fetch());
-
-        }
-       return resourceList;
-    }
     @Override
-    public List<Resource> resourceClassify(int accountId, String way, String classify) {
+    public List<Description> resourceClassify(int accountId, String way, String classify) {
 
-        QResource resource = QResource.resource;
-        QClassify classify1 = QClassify.classify;
-//        BooleanBuilder builder = new BooleanBuilder();
-//        builder.and(resource.accountId.eq(accountId));
-        return getResource(accountId,getDescription(accountId,classify)) ;
+        return getDescription(accountId,classify,way);
+    }
+
+    @Override
+    public List<Resource> resourceClassify(int accountId, String way, String classify, String description) {
+        return getResource(accountId,getDescription(accountId,classify,way,description)) ;
     }
 
     @Override
     public List<?> detail(int accountId, String way, String classify, String description) {
 
-        return getResource(accountId,classify,description);
+      //  return getResource(accountId,classify,description);
+        return null;
     }
 
 

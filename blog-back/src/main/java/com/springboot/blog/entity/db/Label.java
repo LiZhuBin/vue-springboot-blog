@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Label implements Serializable {
     private int id;
     private String labelName;
+    private int articleId;
 
     @Id
     @Column(name = "id")
@@ -44,5 +45,15 @@ public class Label implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, labelName);
+    }
+
+    @Basic
+    @Column(name = "article_id")
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 }

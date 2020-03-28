@@ -1,10 +1,9 @@
 package com.springboot.blog.controller.Resource;
 
-import com.springboot.blog.entity.db.Resource;
+import com.springboot.blog.entity.db.Description;
 import com.springboot.blog.service.ResourcesService;
 import com.springboot.blog.service.resource.images.ImagesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +16,12 @@ import java.util.List;
  **/
 @RestController
 
-@RequestMapping(value = "/v1/resources/images")
+@RequestMapping(value = "/v1/resources")
 @ResponseBody
 public class ImagesCtr {
     @Autowired
     ImagesService imagesService;
-    @Autowired
-    MongoTemplate mongoTemplate;
+
     @Autowired
     ResourcesService resourcesService;
 //    @GetMapping("{id}")
@@ -33,14 +31,14 @@ public class ImagesCtr {
 //
 //    }
 
-    @GetMapping("{classify}")
-    public List<Resource> detail(@RequestParam("accountId") int accountId, @PathVariable("classify") String classify){
-        return resourcesService.resourceClassify(accountId,"images",classify);
+    @GetMapping("{way}/{classify}")
+    public List<Description> detail(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify){
+        return resourcesService.resourceClassify(accountId,way,classify);
     }
 
-    @GetMapping("{classify}/{description}")
-    public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("classify") String classify, @PathVariable("description") String description){
+    @GetMapping("{way}/{classify}/{description}")
+    public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("way") String way,@PathVariable("classify") String classify, @PathVariable("description") String description){
 
-        return resourcesService.resourceClassify(accountId,"images",classify);
+        return resourcesService.resourceClassify(accountId,way,classify,description);
     }
 }
