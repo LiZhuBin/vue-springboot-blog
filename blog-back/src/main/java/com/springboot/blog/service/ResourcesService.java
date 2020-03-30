@@ -10,5 +10,5 @@ public interface ResourcesService {
     public  List<Description>resourceClassify(int accountId, String way, String classify);
     public List<Resource> resourceClassify(int accountId, String way, String classify,String description);
     List<?> detail(int accountId,String way,String classify,String description);
-
+    String randomImage();
 }

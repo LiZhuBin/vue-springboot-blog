@@ -4,6 +4,7 @@ import com.springboot.blog.entity.db.Article;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface ArticleService {
 
@@ -14,4 +15,5 @@ public interface ArticleService {
     List<Article> getArticlesByLabelName(int accountId,String labelName);
     List<Article> getArticlesByArchive(int accountId,String year,String month);
     List<Article> getArticlesByClassifyName(int accountId,String classifyName);
+    Set<String> classifiesByAccountId(int accountId);
 }

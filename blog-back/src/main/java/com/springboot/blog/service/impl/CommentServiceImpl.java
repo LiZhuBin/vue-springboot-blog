@@ -1,12 +1,22 @@
 package com.springboot.blog.service.impl;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.entity.db.Comment;
+import com.springboot.blog.entity.db.QComment;
+import com.springboot.blog.entity.db.Reply;
 import com.springboot.blog.repository.CommentRepository;
+import com.springboot.blog.repository.ReplyRepository;
+import com.springboot.blog.service.AccountService;
 import com.springboot.blog.service.CommentService;
+import com.springboot.blog.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: vue-springboot-blog
@@ -18,9 +28,54 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     CommentRepository r;
+    @Autowired
+    JPAQueryFactory jpaQueryFactory;
+    @Autowired
+    ReplyRepository repository;
+    @Autowired
+    ReplyService replyService;
+    @Autowired
+    AccountService accountService;
+    QComment qcomment = QComment.comment;
     @Override
-    public List<Comment> byTopicId(int topicId) {
+    public List<Map<String, Object>> getCommentByArticleId(int articleId) {
+        List<Comment> comments=r.findAllByArticleId(articleId);
+        List<Map<String, Object>> newComments = new ArrayList<>();
+        List<Map<String, Object>> newReplys;
+        Map<String, Object> map;
+        Map<String, Object> replymap;
+        for(Comment comment:comments){
+            map=new HashMap<>();
+            map.put("id",comment.getId());
+            List<Reply> replys=repository.findAllById(comment.getId());
+            newReplys = new ArrayList<>();
+            if(replys!=null){
+                for(Reply reply:replys){
+                    replymap=new HashMap<>();
+                    Account account = accountService.getAccountById(reply.getFromId()).get();
+                    replymap.put("replyName",account.getAccountName());
+                    replymap.put("replyContent",reply.getReplyContent());
+                    replymap.put("replyImgUrl",account.getAccountHead());
+                    replymap.put("replyTime",reply.getReplyTime());
+                    newReplys.add(replymap);
+                }
+                map.put("Replys",newReplys);
+            }
+            map.put("commentContent",comment.getCommentContent());
+            map.put("fromUId",comment.getFromId());
+            Account user=accountService.getAccountById(comment.getFromId()).get();
+            map.put("username",user.getAccountName());
+            map.put("avatarImgUrl",user.getAccountHead());
+            map.put("commentTime",comment.getCommentTime());
+            newComments.add(map);
+        }
 
-        return r.findAllByTopicId(topicId);
+        return newComments;
+    }
+
+    @Override
+    public List<Comment> byArticleId(int articleId) {
+
+        return r.findAllByArticleId(articleId);
     }
 }

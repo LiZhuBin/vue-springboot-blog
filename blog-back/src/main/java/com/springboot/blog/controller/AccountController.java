@@ -46,7 +46,7 @@ class AccountController {
         jsonObject.put("accountSumary", JSON.toJSON(accountSumaryService.findAllByAccountId(id)));
 
         jsonObject.put("articles",accountJson);
-        jsonObject.put("labels",labelService.getAccountLabels(id));
+//        jsonObject.put("labels",labelService.(id));
         return jsonObject;
     }
 

@@ -14,9 +14,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 //@Transactional
@@ -114,16 +112,24 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getArticlesByClassifyName(int accountId, String classifyName) {
-        Criteria criteria =new Criteria();
-        criteria.and("account_id").is(accountId);
-        criteria.and("classify").in(classifyName);
-        Query query = new Query(criteria);
-        List<ArticleClassify> articleClassifies = mongoTemplate.find(query, ArticleClassify.class);
-        List<Article> articleList= new ArrayList<>();
-        for(ArticleClassify articleClassify :articleClassifies){
-            articleList.add(getArticlesById(articleClassify.getArticleId()));
-        }
-        return articleList;
+
+//        Criteria criteria =new Criteria();
+//        criteria.and("account_id").is(accountId);
+//        criteria.and("classify").in(classifyName);
+//        Query query = new Query(criteria);
+//        List<ArticleClassify> articleClassifies = mongoTemplate.find(query, ArticleClassify.class);
+//        List<Article> articleList= new ArrayList<>();
+//        for(ArticleClassify articleClassify :articleClassifies){
+//            articleList.add(getArticlesById(articleClassify.getArticleId()));
+//        }
+        return articleRepository.findAllByAccountIdAndArticleClassify(accountId,classifyName);
+    }
+
+    @Override
+    public Set<String> classifiesByAccountId(int accountId) {
+        Set<String> s = new HashSet<>();
+        s.addAll(jpaQueryFactory.select(article.articleClassify).from(article).where(article.accountId.eq(accountId)).fetch());
+        return s;
     }
 
 

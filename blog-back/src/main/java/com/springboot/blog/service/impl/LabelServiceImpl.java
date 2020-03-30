@@ -1,9 +1,7 @@
 package com.springboot.blog.service.impl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.springboot.blog.entity.db.ArticleClassify;
-import com.springboot.blog.entity.db.Label;
-import com.springboot.blog.entity.db.QLabel;
+import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.LabelRepository;
 import com.springboot.blog.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,25 +22,22 @@ public class LabelServiceImpl implements LabelService {
 @Autowired
     private JPAQueryFactory jpaQueryFactory;
     QLabel label = QLabel.label;
+    QArticle article = QArticle.article;
 
     @Autowired
     MongoTemplate mongoTemplate;
     @Override
     public List<String> getArticleLabels(int articleId) {
-        Criteria criteria = new Criteria();
-        criteria.and("article_id").is(articleId);
-        Query query = new Query(criteria);
-        Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(criteria)
-        );
-        return mongoTemplate.aggregate(aggregation,"article_classify",ArticleClassify.class).getUniqueMappedResult().getLabels();
 
+        List<String> s = new ArrayList<>();
+        List<Label> fetch = labelRepository.findAllByArticleId(articleId);
+        for(Label label:fetch){
+            s.add(label.getLabelName());
+        }
+        return  s;
     }
 
-    @Override
-    public List<Map> getAccountLabels(int accountId) {
-        return null;
-    }
+
 
     @Override
     public Label getLabelByLabelId(int labelId) {
@@ -52,5 +48,10 @@ public class LabelServiceImpl implements LabelService {
                     .fetchOne();
 
 
+    }
+
+    @Override
+    public List<Label> byLabelName(String labelName) {
+        return labelRepository.findAllByLabelName(labelName);
     }
 }

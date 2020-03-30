@@ -3,6 +3,7 @@ package com.springboot.blog.service.impl;
 import com.springboot.blog.entity.db.ArticleClassify;
 import com.springboot.blog.repository.ArticleClassifyRepository;
 import com.springboot.blog.service.ArticleClassifyService;
+import com.springboot.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -17,10 +18,11 @@ public class ArticleClassifyServiceImpl implements ArticleClassifyService {
     @Autowired
     ArticleClassifyRepository articleClassifyRepository;
 @Autowired
-private MongoOperations mongoOperations;
+private ArticleService articleService;
 
     @Override
     public List<ArticleClassify> findAll() {
+
         return articleClassifyRepository.findAll();
     }
 

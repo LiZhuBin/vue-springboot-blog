@@ -2,7 +2,7 @@ package com.springboot.blog.controller.Resource;
 
 import com.springboot.blog.entity.db.Description;
 import com.springboot.blog.service.ResourcesService;
-import com.springboot.blog.service.resource.images.ImagesService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +19,7 @@ import java.util.List;
 @RequestMapping(value = "/v1/resources")
 @ResponseBody
 public class ImagesCtr {
-    @Autowired
-    ImagesService imagesService;
+
 
     @Autowired
     ResourcesService resourcesService;

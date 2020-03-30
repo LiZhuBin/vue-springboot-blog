@@ -1,23 +1,23 @@
 package com.springboot.blog.entity.db;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * @program: vue-springboot-blog
+ * @program: blog-back
  * @description:
  * @author: LiZhuBin
- * @create: 2020-02-27 22:55
+ * @create: 2020-03-30 13:54
  **/
 @Entity
 @Table(name = "reply", schema = "vue_springboot_blog")
 public class Reply {
     private int id;
-    private int commentId;
-    private String content;
-    private int fromId;
-    private int toId;
-    private String createTime;
+    private String replyContent;
+    private Integer fromId;
+    private Integer toId;
+    private Timestamp replyTime;
 
     @Id
     @Column(name = "id")
@@ -30,53 +30,43 @@ public class Reply {
     }
 
     @Basic
-    @Column(name = "comment_id")
-    public int getCommentId() {
-        return commentId;
+    @Column(name = "reply_content")
+    public String getReplyContent() {
+        return replyContent;
     }
 
-    public void setCommentId(int commentId) {
-        this.commentId = commentId;
-    }
-
-    @Basic
-    @Column(name = "content")
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setReplyContent(String replyContent) {
+        this.replyContent = replyContent;
     }
 
     @Basic
     @Column(name = "from_id")
-    public int getFromId() {
+    public Integer getFromId() {
         return fromId;
     }
 
-    public void setFromId(int fromId) {
+    public void setFromId(Integer fromId) {
         this.fromId = fromId;
     }
 
     @Basic
     @Column(name = "to_id")
-    public int getToId() {
+    public Integer getToId() {
         return toId;
     }
 
-    public void setToId(int toId) {
+    public void setToId(Integer toId) {
         this.toId = toId;
     }
 
     @Basic
-    @Column(name = "create_time")
-    public String getCreateTime() {
-        return createTime;
+    @Column(name = "reply_time")
+    public Timestamp getReplyTime() {
+        return replyTime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setReplyTime(Timestamp replyTime) {
+        this.replyTime = replyTime;
     }
 
     @Override
@@ -85,15 +75,14 @@ public class Reply {
         if (o == null || getClass() != o.getClass()) return false;
         Reply reply = (Reply) o;
         return id == reply.id &&
-                commentId == reply.commentId &&
-                fromId == reply.fromId &&
-                toId == reply.toId &&
-                Objects.equals(content, reply.content) &&
-                Objects.equals(createTime, reply.createTime);
+                Objects.equals(replyContent, reply.replyContent) &&
+                Objects.equals(fromId, reply.fromId) &&
+                Objects.equals(toId, reply.toId) &&
+                Objects.equals(replyTime, reply.replyTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, commentId, content, fromId, toId, createTime);
+        return Objects.hash(id, replyContent, fromId, toId, replyTime);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -76,6 +77,13 @@ public class ResourcesServiceImpl implements ResourcesService {
 
       //  return getResource(accountId,classify,description);
         return null;
+    }
+
+    @Override
+    public String randomImage() {
+        List<Resource> r = resourceClassify(1,"images","动漫","东京食尸鬼");
+        Collections.shuffle(r);
+        return r.get(0).getUrl();
     }
 
 

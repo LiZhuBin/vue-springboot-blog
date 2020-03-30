@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface LabelService  {
-    public List<String> getArticleLabels(int articleId);
-    public List<Map> getAccountLabels(int accountId);
+    List<String> getArticleLabels(int articleId);
+
+
     Label getLabelByLabelId(int labelId);
+    List<Label> byLabelName(String labelName);
 }

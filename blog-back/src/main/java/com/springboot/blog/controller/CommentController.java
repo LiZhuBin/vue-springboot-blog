@@ -1,13 +1,12 @@
 package com.springboot.blog.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.springboot.blog.entity.db.Comment;
 import com.springboot.blog.service.CommentService;
 import com.springboot.blog.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: vue-springboot-blog
@@ -17,22 +16,16 @@ import java.util.List;
  **/
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/comments/")
 @ResponseBody
 public class CommentController {
     @Autowired
     CommentService commentService;
     @Autowired
     ReplyService replyService;
-    @GetMapping("comment/{topicId}")
-    JSONObject byComment(@PathVariable(value = "topicId") int id){
-        JSONObject jsonObject = new JSONObject();
-        List<Comment> comments = commentService.byTopicId(id);
-//        for(Comment comment:comments){
-//
-//        }
-        jsonObject.put("comment",comments);
-//        jsonObject.put("reply",replyService.byCommentIdAndToId())
-        return jsonObject;
+
+    @GetMapping("{id}")
+    public List<Map<String, Object>> comments (@PathVariable(value = "id") int id){
+        return commentService.getCommentByArticleId(id);
     }
 }

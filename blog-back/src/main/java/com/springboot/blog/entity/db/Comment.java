@@ -1,23 +1,23 @@
 package com.springboot.blog.entity.db;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
- * @program: vue-springboot-blog
+ * @program: blog-back
  * @description:
  * @author: LiZhuBin
- * @create: 2020-02-27 22:55
+ * @create: 2020-03-30 13:54
  **/
 @Entity
 @Table(name = "comment", schema = "vue_springboot_blog")
 public class Comment {
     private int id;
-    private int topicId;
-    private Integer topicType;
-    private String content;
+    private Integer articleId;
+    private String commentContent;
     private Integer fromId;
-    private String createTime;
+    private Timestamp commentTime;
 
     @Id
     @Column(name = "id")
@@ -30,33 +30,23 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "topic_id")
-    public int getTopicId() {
-        return topicId;
+    @Column(name = "article_id")
+    public Integer getArticleId() {
+        return articleId;
     }
 
-    public void setTopicId(int topicId) {
-        this.topicId = topicId;
-    }
-
-    @Basic
-    @Column(name = "topic_type")
-    public Integer getTopicType() {
-        return topicType;
-    }
-
-    public void setTopicType(Integer topicType) {
-        this.topicType = topicType;
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
     }
 
     @Basic
-    @Column(name = "content")
-    public String getContent() {
-        return content;
+    @Column(name = "comment_content")
+    public String getCommentContent() {
+        return commentContent;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
     }
 
     @Basic
@@ -70,13 +60,13 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "create_time")
-    public String getCreateTime() {
-        return createTime;
+    @Column(name = "comment_time")
+    public Timestamp getCommentTime() {
+        return commentTime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCommentTime(Timestamp commentTime) {
+        this.commentTime = commentTime;
     }
 
     @Override
@@ -85,15 +75,14 @@ public class Comment {
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
         return id == comment.id &&
-                topicId == comment.topicId &&
-                Objects.equals(topicType, comment.topicType) &&
-                Objects.equals(content, comment.content) &&
+                Objects.equals(articleId, comment.articleId) &&
+                Objects.equals(commentContent, comment.commentContent) &&
                 Objects.equals(fromId, comment.fromId) &&
-                Objects.equals(createTime, comment.createTime);
+                Objects.equals(commentTime, comment.commentTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, topicId, topicType, content, fromId, createTime);
+        return Objects.hash(id, articleId, commentContent, fromId, commentTime);
     }
 }

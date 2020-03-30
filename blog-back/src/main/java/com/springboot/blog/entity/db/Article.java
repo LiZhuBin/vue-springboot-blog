@@ -26,10 +26,8 @@ public class Article implements Serializable {
     private int id;
     @JsonView(ArticleViews.BaseView.class)
     private String articleCreateTime;
-
     @JsonView(ArticleViews.BaseView.class)
     private Integer articleReadCount;
-
     @JsonView(ArticleViews.ListView.class)
     private String articleTitle;
     @JsonView(ArticleViews.ListView.class)
@@ -41,13 +39,15 @@ public class Article implements Serializable {
     private String articleDetail;
     @JsonView(ArticleViews.DetailView.class)
     private Integer articleDetailType;
-
+    private String articleClassify;
 
     @Id
     @Column(name = "id")
     public int getId() {
         return id;
     }
+
+
 
     public void setId(int id) {
         this.id = id;
@@ -121,6 +121,10 @@ public class Article implements Serializable {
         return accountId;
     }
 
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
     public void setAccountId(int accountId) {
         this.accountId = accountId;
     }
@@ -144,5 +148,15 @@ public class Article implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, articleDetail, articleReadCount, articleCreateTime, articleTitle, articlePicture, articleDetailType, accountId);
+    }
+
+    @Basic
+    @Column(name = "article_classify")
+    public String getArticleClassify() {
+        return articleClassify;
+    }
+
+    public void setArticleClassify(String articleClassify) {
+        this.articleClassify = articleClassify;
     }
 }
