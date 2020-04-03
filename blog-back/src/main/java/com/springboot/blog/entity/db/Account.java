@@ -1,5 +1,7 @@
 package com.springboot.blog.entity.db;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.manager.AccountViews;
 
@@ -179,4 +181,6 @@ public class Account implements Serializable {
     public void setAccountAdmin(Boolean accountAdmin) {
         this.accountAdmin = accountAdmin;
     }
+
+
 }

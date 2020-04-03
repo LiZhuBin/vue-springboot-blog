@@ -21,6 +21,9 @@ public class Result<T> {
     @JsonView(ResultViews.Base.class)
     private T data;
 
+    public Result(HttpStatus ok, Object body) {
+    }
+
     public Integer getCode() {
         return code;
     }
