@@ -3,6 +3,7 @@ package com.springboot.blog.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.springboot.blog.annotation.PassToken;
 import com.springboot.blog.annotation.UserLoginToken;
 import com.springboot.blog.entity.db.Article;
 import com.springboot.blog.manager.ArticleViews;
@@ -36,7 +37,7 @@ public class ArticleController {
     private ArticleRepository articleRepository;
 
     @GetMapping("{id}")
-    @UserLoginToken
+    @PassToken
     @JsonView(ArticleViews.DetailView.class)
         /**
         * @Description: 通过文章id查找文章详细信息

@@ -6,10 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.entity.db.Account;
 import com.springboot.blog.manager.AccountViews;
-import com.springboot.blog.service.AccountService;
-import com.springboot.blog.service.AccountSumaryService;
-import com.springboot.blog.service.ArticleService;
-import com.springboot.blog.service.LabelService;
+import com.springboot.blog.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 
 @RequestMapping(value = "/v1/accounts")
-@ResponseBody
 @Api(value = "Swagger Test Control", description = "演示Swagger用法的Control类", tags = "Swagger Test Control Tag")
 class AccountController {
     @Autowired
@@ -27,7 +23,8 @@ class AccountController {
     private ArticleService articleService;
     @Autowired
     private LabelService labelService;
-
+    @Autowired
+    TokenService tokenService;
     @Autowired
     AccountSumaryService accountSumaryService;
 
@@ -50,13 +47,31 @@ class AccountController {
         return jsonObject;
     }
 
-    @GetMapping("actions/check")
-    @JsonView(AccountViews.SelfView.class)
-    public Account checkAccount(@ModelAttribute Account mode) {
-
-        return accountService.checkAccount(mode.getAccountName(), mode.getAccountPassword());
+//    @GetMapping("actions/check")
+//    @JsonView(AccountViews.SelfView.class)
+//    public Account checkAccount(@ModelAttribute Account mode) {
+//
+//        return accountService.checkAccount(mode.getAccountName(), mode.getAccountPassword());
+//    }
+    @PostMapping("actions/check")
+    public Object login(@RequestParam(value = "accountName") String name,@RequestParam(value = "accountPassword") String password){
+        JSONObject jsonObject=new JSONObject();
+        Account userForBase=accountService.byName(name);
+        if(userForBase==null){
+            jsonObject.put("message","登录失败,用户不存在");
+            return jsonObject;
+        }else {
+            if (!userForBase.getAccountPassword().equals(password)){
+                jsonObject.put("message","登录失败,密码错误");
+                return jsonObject;
+            }else {
+                String token = tokenService.getToken(userForBase);
+                jsonObject.put("token", token);
+                jsonObject.put("user", userForBase);
+                return jsonObject;
+            }
+        }
     }
-
 
 
 }
