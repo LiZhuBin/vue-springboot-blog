@@ -13,8 +13,8 @@ export default [
   {
     path: '/api/login',
     method: 'post',
-    async  handle ({ body }) {
-      await axios.post('accounts/actions/check',qs.stringify({accountName:body.username,accountPassword:body.password}))
+      handle ({ body }) {
+      axios.post('accounts/actions/check',qs.stringify({accountName:body.username,accountPassword:body.password}))
         .then((response) => {
           if(response.data.data.user.id){
             // localStorage.setItem("Flag", "isLogin");
@@ -27,26 +27,14 @@ export default [
             util.cookies.set('uuid', response.data.data.user.accountName)
             util.cookies.set('token', response.data.data.token)
             // this.$router.push('/blog');
-            return {
-              code: 0,
-              msg: '登录成功',
-              data: {
-                username: util.cookies.get('uuid'), password: util.cookies.get('password'), uuid: util.cookies.get('uuid'), name: util.cookies.get('name'),
-                // username: data.user.accountName, password: data.user.accountPassword, uuid: data.user.accountName, name: data.user.accountName ,
-                token: util.cookies.get('token')
-              }
-            }
+
 
           }else {
             util.cookies.remove('name')
             util.cookies.remove('password')
             util.cookies.remove('uuid')
             util.cookies.remove('token')
-            return {
-              code: 401,
-              msg: '用户名或密码错误',
-              data: {}
-            }
+
           }
 
 
@@ -56,15 +44,25 @@ export default [
 
    //   const user = userDB.find(e => e.username === body.username && e.password === body.password)
       var data = util.cookies.get('uuid');
-      return {
-        code: 0,
-        msg: '登录成功',
-        data: {
-          username: util.cookies.get('uuid'), password: util.cookies.get('password'), uuid: util.cookies.get('uuid'), name: util.cookies.get('name'),
-          // username: data.user.accountName, password: data.user.accountPassword, uuid: data.user.accountName, name: data.user.accountName ,
-          token: util.cookies.get('token')
+      if(data){
+        alert(data)
+        return {
+          code: 0,
+          msg: '登录成功',
+          data: {
+            username: util.cookies.get('uuid'), password: util.cookies.get('password'), uuid: util.cookies.get('uuid'), name: util.cookies.get('name'),
+            // username: data.user.accountName, password: data.user.accountPassword, uuid: data.user.accountName, name: data.user.accountName ,
+            token: util.cookies.get('token')
+          }
+        }
+      }else {
+        return {
+          code: 401,
+          msg: '用户名或密码错误',
+          data: {}
         }
       }
+
 
     }
   }

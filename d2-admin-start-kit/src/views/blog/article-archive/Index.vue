@@ -16,7 +16,7 @@
 
 
             <el-main class="me-articles">
-                <div class="me-month-title">{{currentArchive}}</div>
+                <div class="me-month-title"></div>
 
                 <archive-list :articles="articles"></archive-list>
 
@@ -45,46 +45,39 @@
                 this.init()
             }
         },
-        data() {
+      mounted() {
+          this.init();
+      },
+      data() {
 
             return {
                 headName:"时间 ",
                 "articleDate":[],
                 archives:[],
                 "articles": [
-                    {
-                        "id": 46,
-                        "articleCreateTime": "2019-10-13 18:30:53",
-                        "articleReadCount": 1,
-                        "articleTitle": "at, nisi. Cum sociis natoque penatibus et magnis dis parturient",
-                        "articlePicture": "https://source.unsplash.com/random/900x300",
-                        "accountId": 1
-                    }
                 ]
             }
         },
+
         methods:{
+
             init() {
 
-                    this.$api.account.getAccount(this.$store.state.accountData.id)
-                        .then((response)=>{
-                            this.archives = response.data.data.accountSumary.articleDate;
-                        });
-
-                let param = {
-                    "accountId": this.$store.state.accountData.id
-                };
-                this.$http({
-                    method:'post',
-                    url:'archive/'+this.$route.params.year+'/'+this.$route.params.month,
-                    data:this.$qs.stringify(param)
+              this.$api.archive.archives(this.$store.state.accountData.id)
+                .then((response)=>{
+                  this.archives = response.data.data
                 })
-                    .then((response) => {
-                        this.articles = response.data.data;
-                    })
-                    .catch((error) => {
-                    })
             },
+
+          changeArchive(year,month){
+            this.$api.archive.archivesDetail(year,month,this.$qs.stringify({"accountId": this.$store.state.accountData.id}))
+
+              .then((response) => {
+                this.articles = response.data.data;
+              })
+              .catch((error) => {
+              })
+          },
             view(year, month) {
                 this.$router.push({path: `/blog/home/archive/${year}/${month}`})
             }

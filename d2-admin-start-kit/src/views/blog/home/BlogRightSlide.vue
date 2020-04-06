@@ -2,7 +2,7 @@
     <div >
     <card-tag :tags="labels"></card-tag>
 
-    <card-archive :articleDate = "accountSumary.articleDate"></card-archive>
+    <card-archive ></card-archive>
         <card-classify :classify="classifies"></card-classify>
     <card-resource :resource="accountSumary.resource"></card-resource>
     </div>

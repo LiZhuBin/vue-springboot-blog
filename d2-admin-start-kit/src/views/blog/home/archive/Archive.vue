@@ -26,14 +26,7 @@
         data() {
             return {
                 "articles": [
-                    {
-                        "id": 46,
-                        "articleCreateTime": "2019-10-13 18:30:53",
-                        "articleReadCount": 1,
-                        "articleTitle": "at, nisi. Cum sociis natoque penatibus et magnis dis parturient",
-                        "articlePicture": "https://source.unsplash.com/random/900x300",
-                        "accountId": 1
-                    }
+
                 ]
             }
         },
@@ -42,11 +35,8 @@
                 let param = {
                     "accountId": this.$store.state.accountData.id
                 };
-                this.$http({
-                    method:'post',
-                    url:'archive/'+this.$route.params.year+'/'+this.$route.params.month,
-                    data:this.$qs.stringify(param)
-                })
+                this.$api.archive.archivesDetail(this.$route.params.year,this.$route.params.month,this.$qs.stringify(param))
+
                     .then((response) => {
                         this.articles = response.data.data;
                     })

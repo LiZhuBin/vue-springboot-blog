@@ -6,7 +6,7 @@
     </div>
 
     <ul class="me-category-list">
-      <li v-for="a in articleDate" @click="view(a.year, a.month)" :key="a.year + a.month" class="me-category-item"><a>{{`${a.year}年${a.month}月`}}</a>
+      <li v-for="a in articleDate" @click="view(a.year, a.month)"  class="me-category-item"><a>{{`${a.year}年${a.month}月`}}</a>
       </li>
     </ul>
   </el-card>
@@ -16,19 +16,28 @@
 <script>
   export default {
     name: "CardArchive",
-    props: {
-      "articleDate": Array,
-    },
+
     data(){
       return{
         headName:"时间 ",
+        articleDate:[]
       }
     },
-
+  mounted() {
+      this.init()
+  },
     methods: {
       view(year, month) {
         this.$router.push({path: `/blog/home/archive/${year}/${month}`})
-      }
+      },
+
+
+    init(){
+        this.$api.archive.archives(this.$store.state.accountData.id)
+      .then((response)=>{
+        this.articleDate = response.data.data
+      })
+    }
     }
   }
 </script>

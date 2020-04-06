@@ -8,6 +8,7 @@ const article = {
     },
     classifies(accountId){
       return axios.get('articles/_classify',{params:{'accountId':accountId}})
-    }
+    },
+
 };
 export default article;
