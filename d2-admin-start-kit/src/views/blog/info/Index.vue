@@ -33,47 +33,6 @@
 
   export default {
     name: 'CardMe',
-    props: {
-      "account": {
-        "id": 1,
-        "accountName": "Wendy Wilkinson",
-        "accountHead": "https://source.unsplash.com/user/erondu/100x100",
-        "accountSign": "我的标签我做主",
-        "communicationId": 1,
-        "accountCompany": "A Company",
-        "accountSite": "Gonnosnò"
-      },
-      "accountSumary": {
-        "accountId": 1,
-        "classify": [
-          {
-            "num": 1,
-            "name": "前端"
-          },
-          {
-            "num": 1,
-            "name": "工具"
-          }
-        ],
-        "classifyNum": 2,
-        "articleNum": 40,
-        "labelNum": 1,
-        "readNum": 44,
-        "articleDate": [
-          {
-            "month": 1,
-            "year": 2020,
-            "num": 1
-          },
-          {
-            "month": 2,
-            "year": 2020,
-            "num": 1
-          }
-        ],
-        "id": "5e39aaeba3d8424345f8f72a",
-      },
-    },
     data() {
       return {
 

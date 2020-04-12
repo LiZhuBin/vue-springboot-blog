@@ -5,6 +5,9 @@ const resource = {
     },
   byDescription(way,classify,description,params){
       return axios.get('resources/'+way+'/'+classify+'/'+description,{params:params})
+  },
+  classifies(params){
+      return axios.get('resources',{params:params})
   }
 }
 

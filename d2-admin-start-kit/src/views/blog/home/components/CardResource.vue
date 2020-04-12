@@ -1,20 +1,20 @@
 <template>
     <el-card :body-style="{ padding: '8px 18px' }">
         <el-collapse  >
-            <el-collapse-item title="图片" name="1"  v-for="image in resource.images" :key="image.name" >
-                <el-link @click="go('images',image.name)">
-                    {{image.name}}
+            <el-collapse-item title="图片" name="1"  v-for="image in resource.images"  >
+                <el-link @click="go('images',image)">
+                    {{image}}
                 </el-link>
 <!--                <div>{{image.name}}</div>-->
             </el-collapse-item>
-            <el-collapse-item title="视频" name="2" v-for="video in resource.video" :key="video.name" >
-                <el-link @click="go('video',video.name)">
-                    {{video.name}}
+            <el-collapse-item title="视频" name="2" v-for="video in resource.videos"  >
+                <el-link @click="go('videos',video)">
+                    {{video}}
                 </el-link>
             </el-collapse-item>
-            <el-collapse-item title="文件" name="3" v-for="file in resource.files" :key="file.name" >
-                <el-link @click="go('file',file.name)">
-                    {{file.name}}
+            <el-collapse-item title="文件" name="3" v-for="file in resource.files"  >
+                <el-link @click="go('files',file)">
+                    {{file}}
                 </el-link>
             </el-collapse-item>
 
@@ -35,23 +35,33 @@
     export default {
         name: "CardResource",
         props:{
-            resource:{
 
-            }
         },
         created() {
 
         },
-        data(){
+      mounted() {
+          this.init();
+      },
+      data(){
             return{
+                resource:{},
                 cardHeader:"资源",
-                selects:[{id:'files', name:"文件"},{id:'video',name:"视频"},{id:'images',name:'相册'}]
             }
         },
         methods:{
             go(way,classify){
                 this.$router.push('/blog/home/resources/'+way+'/'+classify);
-            }
+            },
+          init(){
+              this.$api.resource.classifies({'accountId':this.$store.state.accountData.id})
+            .then((response)=>{
+              this.resource = response.data.data;
+            })
+            .catch((error)=>{
+
+            })
+          }
         }
     }
 </script>

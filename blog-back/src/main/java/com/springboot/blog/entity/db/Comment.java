@@ -14,10 +14,12 @@ import java.util.Objects;
 @Table(name = "comment", schema = "vue_springboot_blog")
 public class Comment {
     private int id;
-    private Integer articleId;
+
     private String commentContent;
     private Integer fromId;
     private Timestamp commentTime;
+    private String commentType;
+    private Integer typeId;
 
     @Id
     @Column(name = "id")
@@ -29,15 +31,7 @@ public class Comment {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "article_id")
-    public Integer getArticleId() {
-        return articleId;
-    }
 
-    public void setArticleId(Integer articleId) {
-        this.articleId = articleId;
-    }
 
     @Basic
     @Column(name = "comment_content")
@@ -75,7 +69,7 @@ public class Comment {
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
         return id == comment.id &&
-                Objects.equals(articleId, comment.articleId) &&
+                Objects.equals(typeId, comment.typeId) &&
                 Objects.equals(commentContent, comment.commentContent) &&
                 Objects.equals(fromId, comment.fromId) &&
                 Objects.equals(commentTime, comment.commentTime);
@@ -83,6 +77,26 @@ public class Comment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, articleId, commentContent, fromId, commentTime);
+        return Objects.hash(id,commentType, commentContent, fromId, commentTime);
+    }
+
+    @Basic
+    @Column(name = "comment_type")
+    public String getCommentType() {
+        return commentType;
+    }
+
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
+    }
+
+    @Basic
+    @Column(name = "type_id")
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 }

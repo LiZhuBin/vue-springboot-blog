@@ -10,7 +10,7 @@ export default [
     ]
   },
   { path: '/blog/article-archive', title: '文章归档', icon: 'home' },
-  { path: '/messageBoard', title: '留言板', icon: 'home' },
+  { path: '/blog/left-message', title: '留言板', icon: 'home' },
   { path: '/blog/info', title: '个人信息', icon: 'home' },
 
 ]

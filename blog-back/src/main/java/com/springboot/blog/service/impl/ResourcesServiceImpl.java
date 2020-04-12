@@ -1,5 +1,7 @@
 package com.springboot.blog.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.ImmutableList;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.ResourceRepository;
@@ -9,6 +11,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import springfox.documentation.spring.web.json.Json;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,6 +87,18 @@ public class ResourcesServiceImpl implements ResourcesService {
         List<Resource> r = resourceClassify(1,"images","动漫","东京食尸鬼");
         Collections.shuffle(r);
         return r.get(0).getUrl();
+    }
+
+    @Override
+    public JSONObject classifyByAccountId(int accountId) {
+        JSONObject object = new JSONObject();
+        List<String> classifyTypes = ImmutableList.of("images","videos","files");
+        for(String type:classifyTypes){
+
+            List<String> typeList = jpaQueryFactory.select(classify.name).from(classify).where(classify.accountId.eq(accountId).and(classify.type.eq(type))).fetch();
+            object.put(type,typeList);
+        }
+        return object;
     }
 
 

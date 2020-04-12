@@ -18,6 +18,7 @@ public class Classify {
     private String type;
     private String name;
     private String text;
+    private int accountId;
 
     @Id
     @Column(name = "id")
@@ -96,4 +97,15 @@ public class Classify {
     public int hashCode() {
         return Objects.hash(id, view, power, type, name, text);
     }
+
+    @Basic
+    @Column(name = "account_id")
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
 }

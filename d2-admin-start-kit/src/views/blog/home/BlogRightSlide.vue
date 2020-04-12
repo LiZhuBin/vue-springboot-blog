@@ -4,7 +4,7 @@
 
     <card-archive ></card-archive>
         <card-classify :classify="classifies"></card-classify>
-    <card-resource :resource="accountSumary.resource"></card-resource>
+    <card-resource ></card-resource>
     </div>
 </template>
 
@@ -78,7 +78,7 @@
                     .then((response)=>{
                         this.account = response.data.data.account;
                         this.articles = response.data.data.articles;
-                        this.accountSumary = response.data.data.accountSumary;
+                    //    this.accountSumary = response.data.data.accountSumary;
                     })
               this.$api.label.getLabels({'accountId':this.$store.state.accountData.id})
                 .then((response)=>{

@@ -1,10 +1,10 @@
 package com.springboot.blog.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.ArticleRepository;
-import com.springboot.blog.service.AccountSumaryService;
 import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -27,11 +30,11 @@ public class ArticleServiceImpl implements ArticleService {
     JPAQueryFactory jpaQueryFactory;
     @Autowired
     ResourcesService resourcesService;
-    @Autowired
-    AccountSumaryService accountSumaryService;
+
     @Autowired
     MongoTemplate mongoTemplate;
-
+    @Autowired
+    RedisTemplate redisTemplate;
     QArticle article = QArticle.article;
 
 
@@ -73,7 +76,12 @@ public class ArticleServiceImpl implements ArticleService {
 //
 //
 //        jpaQueryFactory.update(article).set(article.articleReadCount,num+1).where(article.accountId.eq(id)).execute();
-        Article article1 = jpaQueryFactory.select(article).from(article).where(article.id.eq(id)).fetchOne();
+        RedisSerializer<String> redisSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        Article article1 = (Article)redisTemplate.opsForValue().get("article_1");
+        if(null == article1){
+            article1 = jpaQueryFactory.select(article).from(article).where(article.id.eq(id)).fetchOne();
+        }
         return article1;
     }
 
@@ -130,6 +138,23 @@ public class ArticleServiceImpl implements ArticleService {
         Set<String> s = new HashSet<>();
         s.addAll(jpaQueryFactory.select(article.articleClassify).from(article).where(article.accountId.eq(accountId)).fetch());
         return s;
+    }
+
+    @Override
+    public List<JSONObject> timeClassifyByAccountId(int accountId) {
+        List<String> articles= jpaQueryFactory.select(article.articleCreateTime).orderBy(article.articleCreateTime.desc()).from(article).where(article.accountId.eq(accountId)).fetch();
+        Set<String> timeClassifies = new LinkedHashSet<>();
+        for(String a:articles){
+            timeClassifies.add(a.substring(0,7));
+        }
+        List<JSONObject> objects = new ArrayList<>();
+        for(String s:timeClassifies){
+            JSONObject object = new JSONObject();
+            object.put("year",Integer.parseInt(s.substring(0,4)));
+            object.put("month",Integer.parseInt(s.substring(5,7)));
+            objects.add(object);
+        }
+        return objects;
     }
 
 

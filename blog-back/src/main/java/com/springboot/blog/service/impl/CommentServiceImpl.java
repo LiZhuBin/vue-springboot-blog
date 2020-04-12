@@ -38,8 +38,8 @@ public class CommentServiceImpl implements CommentService {
     AccountService accountService;
     QComment qcomment = QComment.comment;
     @Override
-    public List<Map<String, Object>> getCommentByArticleId(int articleId) {
-        List<Comment> comments=r.findAllByArticleId(articleId);
+    public List<Map<String, Object>> getCommentByArticleId(String type,int articleId) {
+        List<Comment> comments=r.findAllByCommentTypeAndTypeId(type,articleId);
         List<Map<String, Object>> newComments = new ArrayList<>();
         List<Map<String, Object>> newReplys;
         Map<String, Object> map;
@@ -74,8 +74,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> byArticleId(int articleId) {
+    public List<Comment> byArticleId(String type,int articleId) {
 
-        return r.findAllByArticleId(articleId);
+        return r.findAllByCommentTypeAndTypeId(type,articleId);
     }
 }

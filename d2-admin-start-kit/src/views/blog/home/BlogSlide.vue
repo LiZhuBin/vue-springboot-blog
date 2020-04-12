@@ -48,7 +48,7 @@
                     this.account = response.data.data.account;
                     this.articles = response.data.data.articles;
 
-                    this.accountSumary = response.data.data.accountSumary;
+               //     this.accountSumary = response.data.data.accountSumary;
                 })
               .catch((error)=>{
                 alert(error)

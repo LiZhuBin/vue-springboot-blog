@@ -30,12 +30,12 @@ export default {
                 component: () => import('../views/blog/home/resources/images/Index')
             },
             {
-                path: 'resources/video/:classify/:description',
+                path: 'resources/videos/:classify/:description',
                 name: 'video',
                 component:()=>import('../views/blog/home/resources/video/Index')
             },
           {
-            path: 'resources/file/:classify/:description',
+            path: 'resources/files/:classify/:description',
             name: 'file',
             component:()=>import('../views/blog/home/resources/files/Index')
           },
@@ -129,7 +129,11 @@ export default {
             path: 'info',
             name: 'info',
             component: () => import('../views/blog/info/Index')
-        }
+        },{
+        path: 'left-message',
+        name: 'left-message',
+        component: () => import('../views/blog/left-message/Index')
+      }
     ],
 
 

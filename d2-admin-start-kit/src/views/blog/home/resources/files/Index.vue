@@ -7,7 +7,7 @@
 
       <div v-for="group in imgGroups" :key="group.id" >
 
-        <a href="https://bingos-1258635419.cos.ap-guangzhou.myqcloud.com/vue_springboot_blog/1/files/test/word/test-word1.doc" target="_blank" rel="nofollow">{{group.name}}</a>
+        <a href="https://bingos-1258635419.cos.ap-guangzhou.myqcloud.com/vue_springboot_blog/1/files/test/word/test-word1.doc" target="_blank" rel="nofollow">{{group.text}}</a>
 
 
 
@@ -41,7 +41,7 @@
     methods:{
 
       init(){
-        this.$api.resource.byDescription("file",this.$route.params.classify,this.$route.params.description,{'accountId':this.$store.state.accountData.id})
+        this.$api.resource.byDescription("files",this.$route.params.classify,this.$route.params.description,{'accountId':this.$store.state.accountData.id})
           .then((response)=>{
 
             this.imgGroups= response.data.data;

@@ -1,5 +1,6 @@
 package com.springboot.blog.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.springboot.blog.entity.db.Article;
 
 import java.util.List;
@@ -16,4 +17,5 @@ public interface ArticleService {
     List<Article> getArticlesByArchive(int accountId,String year,String month);
     List<Article> getArticlesByClassifyName(int accountId,String classifyName);
     Set<String> classifiesByAccountId(int accountId);
+    List<JSONObject> timeClassifyByAccountId(int accountId);
 }

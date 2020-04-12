@@ -13,5 +13,5 @@ import java.util.List;
  * @create: 2020-02-27 13:57
  **/
 public interface CommentRepository  extends JpaRepository<Comment,Integer>, QuerydslPredicateExecutor<Comment> {
-    List<Comment> findAllByArticleId(int articleId);
+    List<Comment> findAllByCommentTypeAndTypeId(String type,int articleId);
 }

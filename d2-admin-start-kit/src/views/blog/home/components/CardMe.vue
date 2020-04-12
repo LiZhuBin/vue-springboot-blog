@@ -1,19 +1,19 @@
 <template>
   <el-card  >
-    <div  class="me-author-image">
-      <el-image id="pic"
+    <div  >
+      <el-avatar
                 v-bind:src="account.accountHead"
       >
-      </el-image>
+      </el-avatar>
     </div>
 
     <h2 class="me-author-name">{{account.accountName}}</h2>
     <h3 class="me-author-sign">{{account.accountSign}}</h3>
-    <div style="text-align: center">
-      <span>文章数{{accountSumary.articleNum}}</span>
-      <el-divider  direction="vertical" ></el-divider>
-      <span>阅读数{{accountSumary.readNum}}</span>
-    </div>
+<!--    <div style="text-align: center">-->
+<!--      <span>文章数{{accountSumary.articleNum}}</span>-->
+<!--      <el-divider  direction="vertical" ></el-divider>-->
+<!--      <span>阅读数{{accountSumary.readNum}}</span>-->
+<!--    </div>-->
     <div class="me-author-description">
       <span><i class="el-icon-location-outline"></i> &nbsp;{{account.accountSite}}</span>
       <span><i class="me-icon-job"></i> &nbsp;{{account.accountCompany}}</span>

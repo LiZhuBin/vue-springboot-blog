@@ -1,5 +1,6 @@
 package com.springboot.blog.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.entity.db.Article;
 import com.springboot.blog.manager.ArticleViews;
@@ -17,13 +18,13 @@ import java.util.List;
  **/
 @RestController
 
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/archives")
 @ResponseBody
 public class ArchiveController {
     @Autowired
     private ArticleService articleService;
 
-    @PostMapping("archive/{year}/{month}")
+    @PostMapping("{year}/{month}")
     @JsonView(ArticleViews.ListView.class)
     /**
     * @Description: 通过年月得到文章列表
@@ -33,5 +34,9 @@ public class ArchiveController {
     public List<Article> getArticlesByLabelId(@RequestParam("accountId") int accountId, @PathVariable(value = "year") int year, @PathVariable(value = "month") int month ){
 
         return articleService.getArticlesByArchive(accountId,String.valueOf(year),String.format("%02d",month));
+    }
+    @GetMapping("")
+    public List<JSONObject> getArchives(@RequestParam("accountId") int accountId){
+        return articleService.timeClassifyByAccountId(accountId);
     }
 }

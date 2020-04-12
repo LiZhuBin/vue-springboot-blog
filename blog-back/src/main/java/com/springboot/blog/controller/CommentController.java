@@ -25,7 +25,7 @@ public class CommentController {
     ReplyService replyService;
 
     @GetMapping("{id}")
-    public List<Map<String, Object>> comments (@PathVariable(value = "id") int id){
-        return commentService.getCommentByArticleId(id);
+    public List<Map<String, Object>> comments (@RequestParam(value = "type") String type,@PathVariable(value = "id") int id){
+        return commentService.getCommentByArticleId(type,id);
     }
 }

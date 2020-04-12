@@ -1,5 +1,7 @@
 package com.springboot.blog.controller.Resource;
 
+import ch.qos.logback.classic.Logger;
+import com.alibaba.fastjson.JSONObject;
 import com.springboot.blog.entity.db.Description;
 import com.springboot.blog.service.ResourcesService;
 
@@ -29,7 +31,11 @@ public class ImagesCtr {
 //        return imagesService.byAccountId(id);
 //
 //    }
+    @GetMapping("")
+    public JSONObject classifies(@RequestParam("accountId") int accountId){
 
+        return resourcesService.classifyByAccountId(accountId);
+    }
     @GetMapping("{way}/{classify}")
     public List<Description> detail(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify){
         return resourcesService.resourceClassify(accountId,way,classify);

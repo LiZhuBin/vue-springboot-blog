@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.annotation.PassToken;
-import com.springboot.blog.annotation.UserLoginToken;
 import com.springboot.blog.entity.db.Article;
 import com.springboot.blog.manager.ArticleViews;
 import com.springboot.blog.repository.ArticleRepository;
@@ -86,5 +85,6 @@ public class ArticleController {
     public List<Article> getArticlesByClassifyName(@RequestParam("accountId") int accountId, @PathVariable(value = "classifyName") String name){
         return articleService.getArticlesByClassifyName(accountId,name);
     }
+
 
 }

@@ -21,12 +21,10 @@ class AccountController {
     private AccountService accountService;
     @Autowired
     private ArticleService articleService;
-    @Autowired
-    private LabelService labelService;
+
     @Autowired
     TokenService tokenService;
-    @Autowired
-    AccountSumaryService accountSumaryService;
+
 
     int ArticleLine = 5;
 
@@ -40,19 +38,13 @@ class AccountController {
         accountJson.put("newArticles",articleService.newArticles(id,ArticleLine));
         accountJson.put("hotArticles",articleService.hotArticles(id,ArticleLine));
         jsonObject.put("account",accountService.getAccountById(id));
-        jsonObject.put("accountSumary", JSON.toJSON(accountSumaryService.findAllByAccountId(id)));
-
+      //  jsonObject.put("accountSumary", JSON.toJSON(accountSumaryService.findAllByAccountId(id)));
         jsonObject.put("articles",accountJson);
 //        jsonObject.put("labels",labelService.(id));
         return jsonObject;
     }
 
-//    @GetMapping("actions/check")
-//    @JsonView(AccountViews.SelfView.class)
-//    public Account checkAccount(@ModelAttribute Account mode) {
-//
-//        return accountService.checkAccount(mode.getAccountName(), mode.getAccountPassword());
-//    }
+
     @PostMapping("actions/check")
     public Object login(@RequestParam(value = "accountName") String name,@RequestParam(value = "accountPassword") String password){
         JSONObject jsonObject=new JSONObject();

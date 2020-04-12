@@ -39,7 +39,7 @@
     methods:{
 
       init(){
-        this.$api.resource.byDescription("video",this.$route.params.classify,this.$route.params.description,{'accountId':this.$store.state.accountData.id})
+        this.$api.resource.byDescription("videos",this.$route.params.classify,this.$route.params.description,{'accountId':this.$store.state.accountData.id})
           .then((response)=>{
 
             this.imgGroups= response.data.data;
