@@ -9,6 +9,26 @@ const article = {
     classifies(accountId){
       return axios.get('articles/_classify',{params:{'accountId':accountId}})
     },
-
+    articleComments(param){
+      return axios.get('comments',{params:param})
+    },
+    insertComment(param){
+      return axios(
+        {method:'POST',url:'comments',headers:
+            {
+              'Content-Type': 'application/json'
+            }
+          ,dataType:"json",data:param}
+      )
+    },
+  insertReply(param){
+    return axios(
+      {method:'POST',url:'replies',headers:
+          {
+            'Content-Type': 'application/json'
+          }
+        ,dataType:"json",data:param}
+    )
+  }
 };
 export default article;

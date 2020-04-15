@@ -26,6 +26,7 @@ export default [
             util.cookies.set('password',response.data.data.user.accountPassword)
             util.cookies.set('uuid', response.data.data.user.accountName)
             util.cookies.set('token', response.data.data.token)
+            util.cookies.set('id',response.data.data.user.id)
             // this.$router.push('/blog');
 
 
@@ -34,7 +35,7 @@ export default [
             util.cookies.remove('password')
             util.cookies.remove('uuid')
             util.cookies.remove('token')
-
+            util.cookies.remove('id')
           }
 
 

@@ -7,28 +7,35 @@
   </div>
   <textarea class="form-control" style="resize:none;" rows="5" placeholder="说点什么吧..." maxlength="200" v-model="input_comment"> </textarea>
 
-  <input type="button" class="pull-right btn btn-primary" value="发表" >
+  <el-button  class="pull-right btn btn-primary"   @click="insert()">发表</el-button>
 
 </div>
   <el-divider></el-divider>
   <el-collapse accordion v-for="comment in comments" :key="comment">
     <el-collapse-item>
       <template slot="title">
-        <div slot="header" class="clearfix">
-          <div class="me-view-author">
+
+        <div slot="header" >
+          <div class="pull-right btn btn-primary">
               <el-avatar class="me-view-picture" :src="comment.avatarImgUrl"></el-avatar>
 
 
               <span>{{comment.username}}</span>
 
-              <span>{{comment.commentContent}}</span>
+
 
 
           </div>
 
         </div>
+        <div class="my-comment-content">
+          {{comment.commentContent}}
+        </div>
       </template>
+
       <div class="edit">
+
+
         <el-button type="primary" icon="el-icon-edit" circle @click="open(comment.id)"></el-button>
       </div>
 
@@ -54,6 +61,8 @@
 <script>
   // import {publishComment} from '@/api/comment'
 
+  import util from "../../../../libs/util";
+
   export default {
     name: "CommentItem",
     props: {
@@ -65,18 +74,39 @@
 
     data() {
       return {
-          comments:[]
+          comments:[],
+        input_comment:"",
       }
     },
     methods: {
       init(){
-        this.$http.get('comments/'+this.$route.params.id)
+        this.$api.article.articleComments({'accountId':this.$store.state.accountData.id,'type':"article"})
         .then((response)=>{
           this.comments = response.data.data;
         })
         .catch((error)=>{
-
+        alert(error)
         })
+      },
+
+      insert(){
+        this.$api.article.insertComment({'commentContent':this.input_comment,'fromId':util.cookies.get('id'),'commentType':'article','typeId':this.$store.state.accountData.id})
+        .then((response)=>{
+          this.init();
+        })
+        .catch((error)=>{
+          alert(error)
+        })
+      },
+      reply(value){
+        this.$api.article.insertReply({'replyContent':value,'fromId':util.cookies.get('id'),'toId':id})
+          .then((response)=>{
+            alert(response.data)
+            this.init();
+          })
+          .catch((error)=>{
+            alert(error)
+          })
       },
       open(id){
         this.$prompt('请输入评论', '提示', {
@@ -88,6 +118,7 @@
             type: 'success',
 
           });
+          this.reply();
         }).catch(() => {
           this.$message({
             type: 'info',
@@ -100,6 +131,9 @@
 </script>
 
 <style>
+  .my-comment-content{
+    text-align: center;
+  }
   .me-view-author {
     /*margin: 30px 0;*/
     margin-top: 30px;
