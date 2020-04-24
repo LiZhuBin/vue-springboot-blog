@@ -1,8 +1,11 @@
 package com.springboot.blog.entity.db;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 /**
  * @program: blog-back
@@ -14,13 +17,29 @@ import java.util.Objects;
 @Table(name = "left_message", schema = "vue_springboot_blog", catalog = "")
 public class LeftMessage {
     private int id;
+
+    public LeftMessage() {
+    }
+
     private int fromId;
     private int toId;
     private String fromName;
     private String fromHead;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Timestamp createTime;
     private String messageContent;
     private Boolean messagePower;
+
+    public LeftMessage(Builder builder) {
+        setId(builder.id);
+        setFromId(builder.fromId);
+        setToId(builder.toId);
+        setFromName(builder.fromName);
+        setFromHead(builder.fromHead);
+        setCreateTime(builder.createTime);
+        setMessageContent(builder.messageContent);
+        setMessagePower(builder.messagePower);
+    }
 
     @Id
     @Column(name = "id")
@@ -33,7 +52,7 @@ public class LeftMessage {
     }
 
     @Basic
-    @Column(name = "from_id")
+    @Column(name = "from_id" , nullable = false)
     public int getFromId() {
         return fromId;
     }
@@ -43,7 +62,7 @@ public class LeftMessage {
     }
 
     @Basic
-    @Column(name = "to_id")
+    @Column(name = "to_id",nullable = false)
     public int getToId() {
         return toId;
     }
@@ -120,5 +139,63 @@ public class LeftMessage {
     @Override
     public int hashCode() {
         return Objects.hash(id, fromId, toId, fromName, fromHead, createTime, messageContent, messagePower);
+    }
+
+    public static final class Builder {
+        private int id;
+        private int fromId;
+        private int toId;
+        private String fromName;
+        private String fromHead;
+        private Timestamp createTime;
+        private String messageContent;
+        private Boolean messagePower;
+
+        public Builder() {
+        }
+
+        public Builder id(int val) {
+            id = val;
+            return this;
+        }
+
+        public Builder fromId(int val) {
+            fromId = val;
+            return this;
+        }
+
+        public Builder toId(int val) {
+            toId = val;
+            return this;
+        }
+
+        public Builder fromName(String val) {
+            fromName = val;
+            return this;
+        }
+
+        public Builder fromHead(String val) {
+            fromHead = val;
+            return this;
+        }
+
+        public Builder createTime(Timestamp val) {
+            createTime = val;
+            return this;
+        }
+
+        public Builder messageContent(String val) {
+            messageContent = val;
+            return this;
+        }
+
+        public Builder messagePower(Boolean val) {
+            messagePower = val;
+            return this;
+        }
+
+        public LeftMessage build() {
+            return new LeftMessage(this);
+        }
     }
 }

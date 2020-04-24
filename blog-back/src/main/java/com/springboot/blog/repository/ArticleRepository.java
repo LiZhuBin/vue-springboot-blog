@@ -12,7 +12,7 @@ import java.util.Map;
 public interface ArticleRepository extends JpaRepository<Article,Integer>, QuerydslPredicateExecutor<Article> {
 
 
-        public List<Article> findAllByAccountId(int id);
+        List<Article> findAllByAccountId(int id);
         List<Article> findAllByAccountIdAndArticleClassify(int id,String c);
         //文章的详细信息
 

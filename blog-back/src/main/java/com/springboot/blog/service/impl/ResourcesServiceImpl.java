@@ -2,15 +2,22 @@ package com.springboot.blog.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableList;
+import com.qcloud.cos.exception.CosClientException;
+import com.qcloud.cos.exception.CosServiceException;
+import com.qcloud.cos.model.COSObjectSummary;
+import com.qcloud.cos.model.ListObjectsRequest;
+import com.qcloud.cos.model.ObjectListing;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.*;
 import com.springboot.blog.repository.ResourceRepository;
 import com.springboot.blog.service.ResourcesService;
+import com.springboot.blog.utils.COSClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import springfox.documentation.spring.web.json.Json;
 
 import java.util.ArrayList;
@@ -99,6 +106,46 @@ public class ResourcesServiceImpl implements ResourcesService {
             object.put(type,typeList);
         }
         return object;
+    }
+
+    @Override
+    public void insertDbFile(String way, String name, String classify, String description, String url) {
+
+    }
+
+    @Override
+    public Classify insertClassify(Classify classify) {
+
+        return null;
+    }
+
+    @Override
+    public String insertFile(MultipartFile file, String filePath) {
+        String img_url = null;
+
+        try {
+
+            COSClientUtil cosClientUtil = new COSClientUtil();
+
+            if(!file.isEmpty()) {
+
+                String name = cosClientUtil.uploadFile2Cos(file,filePath);
+                //图片名称
+                System.out.println("name = " + name);
+                //上传到腾讯云
+                img_url = cosClientUtil.getImgUrl(name);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }
+        return img_url;
+    }
+
+    @Override
+    public List<COSObjectSummary> listResources() {
+        return  new COSClientUtil().listResources();
     }
 
 

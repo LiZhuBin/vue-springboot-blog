@@ -63,11 +63,7 @@ export default {
             },
             redirect: 'manage/blog-manage',
             children: [
-                {
-                    path: 'my-blog',
-                    name: 'my-blog',
-                    component: () => import('../views/blog/manage/blog-manage/my-blog/index')
-                },
+
                 {
                     path: 'blog-manage',
                     name: 'blog-manage',
@@ -78,6 +74,11 @@ export default {
                     name: 'write-article',
                     component: () => import('../views/blog/manage/blog-manage/write-article/index.vue')
                 },
+              {
+                path: 'write-article/:id',
+                name: 'write-article',
+                component: () => import('../views/blog/manage/blog-manage/write-article/index.vue')
+              },
                 {
                     path: 'resources-manage',
                     name: 'resources-manage',

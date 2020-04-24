@@ -11,9 +11,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class LabelServiceImpl implements LabelService {
@@ -27,9 +25,9 @@ public class LabelServiceImpl implements LabelService {
     @Autowired
     MongoTemplate mongoTemplate;
     @Override
-    public List<String> getArticleLabels(int articleId) {
+    public Set<String> getArticleLabels(int articleId) {
 
-        List<String> s = new ArrayList<>();
+        Set<String> s = new HashSet<>();
         List<Label> fetch = labelRepository.findAllByArticleId(articleId);
         for(Label label:fetch){
             s.add(label.getLabelName());
@@ -54,4 +52,12 @@ public class LabelServiceImpl implements LabelService {
     public List<Label> byLabelName(String labelName) {
         return labelRepository.findAllByLabelName(labelName);
     }
+
+    @Override
+    public void insertLabels(List<Label> l) {
+
+        labelRepository.saveAll(l);
+    }
+
+
 }

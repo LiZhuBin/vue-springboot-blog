@@ -1,10 +1,12 @@
 package com.springboot.blog.entity.db;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.manager.ArticleViews;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -24,8 +26,9 @@ public class Article implements Serializable {
 
     @JsonView(ArticleViews.BaseView.class)
     private int id;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @JsonView(ArticleViews.BaseView.class)
-    private String articleCreateTime;
+    private Timestamp articleCreateTime;
     @JsonView(ArticleViews.BaseView.class)
     private Integer articleReadCount;
     @JsonView(ArticleViews.ListView.class)
@@ -39,7 +42,21 @@ public class Article implements Serializable {
     private String articleDetail;
     @JsonView(ArticleViews.DetailView.class)
     private Integer articleDetailType;
+    @JsonView(ArticleViews.BaseView.class)
     private String articleClassify;
+    private Article(Builder builder) {
+        setId(builder.id);
+        setArticleCreateTime(builder.articleCreateTime);
+        setArticleReadCount(builder.articleReadCount);
+        setArticleTitle(builder.articleTitle);
+        setArticlePicture(builder.articlePicture);
+        setAccountId(builder.accountId);
+        setArticleDetail(builder.articleDetail);
+        setArticleDetailType(builder.articleDetailType);
+        setArticleClassify(builder.articleClassify);
+    }
+    public Article() {
+    }
 
     @Id
     @Column(name = "id")
@@ -63,8 +80,6 @@ public class Article implements Serializable {
         this.articleDetail = articleDetail;
     }
 
-
-
     @Basic
     @Column(name = "article_read_count")
     public Integer getArticleReadCount() {
@@ -77,13 +92,14 @@ public class Article implements Serializable {
 
     @Basic
     @Column(name = "article_create_time")
-    public String getArticleCreateTime() {
+    public Timestamp getArticleCreateTime() {
         return articleCreateTime;
     }
 
-    public void setArticleCreateTime(String articleCreateTime) {
+    public void setArticleCreateTime(Timestamp articleCreateTime) {
         this.articleCreateTime = articleCreateTime;
     }
+
 
     @Basic
     @Column(name = "article_title")
@@ -158,5 +174,81 @@ public class Article implements Serializable {
 
     public void setArticleClassify(String articleClassify) {
         this.articleClassify = articleClassify;
+    }
+
+    public static final class Builder {
+        private int id;
+        private Timestamp articleCreateTime;
+        private Integer articleReadCount;
+        private String articleTitle;
+        private String articlePicture;
+        private int accountId;
+        private String articleDetail;
+        private Integer articleDetailType;
+        private String articleClassify;
+
+        public Builder(int id, Timestamp articleCreateTime, Integer articleReadCount, String articleTitle, String articlePicture, int accountId, String articleDetail, Integer articleDetailType, String articleClassify) {
+            this.id = id;
+            this.articleCreateTime = articleCreateTime;
+            this.articleReadCount = articleReadCount;
+            this.articleTitle = articleTitle;
+            this.articlePicture = articlePicture;
+            this.accountId = accountId;
+            this.articleDetail = articleDetail;
+            this.articleDetailType = articleDetailType;
+            this.articleClassify = articleClassify;
+        }
+
+        public Builder() {
+        }
+
+        public Builder id(int val) {
+            id = val;
+            return this;
+        }
+
+        public Builder articleCreateTime(Timestamp val) {
+            articleCreateTime = val;
+            return this;
+        }
+
+        public Builder articleReadCount(Integer val) {
+            articleReadCount = val;
+            return this;
+        }
+
+        public Builder articleTitle(String val) {
+            articleTitle = val;
+            return this;
+        }
+
+        public Builder articlePicture(String val) {
+            articlePicture = val;
+            return this;
+        }
+
+        public Builder accountId(int val) {
+            accountId = val;
+            return this;
+        }
+
+        public Builder articleDetail(String val) {
+            articleDetail = val;
+            return this;
+        }
+
+        public Builder articleDetailType(Integer val) {
+            articleDetailType = val;
+            return this;
+        }
+
+        public Builder articleClassify(String val) {
+            articleClassify = val;
+            return this;
+        }
+
+        public Article build() {
+            return new Article(this);
+        }
     }
 }

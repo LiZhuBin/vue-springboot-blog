@@ -2,11 +2,13 @@ package com.springboot.blog.service.impl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.QReply;
+import com.springboot.blog.entity.db.Reply;
 import com.springboot.blog.repository.ReplyRepository;
 import com.springboot.blog.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -26,5 +28,16 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public List<Integer> findNameById(int id) {
         return jpaQueryFactory.select(reply.fromId).from(reply).where(reply.id.eq(id)).fetch();
+    }
+
+    @Override
+    public Reply insert(Reply r) {
+        r.setReplyTime(new Timestamp(System.currentTimeMillis()));
+        return replyRepository.save(r);
+    }
+
+    @Override
+    public List<Reply> byCommentId(int id) {
+        return replyRepository.findAllByToId(id);
     }
 }

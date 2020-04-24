@@ -1,5 +1,7 @@
 package com.springboot.blog.entity.db;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -17,6 +19,7 @@ public class Comment {
 
     private String commentContent;
     private Integer fromId;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Timestamp commentTime;
     private String commentType;
     private Integer typeId;
@@ -34,7 +37,7 @@ public class Comment {
 
 
     @Basic
-    @Column(name = "comment_content")
+    @Column(name = "comment_content",nullable = false)
     public String getCommentContent() {
         return commentContent;
     }
@@ -44,7 +47,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "from_id")
+    @Column(name = "from_id",nullable = false)
     public Integer getFromId() {
         return fromId;
     }
@@ -81,7 +84,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "comment_type")
+    @Column(name = "comment_type",nullable = false)
     public String getCommentType() {
         return commentType;
     }

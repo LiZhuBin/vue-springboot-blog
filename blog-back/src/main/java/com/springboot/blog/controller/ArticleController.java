@@ -43,7 +43,7 @@ public class ArticleController {
         * @Param: [id]
         * @return: com.alibaba.fastjson.JSONObject
         */
-    public JSONObject GetArticlaeById(@PathVariable(value = "id") int id){
+    public JSONObject GetArticlesById(@PathVariable(value = "id") int id){
         JSONObject jsonObject = new JSONObject();
         Article article = articleService.getArticlesById(id);
         article.setArticlePicture(resourcesService.randomImage());
@@ -52,7 +52,10 @@ public class ArticleController {
         jsonObject.put("labels", JSON.toJSON(labelService.getArticleLabels(article.getId())));
         return jsonObject;
     }
-
+    @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
+    public void delecteArticlesById(@PathVariable(value = "id") int id){
+            articleService.delete(id);
+    }
     @JsonView(ArticleViews.ListView.class)
     @GetMapping("account-id/{id}")
         /**
@@ -74,8 +77,28 @@ public class ArticleController {
         return jsonObjects;
     }
     @PostMapping("")
-    public List<Article> getArticles(@RequestBody Article article){
-        return articleRepository.findAllByAccountId(article.getId());
+    public List<Article> getArticles(@RequestParam("accountId") int accountId,
+                                     @RequestParam("title") String title,
+                                     @RequestParam("content") String content,
+                                     @RequestParam(value = "tags",required = false) List<String> tags,
+                                     @RequestParam("classify") String classify,
+                                     @RequestParam(value = "articleId" ,required=false,defaultValue = "0") int articleId){
+        Article a = new Article.Builder()
+                .accountId(accountId)
+                .articleTitle(title)
+                .articleClassify(classify)
+                .articleDetail(content).build();
+
+        if(articleId!=0){
+            a.setId(articleId);
+        }
+        if(tags!=null){
+
+        }
+        Article article = articleService.insertArticle(a);
+
+   //     return articleRepository.findAllByAccountId(article.getId());
+        return null;
     }
     @GetMapping("_classify")
     public Set<String> getClassify(@RequestParam("accountId") int accountId){

@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface ReplyRepository extends JpaRepository<Reply,Integer>, QuerydslPredicateExecutor<Reply> {
     List<Reply> findAllById(int id);
-
+    List<Reply> findAllByToId(int id);
 }

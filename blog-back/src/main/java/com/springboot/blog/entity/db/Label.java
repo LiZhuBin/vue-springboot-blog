@@ -17,7 +17,13 @@ public class Label implements Serializable {
         return id;
     }
 
+    public Label() {
+    }
 
+    public Label(String labelName, int articleId) {
+        this.labelName = labelName;
+        this.articleId = articleId;
+    }
 
     public void setId(int id) {
         this.id = id;

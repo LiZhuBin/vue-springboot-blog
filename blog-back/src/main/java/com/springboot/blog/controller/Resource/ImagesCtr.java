@@ -1,12 +1,13 @@
 package com.springboot.blog.controller.Resource;
 
-import ch.qos.logback.classic.Logger;
 import com.alibaba.fastjson.JSONObject;
+import com.qcloud.cos.model.COSObjectSummary;
 import com.springboot.blog.entity.db.Description;
 import com.springboot.blog.service.ResourcesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class ImagesCtr {
 
     @Autowired
     ResourcesService resourcesService;
+    String basePath = "vue_springboot_blog"+"/";
 //    @GetMapping("{id}")
 //    public Object byAccountId(@PathVariable("id") int id){
 //
@@ -36,6 +38,10 @@ public class ImagesCtr {
 
         return resourcesService.classifyByAccountId(accountId);
     }
+    @GetMapping("a")
+    public List<COSObjectSummary> get(){
+        return resourcesService.listResources();
+    }
     @GetMapping("{way}/{classify}")
     public List<Description> detail(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify){
         return resourcesService.resourceClassify(accountId,way,classify);
@@ -45,5 +51,17 @@ public class ImagesCtr {
     public List<?> resourcesList(@RequestParam("accountId") int accountId, @PathVariable("way") String way,@PathVariable("classify") String classify, @PathVariable("description") String description){
 
         return resourcesService.resourceClassify(accountId,way,classify,description);
+    }
+    @RequestMapping(value = "{way}/{classify}/{description}/{name}",method = RequestMethod.POST,produces="application/json;charset=utf-8")
+    public String upModify(@RequestParam("accountId") int accountId,
+                           @PathVariable("way") String way,
+                           @PathVariable("classify")String classify,
+                           @PathVariable("description") String description,
+                           @PathVariable("name") String name,
+                           @RequestParam("multipartFile") MultipartFile file) {
+
+        String filePath  = basePath+String.valueOf(accountId)+'/'+way+'/'+ classify +"/"+description+"/";
+        return resourcesService.insertFile(file,filePath);
+
     }
 }

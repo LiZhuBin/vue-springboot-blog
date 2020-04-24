@@ -21,7 +21,8 @@
                     width="100">
                 <template slot-scope="scope">
                     <el-button @click="handleClick(scope.$index)" type="text" size="small"> 查看</el-button>
-                    <el-button type="text" size="small">编辑</el-button>
+                    <el-button type="text" size="small" @click="edit(scope.$index)">编辑</el-button>
+                    <el-button type="text" size="small" @click="del(scope.$index)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -98,10 +99,20 @@
                         this.tableData = response.data.data;
 
                     })
+              .catch((error)=>{
+                alert(error)
+              })
             },
-            writeArticle() {
-                this.$router.push("blog/manage/write-article");
-            }
+           del(row){
+              this.$api.article.delectArticle(this.tableData[row].article.id)
+             .then((response)=>{
+              this.init();
+             })
+           },
+          edit(row){
+            this.$router.push("write-article/"+this.tableData[row].article.id);
+          },
+
         },
     }
 </script>

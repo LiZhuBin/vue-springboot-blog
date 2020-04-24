@@ -40,7 +40,7 @@ public class Reply {
     }
 
     @Basic
-    @Column(name = "from_id")
+    @Column(name = "from_id",nullable = false)
     public Integer getFromId() {
         return fromId;
     }
@@ -50,7 +50,7 @@ public class Reply {
     }
 
     @Basic
-    @Column(name = "to_id")
+    @Column(name = "to_id",nullable = false)
     public Integer getToId() {
         return toId;
     }

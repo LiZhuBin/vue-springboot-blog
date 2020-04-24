@@ -12,6 +12,9 @@ const article = {
     articleComments(param){
       return axios.get('comments',{params:param})
     },
+    delectArticle(accountId){
+      return axios.delete("articles/"+accountId)
+    },
     insertComment(param){
       return axios(
         {method:'POST',url:'comments',headers:

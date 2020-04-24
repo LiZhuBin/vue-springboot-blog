@@ -38,10 +38,12 @@ class AccountController {
         accountJson.put("newArticles",articleService.newArticles(id,ArticleLine));
         accountJson.put("hotArticles",articleService.hotArticles(id,ArticleLine));
         jsonObject.put("account",accountService.getAccountById(id));
-      //  jsonObject.put("accountSumary", JSON.toJSON(accountSumaryService.findAllByAccountId(id)));
         jsonObject.put("articles",accountJson);
-//        jsonObject.put("labels",labelService.(id));
         return jsonObject;
+    }
+    @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
+    public void deleteAccountsByid(@PathVariable(value = "id") int id){
+
     }
 
 

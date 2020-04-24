@@ -13,6 +13,7 @@ import com.springboot.blog.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +48,7 @@ public class CommentServiceImpl implements CommentService {
         for(Comment comment:comments){
             map=new HashMap<>();
             map.put("id",comment.getId());
-            List<Reply> replys=repository.findAllById(comment.getId());
+            List<Reply> replys=replyService.byCommentId(comment.getId());
             newReplys = new ArrayList<>();
             if(replys!=null){
                 for(Reply reply:replys){
@@ -57,6 +58,7 @@ public class CommentServiceImpl implements CommentService {
                     replymap.put("replyContent",reply.getReplyContent());
                     replymap.put("replyImgUrl",account.getAccountHead());
                     replymap.put("replyTime",reply.getReplyTime());
+
                     newReplys.add(replymap);
                 }
                 map.put("Replys",newReplys);
@@ -77,5 +79,11 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> byArticleId(String type,int articleId) {
 
         return r.findAllByCommentTypeAndTypeId(type,articleId);
+    }
+
+    @Override
+    public Comment insertComment(Comment comment) {
+        comment.setCommentTime(new Timestamp(System.currentTimeMillis()));
+        return r.save(comment);
     }
 }

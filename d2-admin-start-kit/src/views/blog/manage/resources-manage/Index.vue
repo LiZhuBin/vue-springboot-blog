@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <el-tabs :tab-position="tabPosition" style="height: 200px;">
+    <div >
+        <el-tabs :tab-position="tabPosition" >
             <el-tab-pane label="相册">
                 <ImagesView></ImagesView>
             </el-tab-pane>

@@ -98,7 +98,7 @@
           alert(error)
         })
       },
-      reply(value){
+      reply(value,id){
         this.$api.article.insertReply({'replyContent':value,'fromId':util.cookies.get('id'),'toId':id})
           .then((response)=>{
             alert(response.data)
@@ -118,7 +118,7 @@
             type: 'success',
 
           });
-          this.reply();
+          this.reply(value,id);
         }).catch(() => {
           this.$message({
             type: 'info',

@@ -8,4 +8,5 @@ import java.util.Map;
 public interface CommentService {
     List<Map<String, Object>> getCommentByArticleId(String type,int articleId);
     List<Comment> byArticleId(String type,int articleId);
+    Comment insertComment(Comment comment);
 }

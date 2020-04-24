@@ -1,5 +1,6 @@
 package com.springboot.blog.controller;
 
+import com.springboot.blog.entity.db.Comment;
 import com.springboot.blog.service.CommentService;
 import com.springboot.blog.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.Map;
  **/
 @RestController
 
-@RequestMapping(value = "/v1/comments/")
+@RequestMapping(value = "/v1/comments")
 @ResponseBody
 public class CommentController {
     @Autowired
@@ -24,8 +25,14 @@ public class CommentController {
     @Autowired
     ReplyService replyService;
 
-    @GetMapping("{id}")
-    public List<Map<String, Object>> comments (@RequestParam(value = "type") String type,@PathVariable(value = "id") int id){
+    @GetMapping("")
+    public List<Map<String, Object>> comments (@RequestParam(value = "type") String type,@RequestParam(value = "accountId") int id){
         return commentService.getCommentByArticleId(type,id);
     }
+    @RequestMapping(value = "",method = RequestMethod.POST)
+    public Comment insertComment(@RequestBody Comment c){
+        return commentService.insertComment(c);
+    }
+
+
 }

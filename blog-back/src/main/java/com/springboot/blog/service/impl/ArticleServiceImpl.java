@@ -17,7 +17,10 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 //@Transactional
@@ -86,6 +89,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public Article insertArticle(Article article) {
+        return articleRepository.save(article);
+    }
+
+    @Override
     /**
     * @Description: 通过label名和作者名得到文章信息
     * @Param: [accountId, labelName]
@@ -113,8 +121,11 @@ public class ArticleServiceImpl implements ArticleService {
         stringBuffer.append(year);
         stringBuffer.append('-');
         stringBuffer.append(month);
-        booleanBuilder.and(article.articleCreateTime.startsWith(stringBuffer.toString()));
-        return jpaQueryFactory.selectFrom(article).where(booleanBuilder).fetch();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        List<Article> fetch = jpaQueryFactory.selectFrom(article).where(booleanBuilder).fetch().stream().filter(a->sdf.format(a.getArticleCreateTime()).startsWith(stringBuffer.toString())).collect(Collectors.toList());
+
+       // booleanBuilder.and(s.startsWith(stringBuffer.toString()));
+        return fetch ;
 
     }
 
@@ -142,7 +153,12 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<JSONObject> timeClassifyByAccountId(int accountId) {
-        List<String> articles= jpaQueryFactory.select(article.articleCreateTime).orderBy(article.articleCreateTime.desc()).from(article).where(article.accountId.eq(accountId)).fetch();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        List<Timestamp> articles_time= jpaQueryFactory.select(article.articleCreateTime).orderBy(article.articleCreateTime.desc()).from(article).where(article.accountId.eq(accountId)).fetch();
+        List<String > articles = new ArrayList<>();
+        for(Timestamp t:articles_time){
+            articles.add(sdf.format(t));
+        }
         Set<String> timeClassifies = new LinkedHashSet<>();
         for(String a:articles){
             timeClassifies.add(a.substring(0,7));
@@ -155,6 +171,18 @@ public class ArticleServiceImpl implements ArticleService {
             objects.add(object);
         }
         return objects;
+    }
+
+    @Override
+    public void deleteBatch(List<Integer> ids) {
+        for(Integer id:ids){
+            articleRepository.deleteById(id);
+        }
+    }
+
+    @Override
+    public void delete(int id) {
+        articleRepository.deleteById(id);
     }
 
 
