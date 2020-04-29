@@ -14,6 +14,7 @@ public class Communication implements Serializable {
     private String communicationGithub;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

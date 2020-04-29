@@ -25,6 +25,7 @@ public class Comment {
     private Integer typeId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

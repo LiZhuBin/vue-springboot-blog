@@ -22,6 +22,7 @@ public class Resource {
     private String text;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

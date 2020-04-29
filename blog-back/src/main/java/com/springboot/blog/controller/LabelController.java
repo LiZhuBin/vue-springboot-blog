@@ -6,15 +6,11 @@ import com.springboot.blog.entity.db.Label;
 import com.springboot.blog.manager.ArticleViews;
 import com.springboot.blog.service.ArticleService;
 import com.springboot.blog.service.LabelService;
-import org.bson.LazyBSONList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @RestController
 
@@ -47,14 +43,20 @@ public class LabelController  {
         }
         return s;
     }
+    @GetMapping("articleId/{id}")
+    public Set<String> getLabelsByArticleId(@PathVariable("id") int id){
+        return labelService.getArticleLabels(id);
+    }
     @RequestMapping(value = "",method = {RequestMethod.POST})
-    public void insertLabels(@RequestParam("articleId") int articleId,@RequestParam("labelsName") List<String> labelsName){
+    public void insertLabels(@RequestParam("articleId") int articleId, HttpServletRequest request){
+
+        String[] labelsName = request.getParameterValues("labelsName");
         List<Label> labels = new ArrayList<>();
         for(String name :labelsName){
-            labels.add(new Label(name,articleId));
+            labelService.insertLabel(new Label(name,articleId));
         }
-       // List<Label> labels = labelsName.stream().map((name)->new Label(name,articleId)).collect(Collectors.toList());
-        labelService.insertLabels(labels);
+      // List<Label> labels = Arrays.asList(labelsName).stream().map((name)->new Label(name,articleId)).collect(Collectors.toList());
+     //   labelService.insertLabels(labels);
     }
 
 }

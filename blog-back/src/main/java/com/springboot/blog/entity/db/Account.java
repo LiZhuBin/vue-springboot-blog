@@ -49,6 +49,7 @@ public class Account implements Serializable {
     private Boolean accountAdmin;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

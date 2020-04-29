@@ -21,6 +21,7 @@ public class Classify {
     private int accountId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

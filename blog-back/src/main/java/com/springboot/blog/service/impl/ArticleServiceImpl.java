@@ -90,7 +90,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article insertArticle(Article article) {
-        return articleRepository.save(article);
+        return articleRepository.saveAndFlush(article);
     }
 
     @Override

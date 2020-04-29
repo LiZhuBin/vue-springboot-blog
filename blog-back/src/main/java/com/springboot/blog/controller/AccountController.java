@@ -42,7 +42,7 @@ class AccountController {
         return jsonObject;
     }
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
-    public void deleteAccountsByid(@PathVariable(value = "id") int id){
+    public void deleteAccountsById(@PathVariable(value = "id") int id){
 
     }
 

@@ -85,14 +85,17 @@
 
           init(){
 
-            this.$api.article.articleDetail(this.$route.params.id)
+            this.$api.article.getArticle(this.$route.params.id)
               .then((response)=>{
-                  this.article = response.data.data.article;
-
-                  this.account = response.data.data.account;
-                  this.labels = response.data.data.labels;
-
-
+                  this.article = response.data.data;
+                this.$api.account.getAccount(this.article.accountId)
+                  .then((response)=>{
+                    this.account = response.data.data.account;
+                  })
+                this.$api.label.getLabelsByArticleId(id)
+                  .then((response)=>{
+                    this.labels = response.data.data;
+                  })
               })
               .catch((error)=>{
               });

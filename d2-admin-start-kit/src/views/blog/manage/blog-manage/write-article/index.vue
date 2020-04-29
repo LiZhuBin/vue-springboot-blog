@@ -55,7 +55,7 @@
                 </el-tabs>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="submitForm('form')">立即创建</el-button>
+                <el-button type="primary" @click="submitForm()">立即创建/修改</el-button>
                 <el-button @click="resetForm('form')">重置</el-button>
             </el-form-item>
         </el-form>
@@ -99,23 +99,28 @@
       },
       methods:{
           init(){
-            let id = this.$route.params.id;
+
+            let id = this.$route.params.id?this.$route.params.id:0;
             if(id){
               this.$api.article.articleDetail(id)
               .then((response)=>{
 
-                this.textContent = response.data.data.article.articleTitle;
-                this.classify_value = response.data.data.article.articleClassify;
-                this.type_select = response.data.data.article.articleDetailType;
+                this.textContent = response.data.data.articleTitle;
+                this.classify_value = response.data.data.articleClassify;
+                this.type_select = response.data.data.articleDetailType;
                 if(this.type_select==1){
-                  this.articleContent1 = response.data.data.article.articleDetail;
+                  this.articleContent1 = response.data.data.articleDetail;
                 }else{
-                   this.articleContent0 = response.data.data.article.articleDetail;
+                   this.articleContent0 = response.data.data.articleDetail;
                 }
-                this.dynamicTags = response.data.data.labels;
+
               })
               .catch((error)=>{
                 alert(error)
+              })
+              this.$api.label.getLabelsByArticleId(id)
+              .then((response)=>{
+                this.dynamicTags = response.data.data;
               })
             }
             this.$api.article.classifies(this.$store.state.accountData.id)
@@ -128,26 +133,20 @@
 
           },
 
-            submitForm(formName) {
-
+            submitForm() {
+              let id = this.$route.params.id?this.$route.params.id:0;
               var content;
               if(this.type_select==1){
                 content = this.articleContent1;
               }else{
                 content = this.articleContent0;
               }
-              let param = {
-                "accountId": this.$store.state.accountData.id,
-                "articleTitle":this.textContent,
-                "articleClassify":this.classify_value,
-                "articleDetailType":this.type_select,
-                "articleDetail":content
-              };
+
 
               this.$http({
                 method: 'post',
                 url: 'articles' ,
-                data: this.$qs.stringify({accountId: 3})
+                data: this.$qs.stringify({accountId:this.$store.state.accountData.id ,articleId:id,title:this.textContent,content:this.textContent,classify:this.classify_value})
               })
                 .then((response) => {
                   this.articles = response.data.data;

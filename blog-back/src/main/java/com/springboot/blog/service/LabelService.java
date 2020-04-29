@@ -13,4 +13,5 @@ public interface LabelService  {
     Label getLabelByLabelId(int labelId);
     List<Label> byLabelName(String labelName);
     void insertLabels(List<Label> l);
+    void insertLabel(Label l);
 }

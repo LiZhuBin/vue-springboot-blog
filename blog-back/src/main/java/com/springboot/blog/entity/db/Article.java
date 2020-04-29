@@ -3,6 +3,8 @@ package com.springboot.blog.entity.db;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.blog.manager.ArticleViews;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +12,8 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@DynamicInsert
+@DynamicUpdate
 @Table(name = "article")
 public class Article implements Serializable {
 //    @ManyToOne(fetch = FetchType.LAZY)
@@ -35,12 +39,14 @@ public class Article implements Serializable {
     private String articleTitle;
     @JsonView(ArticleViews.ListView.class)
     private String articlePicture;
+
     @JsonView(ArticleViews.ListView.class)
 
     private int accountId;
     @JsonView(ArticleViews.DetailView.class)
     private String articleDetail;
     @JsonView(ArticleViews.DetailView.class)
+
     private Integer articleDetailType;
     @JsonView(ArticleViews.BaseView.class)
     private String articleClassify;
@@ -56,9 +62,13 @@ public class Article implements Serializable {
         setArticleClassify(builder.articleClassify);
     }
     public Article() {
+        this.articleDetailType = 0;
+        this.articleReadCount = 0;
+        this.articlePicture = "https://bingos-1258635419.cos.ap-guangzhou.myqcloud.com/vue_springboot_blog/1/images/%E5%8A%A8%E6%BC%AB/%E4%B8%9C%E4%BA%AC%E9%A3%9F%E5%B0%B8%E9%AC%BC/969352.jpg";
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -112,7 +122,8 @@ public class Article implements Serializable {
     }
 
     @Basic
-    @Column(name = "article_picture")
+
+    @Column(name = "article_picture",columnDefinition = "DEFAULT 'dd'")
     public String getArticlePicture() {
         return articlePicture;
     }
@@ -122,7 +133,7 @@ public class Article implements Serializable {
     }
 
     @Basic
-    @Column(name = "article_detail_type")
+    @Column(name = "article_detail_type",columnDefinition = "default '0'")
     public Integer getArticleDetailType() {
         return articleDetailType;
     }
@@ -132,7 +143,7 @@ public class Article implements Serializable {
     }
 
     @Basic
-    @Column(name = "account_id",insertable=false,updatable=false)
+    @Column(name = "account_id")
     public int getAccountId() {
         return accountId;
     }

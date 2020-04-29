@@ -6,6 +6,9 @@ const article = {
     articleDetail(articleId){
         return axios.get('articles/'+articleId);
     },
+    getArticle(articleId){
+      return axios.get('articles/'+articleId);
+    },
     classifies(accountId){
       return axios.get('articles/_classify',{params:{'accountId':accountId}})
     },

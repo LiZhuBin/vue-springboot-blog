@@ -59,5 +59,10 @@ public class LabelServiceImpl implements LabelService {
         labelRepository.saveAll(l);
     }
 
+    @Override
+    public void insertLabel(Label l) {
+        labelRepository.save(l);
+    }
+
 
 }

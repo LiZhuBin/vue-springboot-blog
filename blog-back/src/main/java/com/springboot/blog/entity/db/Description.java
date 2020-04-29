@@ -20,6 +20,7 @@ public class Description {
     private int view;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
