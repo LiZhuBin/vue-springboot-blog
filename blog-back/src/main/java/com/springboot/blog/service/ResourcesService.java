@@ -20,4 +20,5 @@ public interface ResourcesService {
     Classify insertClassify(Classify classify);
     String insertFile(MultipartFile file,String filePath);
     List<COSObjectSummary> listResources();
+    void insertFileDb(String c,String d,String name,String way,String newPath,int accountId,boolean power);
 }

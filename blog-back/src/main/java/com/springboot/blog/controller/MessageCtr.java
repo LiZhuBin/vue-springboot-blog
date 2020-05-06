@@ -43,4 +43,9 @@ public class MessageCtr {
         msg.setCreateTime(new Timestamp(System.currentTimeMillis()));
         return messageSer.add(msg);
     }
+    @DeleteMapping("{id}")
+    public void deleteMsg(@PathVariable("id") int id){
+        messageSer.delete(id);
+    }
+
 }

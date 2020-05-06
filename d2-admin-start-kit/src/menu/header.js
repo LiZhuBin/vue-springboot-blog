@@ -8,7 +8,8 @@ export default [
       { path: '/blog/manage/blog-manage', title: '博客管理' },
       { path: '/blog/manage/write-article', title: '写博客' },
       { path: '/blog/manage/resources-manage', title: '资源管理' },
-      { path: '/blog/manage/info-manage', title: '个人信息管理' }
+      { path: '/blog/manage/info-manage', title: '个人信息管理' },
+      { path: '/blog/manage/message-manage', title: '留言管理' },
     ]
   },
   {

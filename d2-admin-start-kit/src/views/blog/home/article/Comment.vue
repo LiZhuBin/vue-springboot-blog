@@ -80,7 +80,7 @@
     },
     methods: {
       init(){
-        this.$api.article.articleComments({'accountId':this.$store.state.accountData.id,'type':"article"})
+        this.$api.article.articleComments(this.$route.params.id)
         .then((response)=>{
           this.comments = response.data.data;
         })
@@ -90,7 +90,7 @@
       },
 
       insert(){
-        this.$api.article.insertComment({'commentContent':this.input_comment,'fromId':util.cookies.get('id'),'commentType':'article','typeId':this.$store.state.accountData.id})
+        this.$api.article.insertComment({'commentContent':this.input_comment,'fromId':util.cookies.get('id'),'toId':this.$store.state.accountData.id})
         .then((response)=>{
           this.init();
         })

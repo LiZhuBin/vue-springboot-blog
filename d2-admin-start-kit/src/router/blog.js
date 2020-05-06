@@ -89,6 +89,11 @@ export default {
                 name: 'info-manage',
                 component: () => import('../views/blog/manage/info－manage/Index')
               },
+              {
+                path: 'message-manage',
+                name:'message-manage',
+                component:()=>import('../views/blog/manage/message-manage/Index')
+              },
                 {path: 'blog-detail/:id', name: 'blog-detail', component: () => import ('../views/blog/home/article/Article.vue')},
 
             ],

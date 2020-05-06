@@ -6,6 +6,10 @@ const account = {
     },
     getAccount(id){
         return axios.get('accounts/'+id)
+    },
+    update(id,param){
+      return axios.post('accounts/'+id,param);
+
     }
 };
 export default account;

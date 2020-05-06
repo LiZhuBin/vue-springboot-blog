@@ -8,7 +8,8 @@ const resource = {
   },
   classifies(params){
       return axios.get('resources',{params:params})
-  }
+  },
+
 }
 
 export default resource;

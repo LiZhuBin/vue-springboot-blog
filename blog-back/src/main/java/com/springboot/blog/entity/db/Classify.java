@@ -20,6 +20,11 @@ public class Classify {
     private String text;
     private int accountId;
 
+    public Classify() {
+        this.view = 0;
+        this.text = "";
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

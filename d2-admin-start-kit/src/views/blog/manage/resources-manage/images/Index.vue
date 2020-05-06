@@ -1,30 +1,32 @@
 <template>
   <div>
     <div>上传图片</div>
-    <el-input v-model="input_classify" placeholder="请输入类型"></el-input>
-    <el-input v-model="input_description" placeholder="请输入图片集名"></el-input>
-    <el-input v-model="input_name" placeholder="请输入图片名字"></el-input>
-  <div class="upload">
 
-    <!-- 图片展示 -->
-    <div class="cha" v-show="(imgUrl)">
-      <!-- 删除icon -->
-      <div class="del"><i class="el-icon-delete" @click="delImg"></i></div>
-      <img :src="imgUrl">
-      <!-- 放大icon -->
-      <div class="layer"><i @click="isEnlargeImage = true" class="el-icon-view"></i></div>
-    </div>
-    <!-- 图片上传控件 -->
-    <div class="load" v-show="(!imgUrl)">
-      <input type="file" name="" id="form" @change="uploadIMG">
-    </div>
 
-    <!-- 图片预览弹框 -->
-    <el-dialog :visible.sync="isEnlargeImage" size="large"  :append-to-body="true" top="8%" width="60%">
-      <img @click="isEnlargeImage = false" style="width:100%;" :src="imgUrl">
-    </el-dialog>
 
-  </div>
+    <el-form-item label="选择图片">
+      <div class="upload">
+
+        <!-- 图片展示 -->
+        <div class="cha" v-show="(imgUrl)">
+          <!-- 删除icon -->
+          <div class="del"><i class="el-icon-delete" @click="delImg"></i></div>
+          <img :src="imgUrl">
+          <!-- 放大icon -->
+          <div class="layer"><i @click="isEnlargeImage = true" class="el-icon-view"></i></div>
+        </div>
+        <!-- 图片上传控件 -->
+        <div class="load" v-show="(!imgUrl)">
+          <input type="file" name="" id="form" @change="uploadIMG">
+        </div>
+
+        <!-- 图片预览弹框 -->
+        <el-dialog :visible.sync="isEnlargeImage" size="large"  :append-to-body="true" top="8%" width="60%">
+          <img @click="isEnlargeImage = false" style="width:100%;" :src="imgUrl">
+        </el-dialog>
+
+      </div>
+    </el-form-item>
   </div>
 </template>
 
@@ -33,15 +35,27 @@
     props: ["uploadUrl"],
     data() {
       return {
+
         picavalue: "",
         imgUrl: null,
         isEnlargeImage: false,
-        input_description:"",
-        input_classify:"",
-        input_name:""
+
       };
     },
     methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
       uploadIMG(e) {
         let files = e.target.files || e.dataTransfer.files;
         if (!files.length) return;
@@ -79,28 +93,19 @@
               let blob = self.dataURItoBlob(data);
 
               var formData = new FormData();
-              formData.append("file", blob);
-              let config = {
-                headers: { "Content-Type": "multipart/form-data" }
-              };
+
+              formData.append("multipartFile", blob);
+
+              // let config = {
+              //   headers: { "Content-Type": "application/json" }
+              // };
               // 发送请求;
-              this.$http.post(self.uploadUrl.url, formData, config).then(res => {
-                // console.log(res);
-                // console.log(res.data.data.resultftphost)
-                // console.log(res.data.data.resulturl)
-                // this.$emit('')
-                if (res.data.code == 200) {
-                  self.$emit(
-                    "getImgsrc",
-                    res.data.data.resultftphost,
-                    res.data.data.resulturl
-                  );
-                } else {
-                  self.$message({
-                    message: "图片上传失败，请重试",
-                    type: "warning"
-                  });
-                }
+              this.$http.post('resources/images/个人信息/测试/aaa', {"multipartFile":formData,"accountId":this.$store.state.accountData.id,"way":"images"}, config)
+                .then(res => {
+                alert("dd")
+              })
+              .catch((error)=>{
+                alert(error)
               });
             };
           };

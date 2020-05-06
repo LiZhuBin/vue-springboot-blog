@@ -72,13 +72,6 @@ public class ArticleServiceImpl implements ArticleService {
     @CachePut(value = "article", key = "#p0")
 
     public Article getArticlesById(int id) {
-        //点击更新阅读数
-
-
-//        int num= jpaQueryFactory.select(article.articleReadCount).from(article).where(article.id.eq(id)).fetchOne();
-//
-//
-//        jpaQueryFactory.update(article).set(article.articleReadCount,num+1).where(article.accountId.eq(id)).execute();
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
         redisTemplate.setKeySerializer(redisSerializer);
         Article article1 = (Article)redisTemplate.opsForValue().get("article_1");

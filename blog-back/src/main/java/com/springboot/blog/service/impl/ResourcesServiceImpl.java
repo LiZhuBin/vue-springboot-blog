@@ -9,6 +9,8 @@ import com.qcloud.cos.model.ListObjectsRequest;
 import com.qcloud.cos.model.ObjectListing;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springboot.blog.entity.db.*;
+import com.springboot.blog.repository.ClassifyRepository;
+import com.springboot.blog.repository.DescriptionRepository;
 import com.springboot.blog.repository.ResourceRepository;
 import com.springboot.blog.service.ResourcesService;
 import com.springboot.blog.utils.COSClientUtil;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import springfox.documentation.spring.web.json.Json;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +42,10 @@ public class ResourcesServiceImpl implements ResourcesService {
     MongoTemplate mongoTemplate;
     @Autowired
     JPAQueryFactory jpaQueryFactory;
+    @Autowired
+    ClassifyRepository classifyRepository;
+    @Autowired
+    DescriptionRepository descriptionRepository;
 
     // 1 初始化用户身份信息（secretId, secretKey）。
     String secretId = "1258635419";
@@ -146,6 +153,37 @@ public class ResourcesServiceImpl implements ResourcesService {
     @Override
     public List<COSObjectSummary> listResources() {
         return  new COSClientUtil().listResources();
+    }
+
+    @Override
+    public void insertFileDb(String c, String d, String name, String way, String newPath, int accountId,boolean power) {
+
+        Classify classify = classifyRepository.findByTypeAndName(way,c) ;
+        if(classify==null){
+            classify = new Classify();
+        }
+
+        classify.setAccountId(accountId);
+        classify.setPower(power);
+        classify.setType(way);
+        classify.setName(c);
+        Classify newClassify = classifyRepository.save(classify);
+        Description description = descriptionRepository.findByName(d);
+        if(null == description){
+            description = new Description();
+        }
+        description.setClassifyId(newClassify.getId());
+        description.setName(d);
+        description.setPower(power);
+        Description newDescription = descriptionRepository.save(description);
+        Resource r = new Resource();
+        r.setAccountId(accountId);
+        r.setDate(new Timestamp(System.currentTimeMillis()));
+        r.setText(name);
+        r.setUrl(newPath);
+        r.setPower(power);
+        r.setDescriptionId(newDescription.getId());
+        resourcesRepository.save(r);
     }
 
 

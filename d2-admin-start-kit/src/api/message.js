@@ -11,7 +11,9 @@ const message ={
                        }
                        ,dataType:"json",data:param}
     )
+  },
+  deleteMsg(id){
+    return axios.delete('messages/'+id);
   }
-
 };
 export default message;

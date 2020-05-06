@@ -42,7 +42,7 @@
                         ></mavon-editor>
                     </el-tab-pane>
                     <el-tab-pane label="评论" name="second">
-                        <comment></comment>
+                        <comment ></comment>
                     </el-tab-pane>
                 </el-tabs>
             </template>
@@ -126,7 +126,9 @@
                 ],
                 comments: [],
                 comment: {
-                    article: {},
+                    article: {
+                      'id':0
+                    },
                     content: ''
                 }
             }

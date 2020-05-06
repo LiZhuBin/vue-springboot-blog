@@ -1,21 +1,28 @@
 <template>
     <el-card :body-style="{ padding: '8px 18px' }">
         <el-collapse  >
-            <el-collapse-item title="图片" name="1"  v-for="image in resource.images"  >
+            <el-collapse-item title="图片" name="1"    >
+              <div v-for="image in resource.images">
                 <el-link @click="go('images',image)">
-                    {{image}}
+                  {{image}}
                 </el-link>
-<!--                <div>{{image.name}}</div>-->
+                <!--                <div>{{image.name}}</div>-->
+              </div>
+
             </el-collapse-item>
-            <el-collapse-item title="视频" name="2" v-for="video in resource.videos"  >
+            <el-collapse-item title="视频" name="2"   >
+              <div v-for="video in resource.videos">
                 <el-link @click="go('videos',video)">
                     {{video}}
                 </el-link>
+              </div>
             </el-collapse-item>
-            <el-collapse-item title="文件" name="3" v-for="file in resource.files"  >
+            <el-collapse-item title="文件" name="3"   >
+              <div v-for="file in resource.files">
                 <el-link @click="go('files',file)">
                     {{file}}
                 </el-link>
+              </div>
             </el-collapse-item>
 
         </el-collapse>

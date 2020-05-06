@@ -25,9 +25,9 @@ public class CommentController {
     @Autowired
     ReplyService replyService;
 
-    @GetMapping("")
-    public List<Map<String, Object>> comments (@RequestParam(value = "type") String type,@RequestParam(value = "accountId") int id){
-        return commentService.getCommentByArticleId(type,id);
+    @GetMapping("toId/{id}")
+    public List<Map<String, Object>> comments (@PathVariable(value = "id") int id){
+        return commentService.getCommentByArticleId(id);
     }
     @RequestMapping(value = "",method = RequestMethod.POST)
     public Comment insertComment(@RequestBody Comment c){

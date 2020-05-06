@@ -1,5 +1,6 @@
 <template>
   <div id="messageboard">
+    <el-card>
     <el-form ref="form" label-width="100px">
 
       <el-form-item label="内容">
@@ -38,7 +39,7 @@
 <!--        <el-button size="small" @click="showDelallDialog()">全部删除</el-button>-->
 <!--      </div>-->
     </el-form>
-
+    </el-card>
   </div>
 
 </template>

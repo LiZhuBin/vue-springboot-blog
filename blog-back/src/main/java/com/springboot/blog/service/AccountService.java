@@ -12,5 +12,5 @@ public interface AccountService {
     Account checkAccount(String name,String password);
     Account byName(String name);
     Boolean exists(int id);
-
+    Account update(Account a);
 }

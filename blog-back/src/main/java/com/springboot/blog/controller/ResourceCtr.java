@@ -1,4 +1,4 @@
-package com.springboot.blog.controller.Resource;
+package com.springboot.blog.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.qcloud.cos.model.COSObjectSummary;
@@ -21,27 +21,19 @@ import java.util.List;
 
 @RequestMapping(value = "/v1/resources")
 @ResponseBody
-public class ImagesCtr {
+public class ResourceCtr {
 
 
     @Autowired
     ResourcesService resourcesService;
     String basePath = "vue_springboot_blog"+"/";
-//    @GetMapping("{id}")
-//    public Object byAccountId(@PathVariable("id") int id){
-//
-//        return imagesService.byAccountId(id);
-//
-//    }
+
     @GetMapping("")
     public JSONObject classifies(@RequestParam("accountId") int accountId){
 
         return resourcesService.classifyByAccountId(accountId);
     }
-    @GetMapping("a")
-    public List<COSObjectSummary> get(){
-        return resourcesService.listResources();
-    }
+
     @GetMapping("{way}/{classify}")
     public List<Description> detail(@RequestParam("accountId") int accountId, @PathVariable("way") String way, @PathVariable("classify") String classify){
         return resourcesService.resourceClassify(accountId,way,classify);
@@ -58,10 +50,17 @@ public class ImagesCtr {
                            @PathVariable("classify")String classify,
                            @PathVariable("description") String description,
                            @PathVariable("name") String name,
-                           @RequestParam("multipartFile") MultipartFile file) {
+                           @RequestParam("multipartFile") MultipartFile file,
+                           @RequestParam("power") boolean power) {
 
         String filePath  = basePath+String.valueOf(accountId)+'/'+way+'/'+ classify +"/"+description+"/";
-        return resourcesService.insertFile(file,filePath);
+        String newPath = resourcesService.insertFile(file,filePath);
+        resourcesService.insertFileDb(classify,description,name,way,newPath,accountId,power);
+        return newPath;
+
+    }
+    @RequestMapping(value = "test")
+    public void test(@RequestParam("multipartFile") MultipartFile file){
 
     }
 }

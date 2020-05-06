@@ -19,6 +19,11 @@ public class Description {
     private String name;
     private int view;
 
+    public Description() {
+        this.view = 0;
+        this.text = "";
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

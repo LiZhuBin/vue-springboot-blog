@@ -34,12 +34,7 @@ public class AccountServiceImpl implements AccountService {
         BooleanBuilder builder = new BooleanBuilder();
         builder.and(account.id.eq(id));
         return accountRepository.findOne(builder);
-//        QAccount account = QAccount.account;
-//        return jpaQuery
-//                .select()
-//                .from(account)
-//                .where(account.id.eq(id))
-//                .fetchOne();
+
 
     }
 
@@ -67,6 +62,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Boolean exists(int id) {
         return accountRepository.existsById(id);
+    }
+
+    @Override
+    public Account update(Account a) {
+        return accountRepository.save(a);
     }
 
 

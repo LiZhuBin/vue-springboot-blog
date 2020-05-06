@@ -63,14 +63,12 @@ public class COSClientUtil {
             String[] split = url.split("/");
             this.uploadFile2Cos(fin, split[split.length - 1]);
         } catch (FileNotFoundException e) {
-            throw new Exception("图片上传失败");
+            throw new Exception("上传失败");
         }
     }
 
     public String uploadFile2Cos(MultipartFile file,String path) throws Exception {
-        if (file.getSize() > 10 * 1024 * 1024) {
-            throw new Exception("上传图片大小不能超过10M！");
-        }
+
         //图片名称
         String originalFilename = file.getOriginalFilename();
         System.out.println("originalFilename = " + originalFilename);
@@ -85,12 +83,12 @@ public class COSClientUtil {
             this.uploadFile2Cos(inputStream, name);
             return name;
         } catch (Exception e) {
-            throw new Exception("图片上传失败");
+            throw new Exception("上传失败");
         }
     }
 
     /**
-     * 获得图片路径
+     * 获得图片路
      *
      * @param fileUrl
      * @return

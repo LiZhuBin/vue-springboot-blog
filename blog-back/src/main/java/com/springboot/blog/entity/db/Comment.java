@@ -10,22 +10,19 @@ import java.util.Objects;
  * @program: blog-back
  * @description:
  * @author: LiZhuBin
- * @create: 2020-03-30 13:54
+ * @create: 2020-05-06 10:15
  **/
 @Entity
 @Table(name = "comment", schema = "vue_springboot_blog")
 public class Comment {
     private int id;
-
     private String commentContent;
     private Integer fromId;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Timestamp commentTime;
-    private String commentType;
-    private Integer typeId;
+    private Integer toId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -35,10 +32,8 @@ public class Comment {
         this.id = id;
     }
 
-
-
     @Basic
-    @Column(name = "comment_content",nullable = false)
+    @Column(name = "comment_content")
     public String getCommentContent() {
         return commentContent;
     }
@@ -48,7 +43,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "from_id",nullable = false)
+    @Column(name = "from_id")
     public Integer getFromId() {
         return fromId;
     }
@@ -67,40 +62,30 @@ public class Comment {
         this.commentTime = commentTime;
     }
 
+    @Basic
+    @Column(name = "to_id")
+    public Integer getToId() {
+        return toId;
+    }
+
+    public void setToId(Integer toId) {
+        this.toId = toId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
         return id == comment.id &&
-                Objects.equals(typeId, comment.typeId) &&
                 Objects.equals(commentContent, comment.commentContent) &&
                 Objects.equals(fromId, comment.fromId) &&
-                Objects.equals(commentTime, comment.commentTime);
+                Objects.equals(commentTime, comment.commentTime) &&
+                Objects.equals(toId, comment.toId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,commentType, commentContent, fromId, commentTime);
-    }
-
-    @Basic
-    @Column(name = "comment_type",nullable = false)
-    public String getCommentType() {
-        return commentType;
-    }
-
-    public void setCommentType(String commentType) {
-        this.commentType = commentType;
-    }
-
-    @Basic
-    @Column(name = "type_id")
-    public Integer getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+        return Objects.hash(id, commentContent, fromId, commentTime, toId);
     }
 }

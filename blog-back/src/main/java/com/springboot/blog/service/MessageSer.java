@@ -13,4 +13,5 @@ import java.util.List;
 public interface MessageSer {
     List<LeftMessage> allMsg(LeftMessage l);
     LeftMessage add(LeftMessage leftMessage);
+    void delete(int id);
 }

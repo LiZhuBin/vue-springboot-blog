@@ -1,28 +1,54 @@
 <template>
-    <div>
-      <el-upload
-        ref="uploadVideo"
-        :action="uploadVideoUrl"
-      accept='.mp4,.flv'
-      :data="uploadVideo"
-      :multiple="false"
-      :limit="1"
-      :show-file-list="false"
-      :before-upload="beforeUploadVideo"
-      :on-success="handleUploadVideoSuccess"
-      :on-progress="uploadVideoProcess">
-      <el-button size="small" type="primary" class="uploadButton">上传视频文件</el-button>
-      </el-upload>
-
-    </div>
+  <el-card
+    header="ele-form-image-uploader 演示"
+    shadow="never"
+    style="max-width: 1250px;margin: 20px auto;"
+  >
+    <ele-form
+      :form-data="formData"
+      :form-desc="formDesc"
+      :request-fn="handleRequest"
+      @request-success="handleSuccess"
+    />
+  </el-card>
 </template>
 
 <script>
-    export default {
-        name: "Index"
-    }
+  export default {
+    name: 'App',
+    data () {
+      return {
+        formData: {},
+        formDesc: {
+          video: {
+            label: '团队介绍',
+            type: 'video-uploader',
+            attrs: {
+              fileSize: 20,
+              action: 'https://jsonplaceholder.typicode.com/posts',
+              responseFn (response, file) {
+                return URL.createObjectURL(file.raw)
+              }
+            }
+          }
+        }
+      }
+    },
+    methods: {
+      handleRequest (data) {
+        console.log(data)
+        return Promise.resolve()
+      },
+      handleSuccess () {
+        this.$message.success('提交成功')
+      }
+    },
+    mounted () {}
+  }
 </script>
 
-<style scoped>
-
+<style>
+  body {
+    background-color: #f0f2f5;
+  }
 </style>

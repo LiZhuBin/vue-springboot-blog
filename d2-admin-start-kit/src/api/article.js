@@ -12,8 +12,8 @@ const article = {
     classifies(accountId){
       return axios.get('articles/_classify',{params:{'accountId':accountId}})
     },
-    articleComments(param){
-      return axios.get('comments',{params:param})
+    articleComments(articleId){
+      return axios.get('comments/toId/'+articleId)
     },
     delectArticle(accountId){
       return axios.delete("articles/"+accountId)

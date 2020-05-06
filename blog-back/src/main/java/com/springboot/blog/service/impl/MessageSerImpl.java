@@ -47,4 +47,9 @@ public class MessageSerImpl implements MessageSer {
 
         return messageRep.save(leftMessage);
     }
+
+    @Override
+    public void delete(int id) {
+        messageRep.deleteById(id);
+    }
 }

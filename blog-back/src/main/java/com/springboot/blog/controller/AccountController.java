@@ -41,6 +41,25 @@ class AccountController {
         jsonObject.put("articles",accountJson);
         return jsonObject;
     }
+//    @RequestMapping(value = "{id}",method=RequestMethod.GET)
+//    public Account insertAccount()
+    @RequestMapping(value = "{id}",method = RequestMethod.POST)
+    public void update(@PathVariable(value = "id") int id,
+                       @RequestParam(value = "name",required = false) String name,
+                       @RequestParam(value = "site",required = false) String site,
+                       @RequestParam(value = "company",required = false) String company,
+                       @RequestParam(value = "sign",required = false) String sign
+                       ){
+        Account account = accountService.getAccountById(id).get();
+        if(name!=null){
+            account.setAccountName(name);
+        }
+        if(site!=null) account.setAccountSite(site);
+        if(company!=null) account.setAccountCompany(company);
+        if(sign!=null)  account.setAccountSign(sign);
+        System.out.println(company);
+        accountService.update(account);
+    }
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
     public void deleteAccountsById(@PathVariable(value = "id") int id){
 
@@ -69,18 +88,3 @@ class AccountController {
 
 
 }
-//
-//
-//    /*Post*/
-//    @PostMapping(value="users")
-//    public ResponseEntity postUser(@RequestParam("id") Long id,
-//                                   @RequestParam(value = "account",required = false) String account,
-//                                   @RequestParam(value = "Nickname", required = false) String name ,
-//                                   @RequestParam("password") String password,
-//                                   @RequestParam(value = "avatar",required = false,defaultValue = "/用户.png") String avatar,
-//                                   @RequestParam(value = "email",required = false) String email ){
-//        if(userRepository.findById(id)!=null) return ResponseEntity.badRequest().body(new ApiResult<Object>(500,"user已存在",""));
-//        User.UserBuilder userBuilder = new User.UserBuilder();
-//        userBuilder.withId(id).withNickname(name).withPassword(password).withAccount(account).withEmail(email).withAvatar(avatar);
-//
-//        return ResponseEntity.accepted()
