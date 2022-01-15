@@ -13,7 +13,7 @@
     "element-ui": "^2.13.0",
     "highlight.js": "^9.18.1",
     "js-cookie": "^2.2.1",
-    "marked": "^0.8.0",
+    "marked": "^4.0.10",
     "mavon-editor": "latest",
     "qs": "^6.9.1",
     "tui-editor": "latest",
